@@ -40225,6 +40225,133 @@
                   "nic",
                   "ip-config"
                 ]
+              },
+              "vtap-config": {
+                "commands": {
+                  "create": {
+                    "help": {
+                      "short": "Create a virtual network tap configuration."
+                    },
+                    "names": [
+                      "network",
+                      "nic",
+                      "vtap-config",
+                      "create"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/networkinterfaces/{}/tapconfigurations/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "delete": {
+                    "help": {
+                      "short": "Delete a virtual network tap configuration."
+                    },
+                    "names": [
+                      "network",
+                      "nic",
+                      "vtap-config",
+                      "delete"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/networkinterfaces/{}/tapconfigurations/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "list": {
+                    "help": {
+                      "short": "List virtual network tap configurations."
+                    },
+                    "names": [
+                      "network",
+                      "nic",
+                      "vtap-config",
+                      "list"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/networkinterfaces/{}/tapconfigurations",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "show": {
+                    "help": {
+                      "short": "Get details of a virtual network tap configuration."
+                    },
+                    "names": [
+                      "network",
+                      "nic",
+                      "vtap-config",
+                      "show"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/networkinterfaces/{}/tapconfigurations/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "update": {
+                    "help": {
+                      "short": "Update a tap configuration in the specified network interface."
+                    },
+                    "names": [
+                      "network",
+                      "nic",
+                      "vtap-config",
+                      "update"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/networkinterfaces/{}/tapconfigurations/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "help": {
+                  "short": "Manage virtual network tap configurations."
+                },
+                "names": [
+                  "network",
+                  "nic",
+                  "vtap-config"
+                ]
               }
             },
             "commands": {
@@ -51784,6 +51911,138 @@
                   "network",
                   "vnet",
                   "subnet"
+                ]
+              },
+              "tap": {
+                "commands": {
+                  "create": {
+                    "help": {
+                      "short": "Create a virtual network tap."
+                    },
+                    "names": [
+                      "network",
+                      "vnet",
+                      "tap",
+                      "create"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/virtualnetworktaps/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "delete": {
+                    "help": {
+                      "short": "Delete a virtual network tap."
+                    },
+                    "names": [
+                      "network",
+                      "vnet",
+                      "tap",
+                      "delete"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/virtualnetworktaps/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "list": {
+                    "help": {
+                      "short": "List virtual network taps."
+                    },
+                    "names": [
+                      "network",
+                      "vnet",
+                      "tap",
+                      "list"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/providers/microsoft.network/virtualnetworktaps",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          },
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/virtualnetworktaps",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "show": {
+                    "help": {
+                      "short": "Get the details of a virtual network tap."
+                    },
+                    "names": [
+                      "network",
+                      "vnet",
+                      "tap",
+                      "show"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/virtualnetworktaps/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "update": {
+                    "help": {
+                      "short": "Update settings of a virtual network tap."
+                    },
+                    "names": [
+                      "network",
+                      "vnet",
+                      "tap",
+                      "update"
+                    ],
+                    "versions": [
+                      {
+                        "name": "2018-08-01",
+                        "resources": [
+                          {
+                            "id": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.network/virtualnetworktaps/{}",
+                            "plane": "mgmt-plane",
+                            "version": "2018-08-01"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "help": {
+                  "short": "Manage virtual network taps."
+                },
+                "names": [
+                  "network",
+                  "vnet",
+                  "tap"
                 ]
               }
             },
