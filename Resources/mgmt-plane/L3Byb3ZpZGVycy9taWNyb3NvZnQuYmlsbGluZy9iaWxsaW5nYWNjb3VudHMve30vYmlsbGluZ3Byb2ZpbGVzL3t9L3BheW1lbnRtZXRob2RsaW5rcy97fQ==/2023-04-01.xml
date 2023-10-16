@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/providers/microsoft.billing/billingaccounts/{}/billingprofiles/{}/paymentmethodlinks/{}" version="2023-04-01" swagger="mgmt-plane/billing/ResourceProviders/Microsoft.Billing/Paths/L3Byb3ZpZGVycy9NaWNyb3NvZnQuQmlsbGluZy9iaWxsaW5nQWNjb3VudHMve2JpbGxpbmdBY2NvdW50TmFtZX0vYmlsbGluZ1Byb2ZpbGVzL3tiaWxsaW5nUHJvZmlsZU5hbWV9L3BheW1lbnRNZXRob2RMaW5rcy97cGF5bWVudE1ldGhvZE5hbWV9/V/MjAyMy0wNC0wMQ=="/>
+  <commandGroup name="billing profile payment-method-link">
+    <command name="show" version="2023-04-01" confirmation="">
+      <resource id="/providers/microsoft.billing/billingaccounts/{}/billingprofiles/{}/paymentmethodlinks/{}" version="2023-04-01" swagger="mgmt-plane/billing/ResourceProviders/Microsoft.Billing/Paths/L3Byb3ZpZGVycy9NaWNyb3NvZnQuQmlsbGluZy9iaWxsaW5nQWNjb3VudHMve2JpbGxpbmdBY2NvdW50TmFtZX0vYmlsbGluZ1Byb2ZpbGVzL3tiaWxsaW5nUHJvZmlsZU5hbWV9L3BheW1lbnRNZXRob2RMaW5rcy97cGF5bWVudE1ldGhvZE5hbWV9/V/MjAyMy0wNC0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.billingAccountName" options="billing-account-name" required="True">
+          <help short="The ID that uniquely identifies a billing account."/>
+          <format pattern="^([0-9]+|[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}(:[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}_[0-9]{4}(-[0-9]{2}){2})?)$"/>
+        </arg>
+        <arg type="string" var="$Path.billingProfileName" options="billing-profile-name" required="True">
+          <help short="The ID that uniquely identifies a billing profile."/>
+          <format pattern="^[a-zA-Z\\d]{1,128}$"/>
+        </arg>
+        <arg type="string" var="$Path.paymentMethodName" options="payment-method-name" required="True">
+          <help short="The ID that uniquely identifies a payment method."/>
+          <format pattern=".*"/>
+        </arg>
+      </argGroup>
+      <operation operationId="PaymentMethods_GetByBillingProfile">
+        <http path="/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/paymentMethodLinks/{paymentMethodName}">
+          <request method="get">
+            <path>
+              <param type="string" name="billingAccountName" arg="$Path.billingAccountName" required="True">
+                <format pattern="^([0-9]+|[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}(:[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}_[0-9]{4}(-[0-9]{2}){2})?)$"/>
+              </param>
+              <param type="string" name="billingProfileName" arg="$Path.billingProfileName" required="True">
+                <format pattern="^[a-zA-Z\\d]{1,128}$"/>
+              </param>
+              <param type="string" name="paymentMethodName" arg="$Path.paymentMethodName" required="True">
+                <format pattern=".*"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-04-01&quot;"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="string" name="id"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop readOnly="True" type="string" name="accountHolderName"/>
+                    <prop readOnly="True" type="string" name="displayName"/>
+                    <prop readOnly="True" type="string" name="expiration"/>
+                    <prop readOnly="True" type="string" name="family">
+                      <enum>
+                        <item value="&quot;CheckWire&quot;"/>
+                        <item value="&quot;CreditCard&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="lastFourDigits"/>
+                    <prop readOnly="True" type="array<object>" name="logos">
+                      <item type="object">
+                        <prop readOnly="True" type="string" name="mimeType"/>
+                        <prop readOnly="True" type="string" name="url"/>
+                      </item>
+                    </prop>
+                    <prop type="string" name="paymentMethodId"/>
+                    <prop readOnly="True" type="string" name="paymentMethodType"/>
+                    <prop readOnly="True" type="string" name="status">
+                      <enum>
+                        <item value="&quot;Active&quot;"/>
+                        <item value="&quot;Inactive&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>
