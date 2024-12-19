@@ -125,6 +125,9 @@
 - [devcenter](/Commands/devcenter/readme.md)
 : Manage resources with devcenter.
 
+- [device-registry](/Commands/device-registry/readme.md)
+: device-registry
+
 - [disk](/Commands/disk/readme.md)
 : Manage Azure Managed Disks.
 
