@@ -329,6 +329,9 @@
 - [stack-hci](/Commands/stack-hci/readme.md)
 : Manage Azure Stack HCI.
 
+- [standby-pool](/Commands/standby-pool/readme.md)
+: standby-pool
+
 - [storage](/Commands/storage/readme.md)
 : Manage Azure Cloud Storage resources.
 
