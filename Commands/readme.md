@@ -206,6 +206,9 @@
 - [informatica](/Commands/informatica/readme.md)
 : Manage Informatica
 
+- [integration-spaces](/Commands/integration-spaces/readme.md)
+: integration-spaces
+
 - [io-t-firmware-defense](/Commands/io-t-firmware-defense/readme.md)
 : io-t-firmware-defense
 

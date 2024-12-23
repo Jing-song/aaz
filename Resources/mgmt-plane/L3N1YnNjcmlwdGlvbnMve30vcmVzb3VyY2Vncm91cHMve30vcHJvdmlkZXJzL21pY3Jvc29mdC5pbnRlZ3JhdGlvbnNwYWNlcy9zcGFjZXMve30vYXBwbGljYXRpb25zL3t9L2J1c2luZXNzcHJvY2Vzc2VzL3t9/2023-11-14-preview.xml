@@ -1,0 +1,626 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}/businessprocesses/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfS9idXNpbmVzc1Byb2Nlc3Nlcy97YnVzaW5lc3NQcm9jZXNzTmFtZX0=/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+  <commandGroup name="integration-spaces space application business-process">
+    <command name="show" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}/businessprocesses/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfS9idXNpbmVzc1Byb2Nlc3Nlcy97YnVzaW5lc3NQcm9jZXNzTmFtZX0=/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="string" var="$Path.businessProcessName" options="business-process-name name n" required="True" idPart="child_name_2">
+          <help short="The name of the business process"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="BusinessProcesses_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName}">
+          <request method="get">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="businessProcessName" arg="$Path.businessProcessName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}/applications/{}/businessProcesses/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="object" name="businessProcessMapping">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="logicAppResourceId"/>
+                          <prop type="string" name="operationName"/>
+                          <prop type="string" name="operationType"/>
+                          <prop type="string" name="workflowName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="object" name="businessProcessStages">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="description"/>
+                          <prop type="object" name="properties">
+                            <additionalProp>
+                              <item type="string"/>
+                            </additionalProp>
+                          </prop>
+                          <prop type="array<string>" name="stagesBefore">
+                            <item type="string"/>
+                          </prop>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="description"/>
+                    <prop type="object" name="identifier">
+                      <prop type="string" name="propertyName"/>
+                      <prop type="string" name="propertyType"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="tableName"/>
+                    <prop type="string" name="trackingDataStoreReferenceName"/>
+                    <prop readOnly="True" type="string" name="version"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2023-11-14-preview" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}/businessprocesses/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfS9idXNpbmVzc1Byb2Nlc3Nlcy97YnVzaW5lc3NQcm9jZXNzTmFtZX0=/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="string" var="$Path.businessProcessName" options="business-process-name name n" required="True" idPart="child_name_2">
+          <help short="The name of the business process"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="BusinessProcesses_Delete">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="businessProcessName" arg="$Path.businessProcessName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200"/>
+          <response statusCode="204"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}/businessprocesses/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfS9idXNpbmVzc1Byb2Nlc3Nlcy97YnVzaW5lc3NQcm9jZXNzTmFtZX0=/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="string" var="$Path.businessProcessName" options="business-process-name name n" required="True" idPart="child_name_2">
+          <help short="The name of the business process"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="object" var="$resource.properties.businessProcessMapping" options="business-process-mapping" group="Properties">
+          <help short="The business process mapping."/>
+          <additionalProp>
+            <item type="object">
+              <arg type="string" var="$resource.properties.businessProcessMapping{}.logicAppResourceId" options="logic-app-resource-id">
+                <help short="The logic app resource id."/>
+              </arg>
+              <arg type="string" var="$resource.properties.businessProcessMapping{}.operationName" options="operation-name">
+                <help short="The operation name."/>
+              </arg>
+              <arg type="string" var="$resource.properties.businessProcessMapping{}.operationType" options="operation-type">
+                <help short="The mapping item operation type of the business process."/>
+              </arg>
+              <arg type="string" var="$resource.properties.businessProcessMapping{}.workflowName" options="workflow-name">
+                <help short="The workflow name within the logic app."/>
+              </arg>
+            </item>
+          </additionalProp>
+        </arg>
+        <arg type="object" var="$resource.properties.businessProcessStages" options="business-process-stages" group="Properties">
+          <help short="The business process stages."/>
+          <additionalProp>
+            <item type="object">
+              <arg type="string" var="$resource.properties.businessProcessStages{}.description" options="description">
+                <help short="The description of the business stage."/>
+              </arg>
+              <arg type="object" var="$resource.properties.businessProcessStages{}.properties" options="properties">
+                <help short="The properties within the properties of the business process stage."/>
+                <additionalProp>
+                  <item type="string"/>
+                </additionalProp>
+              </arg>
+              <arg type="array<string>" var="$resource.properties.businessProcessStages{}.stagesBefore" options="stages-before">
+                <help short="The property to keep track of stages before current in the business process stage."/>
+                <item type="string"/>
+              </arg>
+            </item>
+          </additionalProp>
+        </arg>
+        <arg type="string" var="$resource.properties.description" options="description" group="Properties">
+          <help short="The description of the business process."/>
+        </arg>
+        <arg type="object" var="$resource.properties.identifier" options="identifier" group="Properties">
+          <help short="The business process identifier."/>
+          <arg type="string" var="$resource.properties.identifier.propertyName" options="property-name">
+            <help short="The property name of the business process identifier."/>
+          </arg>
+          <arg type="string" var="$resource.properties.identifier.propertyType" options="property-type">
+            <help short="The property type of the business process identifier."/>
+          </arg>
+        </arg>
+        <arg type="string" var="$resource.properties.tableName" options="table-name" group="Properties">
+          <help short="The table name of the business process."/>
+        </arg>
+        <arg type="string" var="$resource.properties.trackingDataStoreReferenceName" options="tracking-data-store-reference-name" group="Properties">
+          <help short="The tracking data store reference name."/>
+        </arg>
+      </argGroup>
+      <operation operationId="BusinessProcesses_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName}">
+          <request method="put">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="businessProcessName" arg="$Path.businessProcessName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="resource" required="True" clientFlatten="True">
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="object" name="businessProcessMapping" arg="$resource.properties.businessProcessMapping">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="logicAppResourceId" arg="$resource.properties.businessProcessMapping{}.logicAppResourceId"/>
+                          <prop type="string" name="operationName" arg="$resource.properties.businessProcessMapping{}.operationName"/>
+                          <prop type="string" name="operationType" arg="$resource.properties.businessProcessMapping{}.operationType"/>
+                          <prop type="string" name="workflowName" arg="$resource.properties.businessProcessMapping{}.workflowName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="object" name="businessProcessStages" arg="$resource.properties.businessProcessStages">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="description" arg="$resource.properties.businessProcessStages{}.description"/>
+                          <prop type="object" name="properties" arg="$resource.properties.businessProcessStages{}.properties">
+                            <additionalProp>
+                              <item type="string"/>
+                            </additionalProp>
+                          </prop>
+                          <prop type="array<string>" name="stagesBefore" arg="$resource.properties.businessProcessStages{}.stagesBefore">
+                            <item type="string"/>
+                          </prop>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="description" arg="$resource.properties.description"/>
+                    <prop type="object" name="identifier" arg="$resource.properties.identifier">
+                      <prop type="string" name="propertyName" arg="$resource.properties.identifier.propertyName"/>
+                      <prop type="string" name="propertyType" arg="$resource.properties.identifier.propertyType"/>
+                    </prop>
+                    <prop type="string" name="tableName" arg="$resource.properties.tableName"/>
+                    <prop type="string" name="trackingDataStoreReferenceName" arg="$resource.properties.trackingDataStoreReferenceName"/>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}/applications/{}/businessProcesses/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="object" name="businessProcessMapping">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="logicAppResourceId"/>
+                          <prop type="string" name="operationName"/>
+                          <prop type="string" name="operationType"/>
+                          <prop type="string" name="workflowName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="object" name="businessProcessStages">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="description"/>
+                          <prop type="object" name="properties">
+                            <additionalProp>
+                              <item type="string"/>
+                            </additionalProp>
+                          </prop>
+                          <prop type="array<string>" name="stagesBefore">
+                            <item type="string"/>
+                          </prop>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="description"/>
+                    <prop type="object" name="identifier">
+                      <prop type="string" name="propertyName"/>
+                      <prop type="string" name="propertyType"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="tableName"/>
+                    <prop type="string" name="trackingDataStoreReferenceName"/>
+                    <prop readOnly="True" type="string" name="version"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}/businessprocesses/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfS9idXNpbmVzc1Byb2Nlc3Nlcy97YnVzaW5lc3NQcm9jZXNzTmFtZX0=/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="string" var="$Path.businessProcessName" options="business-process-name name n" required="True" idPart="child_name_2">
+          <help short="The name of the business process"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="BusinessProcesses_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName}">
+          <request method="get">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="businessProcessName" arg="$Path.businessProcessName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="BusinessProcess_read">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}/applications/{}/businessProcesses/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="object" name="businessProcessMapping">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="logicAppResourceId"/>
+                          <prop type="string" name="operationName"/>
+                          <prop type="string" name="operationType"/>
+                          <prop type="string" name="workflowName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="object" name="businessProcessStages">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="description"/>
+                          <prop type="object" name="properties">
+                            <additionalProp>
+                              <item type="string"/>
+                            </additionalProp>
+                          </prop>
+                          <prop type="array<string>" name="stagesBefore">
+                            <item type="string"/>
+                          </prop>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="description"/>
+                    <prop type="object" name="identifier">
+                      <prop type="string" name="propertyName"/>
+                      <prop type="string" name="propertyType"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="tableName"/>
+                    <prop type="string" name="trackingDataStoreReferenceName"/>
+                    <prop readOnly="True" type="string" name="version"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="resource" required="True" clientFlatten="True"/>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="BusinessProcesses_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName}">
+          <request method="put">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="businessProcessName" arg="$Path.businessProcessName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@BusinessProcess_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

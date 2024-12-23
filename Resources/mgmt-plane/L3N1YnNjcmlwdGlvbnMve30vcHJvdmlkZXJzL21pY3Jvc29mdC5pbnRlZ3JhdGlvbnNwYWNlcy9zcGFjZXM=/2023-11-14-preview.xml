@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/providers/microsoft.integrationspaces/spaces" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LkludGVncmF0aW9uU3BhY2VzL3NwYWNlcw==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2Vz/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+  <commandGroup name="integration-spaces space">
+    <command name="list" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/providers/microsoft.integrationspaces/spaces" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LkludGVncmF0aW9uU3BhY2VzL3NwYWNlcw==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2Vz/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+        <arg type="array<string>" var="$Query.expand" options="expand">
+          <help short="Expand the indicated resources into the response."/>
+          <item type="string"/>
+        </arg>
+        <arg type="string" var="$Query.filter" options="filter">
+          <help short="Filter the result list using the given expression."/>
+        </arg>
+        <arg type="integer32" var="$Query.maxpagesize" options="maxpagesize">
+          <help short="The maximum number of result items per page."/>
+        </arg>
+        <arg type="array<string>" var="$Query.orderby" options="orderby">
+          <help short="Expressions that specify the order of returned results."/>
+          <item type="string"/>
+        </arg>
+        <arg type="array<string>" var="$Query.select" options="select">
+          <help short="Select the specified fields to be included in the response."/>
+          <item type="string"/>
+        </arg>
+        <arg type="integer32" var="$Query.skip" options="skip">
+          <help short="The number of result items to skip."/>
+          <default value="0"/>
+        </arg>
+        <arg type="integer32" var="$Query.top" options="top">
+          <help short="The number of result items to return."/>
+        </arg>
+      </argGroup>
+      <condition var="$Condition_Spaces_ListBySubscription">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+          <operator type="not">
+            <operator type="hasValue" arg="$Path.resourceGroupName"/>
+          </operator>
+        </operator>
+      </condition>
+      <condition var="$Condition_Spaces_ListByResourceGroup">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.resourceGroupName"/>
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+        </operator>
+      </condition>
+      <operation when="$Condition_Spaces_ListBySubscription" operationId="Spaces_ListBySubscription">
+        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.IntegrationSpaces/spaces">
+          <request method="get">
+            <path>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value" required="True">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}"/>
+                      </prop>
+                      <prop type="ResourceLocation" name="location" required="True"/>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties" clientFlatten="True">
+                        <prop type="string" name="description"/>
+                        <prop readOnly="True" type="string" name="provisioningState">
+                          <enum>
+                            <item value="&quot;Accepted&quot;"/>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Deleting&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Provisioning&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                            <item value="&quot;Updating&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop type="object" name="tags">
+                        <additionalProp>
+                          <item type="string"/>
+                        </additionalProp>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation when="$Condition_Spaces_ListByResourceGroup" operationId="Spaces_ListByResourceGroup">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <param type="array<string>" name="expand" arg="$Query.expand">
+                <format strFormat="multi"/>
+                <item type="string"/>
+              </param>
+              <param type="string" name="filter" arg="$Query.filter"/>
+              <param type="integer32" name="maxpagesize" arg="$Query.maxpagesize"/>
+              <param type="array<string>" name="orderby" arg="$Query.orderby">
+                <format strFormat="multi"/>
+                <item type="string"/>
+              </param>
+              <param type="array<string>" name="select" arg="$Query.select">
+                <format strFormat="multi"/>
+                <item type="string"/>
+              </param>
+              <param type="integer32" name="skip" arg="$Query.skip">
+                <default value="0"/>
+              </param>
+              <param type="integer32" name="top" arg="$Query.top"/>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value" required="True">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}"/>
+                      </prop>
+                      <prop type="ResourceLocation" name="location" required="True"/>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties" clientFlatten="True">
+                        <prop type="string" name="description"/>
+                        <prop readOnly="True" type="string" name="provisioningState">
+                          <enum>
+                            <item value="&quot;Accepted&quot;"/>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Deleting&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Provisioning&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                            <item value="&quot;Updating&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop type="object" name="tags">
+                        <additionalProp>
+                          <item type="string"/>
+                        </additionalProp>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="array" ref="$Instance.value" clientFlatten="True" nextLink="$Instance.nextLink"/>
+    </command>
+  </commandGroup>
+</CodeGen>

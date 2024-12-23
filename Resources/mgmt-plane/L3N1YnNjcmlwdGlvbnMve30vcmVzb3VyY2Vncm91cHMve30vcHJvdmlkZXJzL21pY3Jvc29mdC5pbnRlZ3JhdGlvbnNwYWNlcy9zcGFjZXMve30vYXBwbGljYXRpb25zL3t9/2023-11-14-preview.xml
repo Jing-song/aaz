@@ -1,0 +1,522 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfQ==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+  <commandGroup name="integration-spaces space application">
+    <command name="show" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfQ==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name name n" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="Applications_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}">
+          <request method="get">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}/applications/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="string" name="description"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="trackingDataStores">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="dataStoreIngestionUri"/>
+                          <prop type="string" name="dataStoreResourceId"/>
+                          <prop type="string" name="dataStoreUri"/>
+                          <prop type="string" name="databaseName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2023-11-14-preview" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfQ==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name name n" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="Applications_Delete">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200"/>
+          <response statusCode="204"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfQ==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name name n" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="string" var="$resource.properties.description" options="description" group="Properties">
+          <help short="The description of the resource."/>
+        </arg>
+        <arg type="object" var="$resource.properties.trackingDataStores" options="tracking-data-stores" group="Properties">
+          <help short="The tracking data stores."/>
+          <additionalProp>
+            <item type="object">
+              <arg type="string" var="$resource.properties.trackingDataStores{}.dataStoreIngestionUri" options="data-store-ingestion-uri">
+                <help short="The data store ingestion URI."/>
+              </arg>
+              <arg type="string" var="$resource.properties.trackingDataStores{}.dataStoreResourceId" options="data-store-resource-id">
+                <help short="The data store resource id."/>
+              </arg>
+              <arg type="string" var="$resource.properties.trackingDataStores{}.dataStoreUri" options="data-store-uri">
+                <help short="The data store URI."/>
+              </arg>
+              <arg type="string" var="$resource.properties.trackingDataStores{}.databaseName" options="database-name">
+                <help short="The database name."/>
+              </arg>
+            </item>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <argGroup name="Resource">
+        <arg type="ResourceLocation" var="$resource.location" options="location l" required="True" group="Resource">
+          <help short="The geo-location where the resource lives"/>
+        </arg>
+        <arg type="object" var="$resource.tags" options="tags" group="Resource">
+          <help short="Resource tags."/>
+          <additionalProp>
+            <item type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <operation operationId="Applications_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}">
+          <request method="put">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="resource" required="True" clientFlatten="True">
+                  <prop type="ResourceLocation" name="location" arg="$resource.location" required="True"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="string" name="description" arg="$resource.properties.description"/>
+                    <prop type="object" name="trackingDataStores" arg="$resource.properties.trackingDataStores">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="dataStoreIngestionUri" arg="$resource.properties.trackingDataStores{}.dataStoreIngestionUri"/>
+                          <prop type="string" name="dataStoreResourceId" arg="$resource.properties.trackingDataStores{}.dataStoreResourceId"/>
+                          <prop type="string" name="dataStoreUri" arg="$resource.properties.trackingDataStores{}.dataStoreUri"/>
+                          <prop type="string" name="databaseName" arg="$resource.properties.trackingDataStores{}.databaseName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags" arg="$resource.tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}/applications/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="string" name="description"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="trackingDataStores">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="dataStoreIngestionUri"/>
+                          <prop type="string" name="dataStoreResourceId"/>
+                          <prop type="string" name="dataStoreUri"/>
+                          <prop type="string" name="databaseName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2023-11-14-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.integrationspaces/spaces/{}/applications/{}" version="2023-11-14-preview" swagger="mgmt-plane/azureintegrationspaces/ResourceProviders/Microsoft.IntegrationSpaces/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW50ZWdyYXRpb25TcGFjZXMvc3BhY2VzL3tzcGFjZU5hbWV9L2FwcGxpY2F0aW9ucy97YXBwbGljYXRpb25OYW1lfQ==/V/MjAyMy0xMS0xNC1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.applicationName" options="application-name name n" required="True" idPart="child_name_1">
+          <help short="The name of the Application"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.spaceName" options="space-name" required="True" idPart="name">
+          <help short="The name of the space"/>
+          <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Resource">
+        <arg nullable="True" type="object" var="$resource.tags" options="tags" group="Resource">
+          <help short="Resource tags."/>
+          <additionalProp>
+            <item nullable="True" type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <operation operationId="Applications_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}">
+          <request method="get">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="Application_read">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.IntegrationSpaces/spaces/{}/applications/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="string" name="description"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="trackingDataStores">
+                      <additionalProp>
+                        <item type="object">
+                          <prop type="string" name="dataStoreIngestionUri"/>
+                          <prop type="string" name="dataStoreResourceId"/>
+                          <prop type="string" name="dataStoreUri"/>
+                          <prop type="string" name="databaseName"/>
+                        </item>
+                      </additionalProp>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="resource" required="True" clientFlatten="True">
+              <prop type="object" name="tags" arg="$resource.tags">
+                <additionalProp>
+                  <item type="string"/>
+                </additionalProp>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="Applications_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}">
+          <request method="put">
+            <path>
+              <param type="string" name="applicationName" arg="$Path.applicationName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="spaceName" arg="$Path.spaceName" required="True">
+                <format pattern="[a-zA-Z0-9_.()-]{0,79}$"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-14-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@Application_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>
