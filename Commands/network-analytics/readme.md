@@ -6,3 +6,6 @@ Network Analytics command group Azure Operator Insights resource manipulation.
 
 - [data-product](/Commands/network-analytics/data-product/readme.md)
 : Azure Operator Insights Data Product operations.
+
+- [data-products-catalog](/Commands/network-analytics/data-products-catalog/readme.md)
+: data-products-catalog

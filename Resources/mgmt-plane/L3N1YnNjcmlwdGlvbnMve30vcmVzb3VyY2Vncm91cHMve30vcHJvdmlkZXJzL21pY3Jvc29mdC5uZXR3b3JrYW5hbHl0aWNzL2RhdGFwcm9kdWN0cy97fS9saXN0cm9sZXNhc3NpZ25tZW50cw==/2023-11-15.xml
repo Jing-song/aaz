@@ -34,7 +34,9 @@
             </query>
             <body>
               <json>
-                <schema type="object" name="body" required="True" clientFlatten="True"/>
+                <schema type="object" name="body" required="True" clientFlatten="True">
+                  <additionalProp anyType="True"/>
+                </schema>
               </json>
             </body>
           </request>

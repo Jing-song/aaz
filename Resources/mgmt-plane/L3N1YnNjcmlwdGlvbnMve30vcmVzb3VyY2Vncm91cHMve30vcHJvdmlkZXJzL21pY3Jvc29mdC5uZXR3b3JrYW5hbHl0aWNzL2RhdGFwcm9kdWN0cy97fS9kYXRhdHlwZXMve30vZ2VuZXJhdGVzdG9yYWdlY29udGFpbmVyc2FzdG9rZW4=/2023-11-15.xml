@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}/generatestoragecontainersastoken" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9L2dlbmVyYXRlU3RvcmFnZUNvbnRhaW5lclNhc1Rva2Vu/V/MjAyMy0xMS0xNQ=="/>
+  <commandGroup name="network-analytics data-product data-type">
+    <command name="generate-storage-container-sas-token" version="2023-11-15">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}/generatestoragecontainersastoken" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9L2dlbmVyYXRlU3RvcmFnZUNvbnRhaW5lclNhc1Rva2Vu/V/MjAyMy0xMS0xNQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.dataProductName" options="data-product-name" required="True" idPart="name">
+          <help short="The data product resource name"/>
+          <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.dataTypeName" options="data-type-name" required="True" idPart="child_name_1">
+          <help short="The data type name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Body">
+        <arg type="dateTime" var="$body.expiryTimeStamp" options="expiry-time-stamp" required="True" group="Body">
+          <help short="Sas token expiry timestamp."/>
+        </arg>
+        <arg type="string" var="$body.ipAddress" options="ip-address" required="True" group="Body">
+          <help short="Ip Address"/>
+        </arg>
+        <arg type="dateTime" var="$body.startTimeStamp" options="start-time-stamp" required="True" group="Body">
+          <help short="Sas token start timestamp."/>
+        </arg>
+      </argGroup>
+      <operation operationId="DataTypes_GenerateStorageContainerSasToken">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}/generateStorageContainerSasToken">
+          <request method="post">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="dataTypeName" arg="$Path.dataTypeName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="body" required="True" clientFlatten="True">
+                  <prop type="dateTime" name="expiryTimeStamp" arg="$body.expiryTimeStamp" required="True"/>
+                  <prop type="string" name="ipAddress" arg="$body.ipAddress" required="True"/>
+                  <prop type="dateTime" name="startTimeStamp" arg="$body.startTimeStamp" required="True"/>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="password" name="storageContainerSasToken" required="True" secret="True"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

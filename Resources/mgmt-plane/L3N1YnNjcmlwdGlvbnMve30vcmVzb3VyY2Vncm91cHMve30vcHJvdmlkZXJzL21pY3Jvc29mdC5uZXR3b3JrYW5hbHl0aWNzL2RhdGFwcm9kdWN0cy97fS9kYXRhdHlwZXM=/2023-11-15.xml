@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVz/V/MjAyMy0xMS0xNQ=="/>
+  <commandGroup name="network-analytics data-product data-type">
+    <command name="list" version="2023-11-15">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVz/V/MjAyMy0xMS0xNQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.dataProductName" options="data-product-name" required="True" idPart="name">
+          <help short="The data product resource name"/>
+          <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="DataTypes_ListByDataProduct">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes">
+          <request method="get">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value" required="True">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.NetworkAnalytics/dataProducts/{}/dataTypes/{}"/>
+                      </prop>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties" clientFlatten="True">
+                        <prop type="integer32" name="databaseCacheRetention"/>
+                        <prop type="integer32" name="databaseRetention"/>
+                        <prop readOnly="True" type="string" name="provisioningState">
+                          <enum>
+                            <item value="&quot;Accepted&quot;"/>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Deleting&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Provisioning&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                            <item value="&quot;Updating&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="state">
+                          <enum>
+                            <item value="&quot;Running&quot;"/>
+                            <item value="&quot;Stopped&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop readOnly="True" type="string" name="stateReason"/>
+                        <prop type="integer32" name="storageOutputRetention"/>
+                        <prop readOnly="True" type="string" name="visualizationUrl"/>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="array" ref="$Instance.value" clientFlatten="True" nextLink="$Instance.nextLink"/>
+    </command>
+  </commandGroup>
+</CodeGen>

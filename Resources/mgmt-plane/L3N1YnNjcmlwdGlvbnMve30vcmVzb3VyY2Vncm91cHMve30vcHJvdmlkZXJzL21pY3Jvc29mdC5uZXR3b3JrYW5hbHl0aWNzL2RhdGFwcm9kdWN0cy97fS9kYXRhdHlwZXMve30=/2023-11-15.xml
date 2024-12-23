@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9/V/MjAyMy0xMS0xNQ=="/>
+  <commandGroup name="network-analytics data-product data-type">
+    <command name="show" version="2023-11-15">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9/V/MjAyMy0xMS0xNQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.dataProductName" options="data-product-name" required="True" idPart="name">
+          <help short="The data product resource name"/>
+          <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.dataTypeName" options="data-type-name name n" required="True" idPart="child_name_1">
+          <help short="The data type name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="DataTypes_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}">
+          <request method="get">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="dataTypeName" arg="$Path.dataTypeName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.NetworkAnalytics/dataProducts/{}/dataTypes/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="databaseCacheRetention"/>
+                    <prop type="integer32" name="databaseRetention"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="state">
+                      <enum>
+                        <item value="&quot;Running&quot;"/>
+                        <item value="&quot;Stopped&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="stateReason"/>
+                    <prop type="integer32" name="storageOutputRetention"/>
+                    <prop readOnly="True" type="string" name="visualizationUrl"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2023-11-15" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9/V/MjAyMy0xMS0xNQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.dataProductName" options="data-product-name" required="True" idPart="name">
+          <help short="The data product resource name"/>
+          <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.dataTypeName" options="data-type-name name n" required="True" idPart="child_name_1">
+          <help short="The data type name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="DataTypes_Delete">
+        <longRunning finalStateVia="location"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="dataTypeName" arg="$Path.dataTypeName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+              <item name="Retry-After"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2023-11-15">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9/V/MjAyMy0xMS0xNQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.dataProductName" options="data-product-name" required="True" idPart="name">
+          <help short="The data product resource name"/>
+          <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.dataTypeName" options="data-type-name name n" required="True" idPart="child_name_1">
+          <help short="The data type name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="integer32" var="$resource.properties.databaseCacheRetention" options="database-cache-retention" group="Properties">
+          <help short="Field for database cache retention in days."/>
+        </arg>
+        <arg type="integer32" var="$resource.properties.databaseRetention" options="database-retention" group="Properties">
+          <help short="Field for database data retention in days."/>
+        </arg>
+        <arg type="string" var="$resource.properties.state" options="state" group="Properties">
+          <help short="State of data type."/>
+          <enum>
+            <item name="Running" value="&quot;Running&quot;"/>
+            <item name="Stopped" value="&quot;Stopped&quot;"/>
+          </enum>
+        </arg>
+        <arg type="integer32" var="$resource.properties.storageOutputRetention" options="storage-output-retention" group="Properties">
+          <help short="Field for storage output retention in days."/>
+        </arg>
+      </argGroup>
+      <operation operationId="DataTypes_Create">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}">
+          <request method="put">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="dataTypeName" arg="$Path.dataTypeName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="resource" required="True" clientFlatten="True">
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="databaseCacheRetention" arg="$resource.properties.databaseCacheRetention"/>
+                    <prop type="integer32" name="databaseRetention" arg="$resource.properties.databaseRetention"/>
+                    <prop type="string" name="state" arg="$resource.properties.state">
+                      <enum>
+                        <item value="&quot;Running&quot;"/>
+                        <item value="&quot;Stopped&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="integer32" name="storageOutputRetention" arg="$resource.properties.storageOutputRetention"/>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.NetworkAnalytics/dataProducts/{}/dataTypes/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="databaseCacheRetention"/>
+                    <prop type="integer32" name="databaseRetention"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="state">
+                      <enum>
+                        <item value="&quot;Running&quot;"/>
+                        <item value="&quot;Stopped&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="stateReason"/>
+                    <prop type="integer32" name="storageOutputRetention"/>
+                    <prop readOnly="True" type="string" name="visualizationUrl"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2023-11-15">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.networkanalytics/dataproducts/{}/datatypes/{}" version="2023-11-15" swagger="mgmt-plane/networkanalytics/ResourceProviders/Microsoft.NetworkAnalytics/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuTmV0d29ya0FuYWx5dGljcy9kYXRhUHJvZHVjdHMve2RhdGFQcm9kdWN0TmFtZX0vZGF0YVR5cGVzL3tkYXRhVHlwZU5hbWV9/V/MjAyMy0xMS0xNQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.dataProductName" options="data-product-name" required="True" idPart="name">
+          <help short="The data product resource name"/>
+          <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.dataTypeName" options="data-type-name name n" required="True" idPart="child_name_1">
+          <help short="The data type name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+        </arg>
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="integer32" var="$resource.properties.databaseCacheRetention" options="database-cache-retention" group="Properties">
+          <help short="Field for database cache retention in days."/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$resource.properties.databaseRetention" options="database-retention" group="Properties">
+          <help short="Field for database data retention in days."/>
+        </arg>
+        <arg nullable="True" type="string" var="$resource.properties.state" options="state" group="Properties">
+          <help short="State of data type."/>
+          <enum>
+            <item name="Running" value="&quot;Running&quot;"/>
+            <item name="Stopped" value="&quot;Stopped&quot;"/>
+          </enum>
+        </arg>
+        <arg nullable="True" type="integer32" var="$resource.properties.storageOutputRetention" options="storage-output-retention" group="Properties">
+          <help short="Field for storage output retention in days."/>
+        </arg>
+      </argGroup>
+      <operation operationId="DataTypes_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}">
+          <request method="get">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="dataTypeName" arg="$Path.dataTypeName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="DataType_read">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.NetworkAnalytics/dataProducts/{}/dataTypes/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="databaseCacheRetention"/>
+                    <prop type="integer32" name="databaseRetention"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="state">
+                      <enum>
+                        <item value="&quot;Running&quot;"/>
+                        <item value="&quot;Stopped&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="stateReason"/>
+                    <prop type="integer32" name="storageOutputRetention"/>
+                    <prop readOnly="True" type="string" name="visualizationUrl"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="resource" required="True" clientFlatten="True">
+              <prop type="object" name="properties" clientFlatten="True">
+                <prop type="integer32" name="databaseCacheRetention" arg="$resource.properties.databaseCacheRetention"/>
+                <prop type="integer32" name="databaseRetention" arg="$resource.properties.databaseRetention"/>
+                <prop type="string" name="state" arg="$resource.properties.state">
+                  <enum>
+                    <item value="&quot;Running&quot;"/>
+                    <item value="&quot;Stopped&quot;"/>
+                  </enum>
+                </prop>
+                <prop type="integer32" name="storageOutputRetention" arg="$resource.properties.storageOutputRetention"/>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="DataTypes_Create">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}">
+          <request method="put">
+            <path>
+              <param type="string" name="dataProductName" arg="$Path.dataProductName" required="True">
+                <format pattern="^[a-z][a-z0-9]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="dataTypeName" arg="$Path.dataTypeName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="63" minLength="3"/>
+              </param>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-11-15&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@DataType_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

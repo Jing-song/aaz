@@ -10,12 +10,6 @@
         <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" idPart="resource_group"/>
         <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
       </argGroup>
-      <condition var="$Condition_DataProducts_ListByResourceGroup">
-        <operator type="and">
-          <operator type="hasValue" arg="$Path.resourceGroupName"/>
-          <operator type="hasValue" arg="$Path.subscriptionId"/>
-        </operator>
-      </condition>
       <condition var="$Condition_DataProducts_ListBySubscription">
         <operator type="and">
           <operator type="hasValue" arg="$Path.subscriptionId"/>
@@ -24,13 +18,16 @@
           </operator>
         </operator>
       </condition>
-      <operation when="$Condition_DataProducts_ListByResourceGroup" operationId="DataProducts_ListByResourceGroup">
-        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts">
+      <condition var="$Condition_DataProducts_ListByResourceGroup">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.resourceGroupName"/>
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+        </operator>
+      </condition>
+      <operation when="$Condition_DataProducts_ListBySubscription" operationId="DataProducts_ListBySubscription">
+        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkAnalytics/dataProducts">
           <request method="get">
             <path>
-              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
-                <format maxLength="90" minLength="1"/>
-              </param>
               <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
                 <format minLength="1"/>
               </param>
@@ -78,7 +75,7 @@
                         <prop readOnly="True" type="array<string>" name="availableMinorVersions">
                           <item type="string"/>
                         </prop>
-                        <prop type="object" name="consumptionEndpoints">
+                        <prop readOnly="True" type="object" name="consumptionEndpoints">
                           <prop readOnly="True" type="ResourceId" name="fileAccessResourceId"/>
                           <prop readOnly="True" type="string" name="fileAccessUrl"/>
                           <prop readOnly="True" type="ResourceId" name="ingestionResourceId"/>
@@ -135,7 +132,7 @@
                           </enum>
                         </prop>
                         <prop type="string" name="product" required="True"/>
-                        <prop type="string" name="provisioningState">
+                        <prop readOnly="True" type="string" name="provisioningState">
                           <enum>
                             <item value="&quot;Accepted&quot;"/>
                             <item value="&quot;Canceled&quot;"/>
@@ -206,10 +203,13 @@
           </response>
         </http>
       </operation>
-      <operation when="$Condition_DataProducts_ListBySubscription" operationId="DataProducts_ListBySubscription">
-        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkAnalytics/dataProducts">
+      <operation when="$Condition_DataProducts_ListByResourceGroup" operationId="DataProducts_ListByResourceGroup">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts">
           <request method="get">
             <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
               <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
                 <format minLength="1"/>
               </param>
@@ -257,7 +257,7 @@
                         <prop readOnly="True" type="array<string>" name="availableMinorVersions">
                           <item type="string"/>
                         </prop>
-                        <prop type="object" name="consumptionEndpoints">
+                        <prop readOnly="True" type="object" name="consumptionEndpoints">
                           <prop readOnly="True" type="ResourceId" name="fileAccessResourceId"/>
                           <prop readOnly="True" type="string" name="fileAccessUrl"/>
                           <prop readOnly="True" type="ResourceId" name="ingestionResourceId"/>
@@ -314,7 +314,7 @@
                           </enum>
                         </prop>
                         <prop type="string" name="product" required="True"/>
-                        <prop type="string" name="provisioningState">
+                        <prop readOnly="True" type="string" name="provisioningState">
                           <enum>
                             <item value="&quot;Accepted&quot;"/>
                             <item value="&quot;Canceled&quot;"/>
