@@ -275,6 +275,9 @@
 - [notification-hub](/Commands/notification-hub/readme.md)
 : Manage notification hubs.
 
+- [off-azure-spring-boot](/Commands/off-azure-spring-boot/readme.md)
+: off-azure-spring-boot
+
 - [oracle-database](/Commands/oracle-database/readme.md)
 : Command Modules for RP Oracle.Database
 

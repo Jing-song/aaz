@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c3ByaW5nYm9vdHNpdGVzTmFtZX0=/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+  <commandGroup name="off-azure-spring-boot springbootsite">
+    <command name="show" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c3ByaW5nYm9vdHNpdGVzTmFtZX0=/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.springbootsitesName" options="springbootsites-name name n" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="springbootsites_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="springbootsitesName" arg="$Path.springbootsitesName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type"/>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="string" name="masterSiteId"/>
+                    <prop type="string" name="migrateProjectId"/>
+                    <prop type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-04-01-preview" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c3ByaW5nYm9vdHNpdGVzTmFtZX0=/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.springbootsitesName" options="springbootsites-name name n" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="springbootsites_Delete">
+        <longRunning finalStateVia="location"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="springbootsitesName" arg="$Path.springbootsitesName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c3ByaW5nYm9vdHNpdGVzTmFtZX0=/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.springbootsitesName" options="springbootsites-name name n" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="string" var="$springbootsites.properties.masterSiteId" options="master-site-id" group="Properties">
+          <help short="The master site ID from Azure Migrate."/>
+        </arg>
+        <arg type="string" var="$springbootsites.properties.migrateProjectId" options="migrate-project-id" group="Properties">
+          <help short="The migrate project ID from Azure Migrate."/>
+        </arg>
+        <arg type="string" var="$springbootsites.properties.provisioningState" options="provisioning-state" group="Properties">
+          <help short="The resource provisioning state."/>
+          <enum>
+            <item name="Accepted" value="&quot;Accepted&quot;"/>
+            <item name="Canceled" value="&quot;Canceled&quot;"/>
+            <item name="Deleting" value="&quot;Deleting&quot;"/>
+            <item name="Failed" value="&quot;Failed&quot;"/>
+            <item name="Provisioning" value="&quot;Provisioning&quot;"/>
+            <item name="Succeeded" value="&quot;Succeeded&quot;"/>
+            <item name="Unknown" value="&quot;Unknown&quot;"/>
+          </enum>
+        </arg>
+      </argGroup>
+      <argGroup name="Springbootsites">
+        <arg type="object" var="$springbootsites.extendedLocation" options="extended-location" group="Springbootsites">
+          <help short="The extended location definition."/>
+          <arg type="string" var="$springbootsites.extendedLocation.name" options="name">
+            <help short="The extended location name."/>
+          </arg>
+          <arg type="string" var="$springbootsites.extendedLocation.type" options="type">
+            <help short="The extended location type."/>
+          </arg>
+        </arg>
+        <arg type="ResourceLocation" var="$springbootsites.location" options="location l" required="True" group="Springbootsites">
+          <help short="The geo-location where the resource lives"/>
+        </arg>
+        <arg type="object" var="$springbootsites.tags" options="tags" group="Springbootsites">
+          <help short="Resource tags."/>
+          <additionalProp>
+            <item type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <operation operationId="springbootsites_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}">
+          <request method="put">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="springbootsitesName" arg="$Path.springbootsitesName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="springbootsites" required="True" clientFlatten="True">
+                  <prop type="object" name="extendedLocation" arg="$springbootsites.extendedLocation">
+                    <prop type="string" name="name" arg="$springbootsites.extendedLocation.name"/>
+                    <prop type="string" name="type" arg="$springbootsites.extendedLocation.type"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" arg="$springbootsites.location" required="True"/>
+                  <prop type="object" name="properties">
+                    <prop type="string" name="masterSiteId" arg="$springbootsites.properties.masterSiteId"/>
+                    <prop type="string" name="migrateProjectId" arg="$springbootsites.properties.migrateProjectId"/>
+                    <prop type="string" name="provisioningState" arg="$springbootsites.properties.provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags" arg="$springbootsites.tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type"/>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="string" name="masterSiteId"/>
+                    <prop type="string" name="migrateProjectId"/>
+                    <prop type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c3ByaW5nYm9vdHNpdGVzTmFtZX0=/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.springbootsitesName" options="springbootsites-name name n" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="string" var="$springbootsites.properties.masterSiteId" options="master-site-id" group="Properties">
+          <help short="The master site ID from Azure Migrate."/>
+        </arg>
+        <arg nullable="True" type="string" var="$springbootsites.properties.migrateProjectId" options="migrate-project-id" group="Properties">
+          <help short="The migrate project ID from Azure Migrate."/>
+        </arg>
+        <arg nullable="True" type="string" var="$springbootsites.properties.provisioningState" options="provisioning-state" group="Properties">
+          <help short="The resource provisioning state."/>
+          <enum>
+            <item name="Accepted" value="&quot;Accepted&quot;"/>
+            <item name="Canceled" value="&quot;Canceled&quot;"/>
+            <item name="Deleting" value="&quot;Deleting&quot;"/>
+            <item name="Failed" value="&quot;Failed&quot;"/>
+            <item name="Provisioning" value="&quot;Provisioning&quot;"/>
+            <item name="Succeeded" value="&quot;Succeeded&quot;"/>
+            <item name="Unknown" value="&quot;Unknown&quot;"/>
+          </enum>
+        </arg>
+      </argGroup>
+      <argGroup name="Springbootsites">
+        <arg nullable="True" type="object" var="$springbootsites.extendedLocation" options="extended-location" group="Springbootsites">
+          <help short="The extended location definition."/>
+          <arg nullable="True" type="string" var="$springbootsites.extendedLocation.name" options="name">
+            <help short="The extended location name."/>
+          </arg>
+          <arg nullable="True" type="string" var="$springbootsites.extendedLocation.type" options="type">
+            <help short="The extended location type."/>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$springbootsites.tags" options="tags" group="Springbootsites">
+          <help short="Resource tags."/>
+          <additionalProp>
+            <item nullable="True" type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <operation operationId="springbootsites_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="springbootsitesName" arg="$Path.springbootsitesName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="SpringbootsitesModel_read">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type"/>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="string" name="masterSiteId"/>
+                    <prop type="string" name="migrateProjectId"/>
+                    <prop type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="springbootsites" required="True" clientFlatten="True">
+              <prop type="object" name="extendedLocation" arg="$springbootsites.extendedLocation">
+                <prop type="string" name="name" arg="$springbootsites.extendedLocation.name"/>
+                <prop type="string" name="type" arg="$springbootsites.extendedLocation.type"/>
+              </prop>
+              <prop type="object" name="properties">
+                <prop type="string" name="masterSiteId" arg="$springbootsites.properties.masterSiteId"/>
+                <prop type="string" name="migrateProjectId" arg="$springbootsites.properties.migrateProjectId"/>
+                <prop type="string" name="provisioningState" arg="$springbootsites.properties.provisioningState">
+                  <enum>
+                    <item value="&quot;Accepted&quot;"/>
+                    <item value="&quot;Canceled&quot;"/>
+                    <item value="&quot;Deleting&quot;"/>
+                    <item value="&quot;Failed&quot;"/>
+                    <item value="&quot;Provisioning&quot;"/>
+                    <item value="&quot;Succeeded&quot;"/>
+                    <item value="&quot;Unknown&quot;"/>
+                  </enum>
+                </prop>
+              </prop>
+              <prop type="object" name="tags" arg="$springbootsites.tags">
+                <additionalProp>
+                  <item type="string"/>
+                </additionalProp>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="springbootsites_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}">
+          <request method="put">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="springbootsitesName" arg="$Path.springbootsitesName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@SpringbootsitesModel_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

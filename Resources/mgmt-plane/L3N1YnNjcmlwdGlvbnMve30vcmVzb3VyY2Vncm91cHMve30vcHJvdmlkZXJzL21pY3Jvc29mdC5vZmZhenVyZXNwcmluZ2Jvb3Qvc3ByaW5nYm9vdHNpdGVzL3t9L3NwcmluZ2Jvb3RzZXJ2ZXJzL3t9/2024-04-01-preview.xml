@@ -1,0 +1,708 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootservers/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RzZXJ2ZXJzL3tzcHJpbmdib290c2VydmVyc05hbWV9/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+  <commandGroup name="off-azure-spring-boot springbootsite springbootserver">
+    <command name="show" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootservers/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RzZXJ2ZXJzL3tzcHJpbmdib290c2VydmVyc05hbWV9/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.siteName" options="site-name" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.springbootserversName" options="springbootservers-name name n" required="True" idPart="child_name_1">
+          <help short="The springbootservers name."/>
+          <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="springbootservers_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName}">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="springbootserversName" arg="$Path.springbootserversName" required="True">
+                <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}/springbootservers/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="errors">
+                      <item type="object">
+                        <prop type="string" name="code"/>
+                        <prop type="integer64" name="id"/>
+                        <prop type="string" name="message"/>
+                        <prop type="string" name="possibleCauses"/>
+                        <prop type="string" name="recommendedAction"/>
+                        <prop type="string" name="runAsAccountId"/>
+                        <prop type="string" name="severity"/>
+                        <prop type="string" name="summaryMessage"/>
+                        <prop type="dateTime" name="updatedTimeStamp"/>
+                      </item>
+                    </prop>
+                    <prop type="array<string>" name="fqdnAndIpAddressList">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="object" name="labels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="machineArmId"/>
+                    <prop type="integer32" name="port"/>
+                    <prop type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="server" required="True"/>
+                    <prop type="integer32" name="springBootApps"/>
+                    <prop type="integer32" name="totalApps"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-04-01-preview" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootservers/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RzZXJ2ZXJzL3tzcHJpbmdib290c2VydmVyc05hbWV9/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.siteName" options="site-name" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.springbootserversName" options="springbootservers-name name n" required="True" idPart="child_name_1">
+          <help short="The springbootservers name."/>
+          <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <operation operationId="springbootservers_Delete">
+        <longRunning finalStateVia="location"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="springbootserversName" arg="$Path.springbootserversName" required="True">
+                <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootservers/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RzZXJ2ZXJzL3tzcHJpbmdib290c2VydmVyc05hbWV9/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.siteName" options="site-name" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.springbootserversName" options="springbootservers-name name n" required="True" idPart="child_name_1">
+          <help short="The springbootservers name."/>
+          <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="array<object>" var="$springbootservers.properties.errors" options="errors" group="Properties">
+          <help short="The list of errors."/>
+          <item type="object">
+            <arg type="string" var="$springbootservers.properties.errors[].code" options="code">
+              <help short="The error code."/>
+            </arg>
+            <arg type="integer64" var="$springbootservers.properties.errors[].id" options="id">
+              <help short="The error ID."/>
+            </arg>
+            <arg type="string" var="$springbootservers.properties.errors[].message" options="message">
+              <help short="The detailed error message."/>
+            </arg>
+            <arg type="string" var="$springbootservers.properties.errors[].possibleCauses" options="possible-causes">
+              <help short="The error possible causes."/>
+            </arg>
+            <arg type="string" var="$springbootservers.properties.errors[].recommendedAction" options="recommended-action">
+              <help short="The error recommended action"/>
+            </arg>
+            <arg type="string" var="$springbootservers.properties.errors[].runAsAccountId" options="run-as-account-id">
+              <help short="The account ID used to login."/>
+            </arg>
+            <arg type="string" var="$springbootservers.properties.errors[].severity" options="severity">
+              <help short="The error severity"/>
+            </arg>
+            <arg type="string" var="$springbootservers.properties.errors[].summaryMessage" options="summary-message">
+              <help short="The summarized error message."/>
+            </arg>
+            <arg type="dateTime" var="$springbootservers.properties.errors[].updatedTimeStamp" options="updated-time-stamp">
+              <help short="Time when this error was last updated."/>
+            </arg>
+          </item>
+        </arg>
+        <arg type="array<string>" var="$springbootservers.properties.fqdnAndIpAddressList" options="fqdn-and-ip-address-list" group="Properties">
+          <help short="The alternative FQDN or IP addresses to discover for this server"/>
+          <item type="string"/>
+        </arg>
+        <arg type="object" var="$springbootservers.properties.labels" options="labels" group="Properties">
+          <help short="Resource labels"/>
+          <additionalProp>
+            <item type="string"/>
+          </additionalProp>
+        </arg>
+        <arg type="string" var="$springbootservers.properties.machineArmId" options="machine-arm-id" group="Properties">
+          <help short="The machine Id from ARM"/>
+        </arg>
+        <arg type="integer32" var="$springbootservers.properties.port" options="port" group="Properties">
+          <help short="Target server port for remote login"/>
+        </arg>
+        <arg type="string" var="$springbootservers.properties.provisioningState" options="provisioning-state" group="Properties">
+          <help short="The resource provisioning state."/>
+          <enum>
+            <item name="Accepted" value="&quot;Accepted&quot;"/>
+            <item name="Canceled" value="&quot;Canceled&quot;"/>
+            <item name="Deleting" value="&quot;Deleting&quot;"/>
+            <item name="Failed" value="&quot;Failed&quot;"/>
+            <item name="Provisioning" value="&quot;Provisioning&quot;"/>
+            <item name="Succeeded" value="&quot;Succeeded&quot;"/>
+            <item name="Unknown" value="&quot;Unknown&quot;"/>
+          </enum>
+        </arg>
+        <arg type="string" var="$springbootservers.properties.server" options="server" group="Properties">
+          <help short="Server is the target server name or ip address to discover of SpringBootServer."/>
+        </arg>
+        <arg type="integer32" var="$springbootservers.properties.springBootApps" options="spring-boot-apps" group="Properties">
+          <help short="The total number of spring boot apps been discovered"/>
+        </arg>
+        <arg type="integer32" var="$springbootservers.properties.totalApps" options="total-apps" group="Properties">
+          <help short="The total number of apps been discovered"/>
+        </arg>
+      </argGroup>
+      <operation operationId="springbootservers_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName}">
+          <request method="put">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="springbootserversName" arg="$Path.springbootserversName" required="True">
+                <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="springbootservers" required="True" clientFlatten="True">
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="errors" arg="$springbootservers.properties.errors">
+                      <item type="object">
+                        <prop type="string" name="code" arg="$springbootservers.properties.errors[].code"/>
+                        <prop type="integer64" name="id" arg="$springbootservers.properties.errors[].id"/>
+                        <prop type="string" name="message" arg="$springbootservers.properties.errors[].message"/>
+                        <prop type="string" name="possibleCauses" arg="$springbootservers.properties.errors[].possibleCauses"/>
+                        <prop type="string" name="recommendedAction" arg="$springbootservers.properties.errors[].recommendedAction"/>
+                        <prop type="string" name="runAsAccountId" arg="$springbootservers.properties.errors[].runAsAccountId"/>
+                        <prop type="string" name="severity" arg="$springbootservers.properties.errors[].severity"/>
+                        <prop type="string" name="summaryMessage" arg="$springbootservers.properties.errors[].summaryMessage"/>
+                        <prop type="dateTime" name="updatedTimeStamp" arg="$springbootservers.properties.errors[].updatedTimeStamp"/>
+                      </item>
+                    </prop>
+                    <prop type="array<string>" name="fqdnAndIpAddressList" arg="$springbootservers.properties.fqdnAndIpAddressList">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="object" name="labels" arg="$springbootservers.properties.labels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="machineArmId" arg="$springbootservers.properties.machineArmId"/>
+                    <prop type="integer32" name="port" arg="$springbootservers.properties.port"/>
+                    <prop type="string" name="provisioningState" arg="$springbootservers.properties.provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="server" arg="$springbootservers.properties.server" required="True"/>
+                    <prop type="integer32" name="springBootApps" arg="$springbootservers.properties.springBootApps"/>
+                    <prop type="integer32" name="totalApps" arg="$springbootservers.properties.totalApps"/>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}/springbootservers/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="errors">
+                      <item type="object">
+                        <prop type="string" name="code"/>
+                        <prop type="integer64" name="id"/>
+                        <prop type="string" name="message"/>
+                        <prop type="string" name="possibleCauses"/>
+                        <prop type="string" name="recommendedAction"/>
+                        <prop type="string" name="runAsAccountId"/>
+                        <prop type="string" name="severity"/>
+                        <prop type="string" name="summaryMessage"/>
+                        <prop type="dateTime" name="updatedTimeStamp"/>
+                      </item>
+                    </prop>
+                    <prop type="array<string>" name="fqdnAndIpAddressList">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="object" name="labels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="machineArmId"/>
+                    <prop type="integer32" name="port"/>
+                    <prop type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="server" required="True"/>
+                    <prop type="integer32" name="springBootApps"/>
+                    <prop type="integer32" name="totalApps"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootservers/{}" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RzZXJ2ZXJzL3tzcHJpbmdib290c2VydmVyc05hbWV9/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="string" var="$Path.siteName" options="site-name" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.springbootserversName" options="springbootservers-name name n" required="True" idPart="child_name_1">
+          <help short="The springbootservers name."/>
+          <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="array<object>" var="$springbootservers.properties.errors" options="errors" group="Properties">
+          <help short="The list of errors."/>
+          <item nullable="True" type="object">
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].code" options="code">
+              <help short="The error code."/>
+            </arg>
+            <arg nullable="True" type="integer64" var="$springbootservers.properties.errors[].id" options="id">
+              <help short="The error ID."/>
+            </arg>
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].message" options="message">
+              <help short="The detailed error message."/>
+            </arg>
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].possibleCauses" options="possible-causes">
+              <help short="The error possible causes."/>
+            </arg>
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].recommendedAction" options="recommended-action">
+              <help short="The error recommended action"/>
+            </arg>
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].runAsAccountId" options="run-as-account-id">
+              <help short="The account ID used to login."/>
+            </arg>
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].severity" options="severity">
+              <help short="The error severity"/>
+            </arg>
+            <arg nullable="True" type="string" var="$springbootservers.properties.errors[].summaryMessage" options="summary-message">
+              <help short="The summarized error message."/>
+            </arg>
+            <arg nullable="True" type="dateTime" var="$springbootservers.properties.errors[].updatedTimeStamp" options="updated-time-stamp">
+              <help short="Time when this error was last updated."/>
+            </arg>
+          </item>
+        </arg>
+        <arg nullable="True" type="array<string>" var="$springbootservers.properties.fqdnAndIpAddressList" options="fqdn-and-ip-address-list" group="Properties">
+          <help short="The alternative FQDN or IP addresses to discover for this server"/>
+          <item nullable="True" type="string"/>
+        </arg>
+        <arg nullable="True" type="object" var="$springbootservers.properties.labels" options="labels" group="Properties">
+          <help short="Resource labels"/>
+          <additionalProp>
+            <item nullable="True" type="string"/>
+          </additionalProp>
+        </arg>
+        <arg nullable="True" type="string" var="$springbootservers.properties.machineArmId" options="machine-arm-id" group="Properties">
+          <help short="The machine Id from ARM"/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$springbootservers.properties.port" options="port" group="Properties">
+          <help short="Target server port for remote login"/>
+        </arg>
+        <arg nullable="True" type="string" var="$springbootservers.properties.provisioningState" options="provisioning-state" group="Properties">
+          <help short="The resource provisioning state."/>
+          <enum>
+            <item name="Accepted" value="&quot;Accepted&quot;"/>
+            <item name="Canceled" value="&quot;Canceled&quot;"/>
+            <item name="Deleting" value="&quot;Deleting&quot;"/>
+            <item name="Failed" value="&quot;Failed&quot;"/>
+            <item name="Provisioning" value="&quot;Provisioning&quot;"/>
+            <item name="Succeeded" value="&quot;Succeeded&quot;"/>
+            <item name="Unknown" value="&quot;Unknown&quot;"/>
+          </enum>
+        </arg>
+        <arg type="string" var="$springbootservers.properties.server" options="server" group="Properties">
+          <help short="Server is the target server name or ip address to discover of SpringBootServer."/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$springbootservers.properties.springBootApps" options="spring-boot-apps" group="Properties">
+          <help short="The total number of spring boot apps been discovered"/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$springbootservers.properties.totalApps" options="total-apps" group="Properties">
+          <help short="The total number of apps been discovered"/>
+        </arg>
+      </argGroup>
+      <operation operationId="springbootservers_Get">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName}">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="springbootserversName" arg="$Path.springbootserversName" required="True">
+                <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="SpringbootserversModel_read">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}/springbootservers/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="errors">
+                      <item type="object">
+                        <prop type="string" name="code"/>
+                        <prop type="integer64" name="id"/>
+                        <prop type="string" name="message"/>
+                        <prop type="string" name="possibleCauses"/>
+                        <prop type="string" name="recommendedAction"/>
+                        <prop type="string" name="runAsAccountId"/>
+                        <prop type="string" name="severity"/>
+                        <prop type="string" name="summaryMessage"/>
+                        <prop type="dateTime" name="updatedTimeStamp"/>
+                      </item>
+                    </prop>
+                    <prop type="array<string>" name="fqdnAndIpAddressList">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="object" name="labels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="string" name="machineArmId"/>
+                    <prop type="integer32" name="port"/>
+                    <prop type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Provisioning&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Unknown&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="server" required="True"/>
+                    <prop type="integer32" name="springBootApps"/>
+                    <prop type="integer32" name="totalApps"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="springbootservers" required="True" clientFlatten="True">
+              <prop type="object" name="properties">
+                <prop type="array<object>" name="errors" arg="$springbootservers.properties.errors">
+                  <item type="object">
+                    <prop type="string" name="code" arg="$springbootservers.properties.errors[].code"/>
+                    <prop type="integer64" name="id" arg="$springbootservers.properties.errors[].id"/>
+                    <prop type="string" name="message" arg="$springbootservers.properties.errors[].message"/>
+                    <prop type="string" name="possibleCauses" arg="$springbootservers.properties.errors[].possibleCauses"/>
+                    <prop type="string" name="recommendedAction" arg="$springbootservers.properties.errors[].recommendedAction"/>
+                    <prop type="string" name="runAsAccountId" arg="$springbootservers.properties.errors[].runAsAccountId"/>
+                    <prop type="string" name="severity" arg="$springbootservers.properties.errors[].severity"/>
+                    <prop type="string" name="summaryMessage" arg="$springbootservers.properties.errors[].summaryMessage"/>
+                    <prop type="dateTime" name="updatedTimeStamp" arg="$springbootservers.properties.errors[].updatedTimeStamp"/>
+                  </item>
+                </prop>
+                <prop type="array<string>" name="fqdnAndIpAddressList" arg="$springbootservers.properties.fqdnAndIpAddressList">
+                  <item type="string"/>
+                </prop>
+                <prop type="object" name="labels" arg="$springbootservers.properties.labels">
+                  <additionalProp>
+                    <item type="string"/>
+                  </additionalProp>
+                </prop>
+                <prop type="string" name="machineArmId" arg="$springbootservers.properties.machineArmId"/>
+                <prop type="integer32" name="port" arg="$springbootservers.properties.port"/>
+                <prop type="string" name="provisioningState" arg="$springbootservers.properties.provisioningState">
+                  <enum>
+                    <item value="&quot;Accepted&quot;"/>
+                    <item value="&quot;Canceled&quot;"/>
+                    <item value="&quot;Deleting&quot;"/>
+                    <item value="&quot;Failed&quot;"/>
+                    <item value="&quot;Provisioning&quot;"/>
+                    <item value="&quot;Succeeded&quot;"/>
+                    <item value="&quot;Unknown&quot;"/>
+                  </enum>
+                </prop>
+                <prop type="string" name="server" arg="$springbootservers.properties.server" required="True"/>
+                <prop type="integer32" name="springBootApps" arg="$springbootservers.properties.springBootApps"/>
+                <prop type="integer32" name="totalApps" arg="$springbootservers.properties.totalApps"/>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="springbootservers_CreateOrUpdate">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName}">
+          <request method="put">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="springbootserversName" arg="$Path.springbootserversName" required="True">
+                <format pattern="^[A-Za-z0-9][A-Za-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@SpringbootserversModel_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

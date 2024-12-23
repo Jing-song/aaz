@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootapps" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0Lk9mZkF6dXJlU3ByaW5nQm9vdC9zcHJpbmdib290c2l0ZXMve3NpdGVOYW1lfS9zcHJpbmdib290YXBwcw==/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootapps" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RhcHBz/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+  <commandGroup name="off-azure-spring-boot springbootsite springbootapp">
+    <command name="list" version="2024-04-01-preview">
+      <resource id="/subscriptions/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootapps" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0Lk9mZkF6dXJlU3ByaW5nQm9vdC9zcHJpbmdib290c2l0ZXMve3NpdGVOYW1lfS9zcHJpbmdib290YXBwcw==/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.offazurespringboot/springbootsites/{}/springbootapps" version="2024-04-01-preview" swagger="mgmt-plane/offazurespringboot/ResourceProviders/Microsoft.OffAzureSpringBoot/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuT2ZmQXp1cmVTcHJpbmdCb290L3NwcmluZ2Jvb3RzaXRlcy97c2l0ZU5hbWV9L3NwcmluZ2Jvb3RhcHBz/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" idPart="resource_group"/>
+        <arg type="string" var="$Path.siteName" options="site-name" required="True" idPart="name">
+          <help short="The springbootsites name."/>
+          <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+      </argGroup>
+      <condition var="$Condition_springbootapps_ListBySubscription">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.siteName"/>
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+          <operator type="not">
+            <operator type="hasValue" arg="$Path.resourceGroupName"/>
+          </operator>
+        </operator>
+      </condition>
+      <condition var="$Condition_springbootapps_ListByResourceGroup">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.resourceGroupName"/>
+          <operator type="hasValue" arg="$Path.siteName"/>
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+        </operator>
+      </condition>
+      <operation when="$Condition_springbootapps_ListBySubscription" operationId="springbootapps_ListBySubscription">
+        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootapps">
+          <request method="get">
+            <path>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}/springbootapps/{}"/>
+                      </prop>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties">
+                        <prop type="string" name="appName"/>
+                        <prop type="integer32" name="appPort"/>
+                        <prop type="string" name="appType"/>
+                        <prop type="array<object>" name="applicationConfigurations">
+                          <item type="object">
+                            <prop type="string" name="key" required="True"/>
+                            <prop type="string" name="value"/>
+                          </item>
+                        </prop>
+                        <prop type="string" name="artifactName"/>
+                        <prop type="array<integer32>" name="bindingPorts">
+                          <item type="integer32"/>
+                        </prop>
+                        <prop type="string" name="buildJdkVersion"/>
+                        <prop type="array<string>" name="certificates">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="checksum"/>
+                        <prop type="array<string>" name="connectionStrings">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<string>" name="dependencies">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<string>" name="environments">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<object>" name="errors">
+                          <item type="object">
+                            <prop type="string" name="code"/>
+                            <prop type="integer64" name="id"/>
+                            <prop type="string" name="message"/>
+                            <prop type="string" name="possibleCauses"/>
+                            <prop type="string" name="recommendedAction"/>
+                            <prop type="string" name="runAsAccountId"/>
+                            <prop type="string" name="severity"/>
+                            <prop type="string" name="summaryMessage"/>
+                            <prop type="dateTime" name="updatedTimeStamp"/>
+                          </item>
+                        </prop>
+                        <prop type="integer32" name="instanceCount"/>
+                        <prop type="array<object>" name="instances">
+                          <item type="object">
+                            <prop type="integer32" name="instanceCount"/>
+                            <prop type="integer32" name="jvmMemoryInMB"/>
+                            <prop type="string" name="machineArmId" required="True"/>
+                          </item>
+                        </prop>
+                        <prop type="string" name="jarFileLocation"/>
+                        <prop type="integer32" name="jvmMemoryInMB"/>
+                        <prop type="array<string>" name="jvmOptions">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="object" name="labels">
+                          <additionalProp>
+                            <item type="string"/>
+                          </additionalProp>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedTime"/>
+                        <prop type="dateTime" name="lastUpdatedTime"/>
+                        <prop type="array<string>" name="machineArmIds">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<object>" name="miscs">
+                          <item type="object">
+                            <prop type="string" name="key" required="True"/>
+                            <prop type="string" name="value"/>
+                          </item>
+                        </prop>
+                        <prop readOnly="True" type="string" name="provisioningState">
+                          <enum>
+                            <item value="&quot;Accepted&quot;"/>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Deleting&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Provisioning&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                            <item value="&quot;Unknown&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="runtimeJdkVersion"/>
+                        <prop type="array<string>" name="servers">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="springBootVersion"/>
+                        <prop type="array<string>" name="staticContentLocations">
+                          <item type="string"/>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation when="$Condition_springbootapps_ListByResourceGroup" operationId="springbootapps_ListByResourceGroup">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootapps">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="string" name="siteName" arg="$Path.siteName" required="True">
+                <format pattern="^[a-z][a-z0-9-]*$" maxLength="64" minLength="3"/>
+              </param>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-04-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{}/springbootapps/{}"/>
+                      </prop>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties">
+                        <prop type="string" name="appName"/>
+                        <prop type="integer32" name="appPort"/>
+                        <prop type="string" name="appType"/>
+                        <prop type="array<object>" name="applicationConfigurations">
+                          <item type="object">
+                            <prop type="string" name="key" required="True"/>
+                            <prop type="string" name="value"/>
+                          </item>
+                        </prop>
+                        <prop type="string" name="artifactName"/>
+                        <prop type="array<integer32>" name="bindingPorts">
+                          <item type="integer32"/>
+                        </prop>
+                        <prop type="string" name="buildJdkVersion"/>
+                        <prop type="array<string>" name="certificates">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="checksum"/>
+                        <prop type="array<string>" name="connectionStrings">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<string>" name="dependencies">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<string>" name="environments">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<object>" name="errors">
+                          <item type="object">
+                            <prop type="string" name="code"/>
+                            <prop type="integer64" name="id"/>
+                            <prop type="string" name="message"/>
+                            <prop type="string" name="possibleCauses"/>
+                            <prop type="string" name="recommendedAction"/>
+                            <prop type="string" name="runAsAccountId"/>
+                            <prop type="string" name="severity"/>
+                            <prop type="string" name="summaryMessage"/>
+                            <prop type="dateTime" name="updatedTimeStamp"/>
+                          </item>
+                        </prop>
+                        <prop type="integer32" name="instanceCount"/>
+                        <prop type="array<object>" name="instances">
+                          <item type="object">
+                            <prop type="integer32" name="instanceCount"/>
+                            <prop type="integer32" name="jvmMemoryInMB"/>
+                            <prop type="string" name="machineArmId" required="True"/>
+                          </item>
+                        </prop>
+                        <prop type="string" name="jarFileLocation"/>
+                        <prop type="integer32" name="jvmMemoryInMB"/>
+                        <prop type="array<string>" name="jvmOptions">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="object" name="labels">
+                          <additionalProp>
+                            <item type="string"/>
+                          </additionalProp>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedTime"/>
+                        <prop type="dateTime" name="lastUpdatedTime"/>
+                        <prop type="array<string>" name="machineArmIds">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="array<object>" name="miscs">
+                          <item type="object">
+                            <prop type="string" name="key" required="True"/>
+                            <prop type="string" name="value"/>
+                          </item>
+                        </prop>
+                        <prop readOnly="True" type="string" name="provisioningState">
+                          <enum>
+                            <item value="&quot;Accepted&quot;"/>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Deleting&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Provisioning&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                            <item value="&quot;Unknown&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="runtimeJdkVersion"/>
+                        <prop type="array<string>" name="servers">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="springBootVersion"/>
+                        <prop type="array<string>" name="staticContentLocations">
+                          <item type="string"/>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="array" ref="$Instance.value" clientFlatten="True" nextLink="$Instance.nextLink"/>
+    </command>
+  </commandGroup>
+</CodeGen>
