@@ -4,14 +4,6 @@ Handle Operations for Compute Azure Large Instances.
 
 ## Commands
 
-- [create](/Commands/large-instance/_create.md)
-: Create an Azure Large Instance for the specified subscription,
-resource group, and instance name.
-
-- [delete](/Commands/large-instance/_delete.md)
-: Delete an Azure Large Instance for the specified subscription, resource group,
-and instance name.
-
 - [list](/Commands/large-instance/_list.md)
 : Gets a list of Azure Large Instances in the specified subscription. The operations returns various properties of each Azure Large Instance.
 

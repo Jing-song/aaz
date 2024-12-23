@@ -50,6 +50,9 @@
 - [azure-fleet](/Commands/azure-fleet/readme.md)
 : azure-fleet
 
+- [azure-large-instance](/Commands/azure-large-instance/readme.md)
+: azure-large-instance
+
 - [baremetalinstance](/Commands/baremetalinstance/readme.md)
 : Handle Operations for Compute Azure Bare Instances.
 
