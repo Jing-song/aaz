@@ -20,6 +20,9 @@
 - [aosm](/Commands/aosm/readme.md)
 : Manage Azure Operator Service Manager resources.
 
+- [api-center](/Commands/api-center/readme.md)
+: api-center
+
 - [apic](/Commands/apic/readme.md)
 : Manage Azure API Center services
 
