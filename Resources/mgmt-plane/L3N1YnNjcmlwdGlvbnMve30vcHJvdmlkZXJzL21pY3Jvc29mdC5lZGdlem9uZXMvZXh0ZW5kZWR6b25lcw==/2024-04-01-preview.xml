@@ -2,7 +2,7 @@
 <CodeGen plane="mgmt-plane">
   <resource id="/subscriptions/{}/providers/microsoft.edgezones/extendedzones" version="2024-04-01-preview" swagger="mgmt-plane/edgezones/ResourceProviders/Microsoft.EdgeZones/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LkVkZ2Vab25lcy9leHRlbmRlZFpvbmVz/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
   <commandGroup name="edge-zones extended-zone">
-    <command name="list" version="2024-04-01-preview" confirmation="">
+    <command name="list" version="2024-04-01-preview">
       <resource id="/subscriptions/{}/providers/microsoft.edgezones/extendedzones" version="2024-04-01-preview" swagger="mgmt-plane/edgezones/ResourceProviders/Microsoft.EdgeZones/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LkVkZ2Vab25lcy9leHRlbmRlZFpvbmVz/V/MjAyNC0wNC0wMS1wcmV2aWV3"/>
       <argGroup name="">
         <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
@@ -24,14 +24,12 @@
             <body>
               <json var="$Instance">
                 <schema type="object">
-                  <prop readOnly="True" type="string" name="nextLink"/>
-                  <prop type="array<object>" name="value" required="True">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value" required="True" identifiers="name">
                     <item type="object">
-                      <prop readOnly="True" type="ResourceId" name="id">
-                        <format template="/subscriptions/{}/providers/Microsoft.EdgeZones/extendedZones/{}"/>
-                      </prop>
+                      <prop readOnly="True" type="ResourceId" name="id"/>
                       <prop readOnly="True" type="string" name="name"/>
-                      <prop type="object" name="properties" clientFlatten="True">
+                      <prop type="object" name="properties">
                         <prop readOnly="True" type="string" name="displayName" required="True"/>
                         <prop readOnly="True" type="string" name="geography" required="True"/>
                         <prop readOnly="True" type="string" name="geographyGroup" required="True"/>
@@ -52,7 +50,7 @@
                         <prop readOnly="True" type="string" name="regionCategory" required="True"/>
                         <prop readOnly="True" type="string" name="regionType" required="True"/>
                         <prop readOnly="True" type="string" name="regionalDisplayName" required="True"/>
-                        <prop type="string" name="registrationState">
+                        <prop readOnly="True" type="string" name="registrationState">
                           <enum>
                             <item value="&quot;NotRegistered&quot;"/>
                             <item value="&quot;PendingRegister&quot;"/>
@@ -93,7 +91,7 @@
           <response isError="True">
             <body>
               <json>
-                <schema type="@MgmtErrorFormat"/>
+                <schema readOnly="True" type="@MgmtErrorFormat"/>
               </json>
             </body>
           </response>
