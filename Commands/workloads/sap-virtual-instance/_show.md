@@ -1,6 +1,6 @@
 # [Command] _workloads sap-virtual-instance show_
 
-Show a Virtual Instance for SAP solutions resource
+Get a Virtual Instance for SAP solutions resource
 
 ## Versions
 
@@ -35,3 +35,7 @@ Show a Virtual Instance for SAP solutions resource
     ```bash
         workloads sap-virtual-instance show --id <resource-id>
     ```
+
+### [2024-09-01](/Resources/mgmt-plane/L3N1YnNjcmlwdGlvbnMve30vcmVzb3VyY2Vncm91cHMve30vcHJvdmlkZXJzL21pY3Jvc29mdC53b3JrbG9hZHMvc2FwdmlydHVhbGluc3RhbmNlcy97fQ==/2024-09-01.xml) **Stable**
+
+<!-- mgmt-plane /subscriptions/{}/resourcegroups/{}/providers/microsoft.workloads/sapvirtualinstances/{} 2024-09-01 -->

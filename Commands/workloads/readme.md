@@ -19,6 +19,9 @@ Manage workloads
 - [sap-virtual-instance](/Commands/workloads/sap-virtual-instance/readme.md)
 : Manage virtual instance
 
+- [sap-virtual-instance-metadatum](/Commands/workloads/sap-virtual-instance-metadatum/readme.md)
+: sap-virtual-instance-metadatum
+
 ## Commands
 
 - [sap-availability-zone-detail](/Commands/workloads/_sap-availability-zone-detail.md)
