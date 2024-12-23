@@ -47,6 +47,9 @@
 - [automation](/Commands/automation/readme.md)
 : Manage Automation Account.
 
+- [azure-large-instance](/Commands/azure-large-instance/readme.md)
+: azure-large-instance
+
 - [baremetalinstance](/Commands/baremetalinstance/readme.md)
 : Handle Operations for Compute Azure Bare Instances.
 
