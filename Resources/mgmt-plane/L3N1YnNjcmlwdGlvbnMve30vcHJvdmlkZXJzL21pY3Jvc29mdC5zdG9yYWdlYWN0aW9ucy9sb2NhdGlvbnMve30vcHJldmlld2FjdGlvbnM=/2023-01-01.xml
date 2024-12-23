@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <CodeGen plane="mgmt-plane">
   <resource id="/subscriptions/{}/providers/microsoft.storageactions/locations/{}/previewactions" version="2023-01-01" swagger="mgmt-plane/storageactions/ResourceProviders/Microsoft.StorageActions/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LlN0b3JhZ2VBY3Rpb25zL2xvY2F0aW9ucy97bG9jYXRpb259L3ByZXZpZXdBY3Rpb25z/V/MjAyMy0wMS0wMQ=="/>
-  <commandGroup name="storage-actions task">
-    <command name="preview-action" version="2023-01-01" confirmation="">
+  <commandGroup name="storage-actions">
+    <command name="preview-action" version="2023-01-01">
       <resource id="/subscriptions/{}/providers/microsoft.storageactions/locations/{}/previewactions" version="2023-01-01" swagger="mgmt-plane/storageactions/ResourceProviders/Microsoft.StorageActions/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LlN0b3JhZ2VBY3Rpb25zL2xvY2F0aW9ucy97bG9jYXRpb259L3ByZXZpZXdBY3Rpb25z/V/MjAyMy0wMS0wMQ=="/>
       <argGroup name="">
         <arg type="ResourceLocation" var="$Path.location" options="location l" required="True" idPart="name"/>
@@ -10,26 +10,26 @@
       </argGroup>
       <argGroup name="Properties">
         <arg type="object" var="$parameters.properties.action" options="action" required="True" group="Properties">
-          <help short="Preview action container properties to be tested for a match with the provided condition."/>
+          <help short="Preview action to test"/>
           <arg type="boolean" var="$parameters.properties.action.elseBlockExists" options="else-block-exists" required="True">
             <help short="Specify whether the else block is present in the condition."/>
           </arg>
           <arg type="object" var="$parameters.properties.action.if" options="if" required="True">
             <help short="The condition to be tested for a match with container and blob properties."/>
             <arg type="string" var="$parameters.properties.action.if.condition" options="condition">
-              <help short="Storage task condition to be tested for a match."/>
+              <help short="Storage task condition to bes tested for a match."/>
             </arg>
           </arg>
         </arg>
         <arg type="array<object>" var="$parameters.properties.blobs" options="blobs" required="True" group="Properties">
-          <help short="Preview action container properties to be tested for a match with the provided condition."/>
+          <help short="Properties of some sample blobs in the container to test for matches with the preview action."/>
           <item type="object">
             <arg type="array<@StorageTaskPreviewKeyValueProperties_create>" var="$parameters.properties.blobs[].metadata" options="metadata">
               <help short="metadata key value pairs to be tested for a match against the provided condition."/>
               <item type="@StorageTaskPreviewKeyValueProperties_create"/>
             </arg>
             <arg type="string" var="$parameters.properties.blobs[].name" options="name">
-              <help short="property for the container name."/>
+              <help short="Name of test blob"/>
             </arg>
             <arg type="array<@StorageTaskPreviewKeyValueProperties_create>" var="$parameters.properties.blobs[].properties" options="properties">
               <help short="properties key value pairs to be tested for a match against the provided condition."/>
@@ -42,7 +42,7 @@
           </item>
         </arg>
         <arg type="object" var="$parameters.properties.container" options="container" required="True" group="Properties">
-          <help short="Preview action container properties to be tested for a match with the provided condition."/>
+          <help short="Properties of a sample container to test for a match with the preview action."/>
           <arg type="array<object>" var="$parameters.properties.container.metadata" options="metadata">
             <help short="metadata key value pairs to be tested for a match against the provided condition."/>
             <item type="object" cls="StorageTaskPreviewKeyValueProperties_create">
@@ -55,7 +55,7 @@
             </item>
           </arg>
           <arg type="string" var="$parameters.properties.container.name" options="name">
-            <help short="property for the container name."/>
+            <help short="Name of test container"/>
           </arg>
         </arg>
       </argGroup>

@@ -2,7 +2,7 @@
 <CodeGen plane="mgmt-plane">
   <resource id="/subscriptions/{}/providers/microsoft.storageactions/storagetasks" version="2023-01-01" swagger="mgmt-plane/storageactions/ResourceProviders/Microsoft.StorageActions/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LlN0b3JhZ2VBY3Rpb25zL3N0b3JhZ2VUYXNrcw==/V/MjAyMy0wMS0wMQ=="/>
   <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.storageactions/storagetasks" version="2023-01-01" swagger="mgmt-plane/storageactions/ResourceProviders/Microsoft.StorageActions/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuU3RvcmFnZUFjdGlvbnMvc3RvcmFnZVRhc2tz/V/MjAyMy0wMS0wMQ=="/>
-  <commandGroup name="storage-actions task">
+  <commandGroup name="storage-actions storage-task">
     <command name="list" version="2023-01-01">
       <resource id="/subscriptions/{}/providers/microsoft.storageactions/storagetasks" version="2023-01-01" swagger="mgmt-plane/storageactions/ResourceProviders/Microsoft.StorageActions/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LlN0b3JhZ2VBY3Rpb25zL3N0b3JhZ2VUYXNrcw==/V/MjAyMy0wMS0wMQ=="/>
       <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.storageactions/storagetasks" version="2023-01-01" swagger="mgmt-plane/storageactions/ResourceProviders/Microsoft.StorageActions/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuU3RvcmFnZUFjdGlvbnMvc3RvcmFnZVRhc2tz/V/MjAyMy0wMS0wMQ=="/>
@@ -10,12 +10,6 @@
         <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" idPart="resource_group"/>
         <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
       </argGroup>
-      <condition var="$Condition_StorageTasks_ListByResourceGroup">
-        <operator type="and">
-          <operator type="hasValue" arg="$Path.resourceGroupName"/>
-          <operator type="hasValue" arg="$Path.subscriptionId"/>
-        </operator>
-      </condition>
       <condition var="$Condition_StorageTasks_ListBySubscription">
         <operator type="and">
           <operator type="hasValue" arg="$Path.subscriptionId"/>
@@ -24,13 +18,16 @@
           </operator>
         </operator>
       </condition>
-      <operation when="$Condition_StorageTasks_ListByResourceGroup" operationId="StorageTasks_ListByResourceGroup">
-        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageActions/storageTasks">
+      <condition var="$Condition_StorageTasks_ListByResourceGroup">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.resourceGroupName"/>
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+        </operator>
+      </condition>
+      <operation when="$Condition_StorageTasks_ListBySubscription" operationId="StorageTasks_ListBySubscription">
+        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.StorageActions/storageTasks">
           <request method="get">
             <path>
-              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
-                <format maxLength="90" minLength="1"/>
-              </param>
               <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
             </path>
             <query>
@@ -174,10 +171,13 @@
           </response>
         </http>
       </operation>
-      <operation when="$Condition_StorageTasks_ListBySubscription" operationId="StorageTasks_ListBySubscription">
-        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.StorageActions/storageTasks">
+      <operation when="$Condition_StorageTasks_ListByResourceGroup" operationId="StorageTasks_ListByResourceGroup">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageActions/storageTasks">
           <request method="get">
             <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
               <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
             </path>
             <query>
