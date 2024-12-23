@@ -4,6 +4,12 @@ Manage Elastic SAN.
 
 ## Subgroups
 
+- [elastic-san](/Commands/elastic-san/elastic-san/readme.md)
+: elastic-san
+
+- [sku](/Commands/elastic-san/sku/readme.md)
+: sku
+
 - [volume](/Commands/elastic-san/volume/readme.md)
 : Manage Elastic SAN Volume.
 

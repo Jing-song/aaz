@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <CodeGen plane="mgmt-plane">
   <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.elasticsan/elasticsans/{}" version="2024-06-01-preview" swagger="mgmt-plane/elasticsan/ResourceProviders/Microsoft.ElasticSan/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuRWxhc3RpY1Nhbi9lbGFzdGljU2Fucy97ZWxhc3RpY1Nhbk5hbWV9/V/MjAyNC0wNi0wMS1wcmV2aWV3"/>
-  <commandGroup name="elastic-san">
+  <commandGroup name="elastic-san elastic-san">
     <command name="show" version="2024-06-01-preview">
       <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.elasticsan/elasticsans/{}" version="2024-06-01-preview" swagger="mgmt-plane/elasticsan/ResourceProviders/Microsoft.ElasticSan/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuRWxhc3RpY1Nhbi9lbGFzdGljU2Fucy97ZWxhc3RpY1Nhbk5hbWV9/V/MjAyNC0wNi0wMS1wcmV2aWV3"/>
       <argGroup name="">
@@ -243,45 +243,49 @@
         <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
         <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
       </argGroup>
-      <argGroup name="AutoScaleProperties">
-        <arg type="string" var="$parameters.properties.autoScaleProperties.scaleUpProperties.autoScalePolicyEnforcement" options="auto-scale-policy-enforcement auto-scale-policy" stage="Preview" group="AutoScaleProperties">
-          <help short="Enable or Disable scale up setting on Elastic San Appliance."/>
-          <enum>
-            <item name="Disabled" value="&quot;Disabled&quot;"/>
-            <item name="Enabled" value="&quot;Enabled&quot;"/>
-            <item name="None" value="&quot;None&quot;"/>
-          </enum>
-        </arg>
-        <arg type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.capacityUnitScaleUpLimitTiB" options="capacity-unit-scale-up-limit-tib capacity-unit-scale-up" stage="Preview" group="AutoScaleProperties">
-          <help short="Maximum scale up size on Elastic San appliance in TiB."/>
-        </arg>
-        <arg type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.increaseCapacityUnitByTiB" options="increase-capacity-unit-by-tib increase-capacity-unit" stage="Preview" group="AutoScaleProperties">
-          <help short="Unit to increase Capacity Unit on Elastic San appliance in TiB."/>
-        </arg>
-        <arg type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.unusedSizeTiB" options="unused-size-tib" stage="Preview" group="AutoScaleProperties">
-          <help short="Unused size on Elastic San appliance in TiB."/>
-        </arg>
-      </argGroup>
       <argGroup name="Parameters">
         <arg type="ResourceLocation" var="$parameters.location" options="location l" required="True" group="Parameters">
-          <help short="The geo-location where the resource lives."/>
+          <help short="The geo-location where the resource lives"/>
         </arg>
         <arg type="object" var="$parameters.tags" options="tags" group="Parameters">
-          <help short="Azure resource tags."/>
+          <help short="Resource tags."/>
           <additionalProp>
             <item type="string"/>
           </additionalProp>
         </arg>
       </argGroup>
       <argGroup name="Properties">
+        <arg type="object" var="$parameters.properties.autoScaleProperties" options="auto-scale-properties" group="Properties">
+          <help short="Auto Scale Properties for Elastic San Appliance."/>
+          <arg type="object" var="$parameters.properties.autoScaleProperties.scaleUpProperties" options="scale-up-properties">
+            <help short="Scale up settings on Elastic San Appliance."/>
+            <arg type="string" var="$parameters.properties.autoScaleProperties.scaleUpProperties.autoScalePolicyEnforcement" options="auto-scale-policy-enforcement">
+              <help short="Enable or Disable scale up setting on Elastic San Appliance."/>
+              <enum>
+                <item name="Disabled" value="&quot;Disabled&quot;"/>
+                <item name="Enabled" value="&quot;Enabled&quot;"/>
+                <item name="None" value="&quot;None&quot;"/>
+              </enum>
+            </arg>
+            <arg type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.capacityUnitScaleUpLimitTiB" options="capacity-unit-scale-up-limit-ti-b">
+              <help short="Maximum scale up size on Elastic San appliance in TiB."/>
+            </arg>
+            <arg type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.increaseCapacityUnitByTiB" options="increase-capacity-unit-by-ti-b">
+              <help short="Unit to increase Capacity Unit on Elastic San appliance in TiB."/>
+            </arg>
+            <arg type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.unusedSizeTiB" options="unused-size-ti-b">
+              <help short="Unused size on Elastic San appliance in TiB."/>
+            </arg>
+          </arg>
+        </arg>
         <arg type="array<string>" var="$parameters.properties.availabilityZones" options="availability-zones" group="Properties">
           <help short="Logical zone for Elastic San resource; example: [&quot;1&quot;]."/>
           <item type="string"/>
         </arg>
-        <arg type="integer64" var="$parameters.properties.baseSizeTiB" options="base-size-tib" required="True" group="Properties">
+        <arg type="integer64" var="$parameters.properties.baseSizeTiB" options="base-size-ti-b" required="True" group="Properties">
           <help short="Base size of the Elastic San appliance in TiB."/>
         </arg>
-        <arg type="integer64" var="$parameters.properties.extendedCapacitySizeTiB" options="extended-capacity-size-tib extended-size" required="True" group="Properties">
+        <arg type="integer64" var="$parameters.properties.extendedCapacitySizeTiB" options="extended-capacity-size-ti-b" required="True" group="Properties">
           <help short="Extended size of the Elastic San appliance in TiB."/>
         </arg>
         <arg type="string" var="$parameters.properties.publicNetworkAccess" options="public-network-access" group="Properties">
@@ -334,8 +338,8 @@
                 <schema type="object" name="parameters" required="True" clientFlatten="True">
                   <prop type="ResourceLocation" name="location" arg="$parameters.location" required="True"/>
                   <prop type="object" name="properties" required="True" clientFlatten="True">
-                    <prop type="object" name="autoScaleProperties">
-                      <prop type="object" name="scaleUpProperties">
+                    <prop type="object" name="autoScaleProperties" arg="$parameters.properties.autoScaleProperties">
+                      <prop type="object" name="scaleUpProperties" arg="$parameters.properties.autoScaleProperties.scaleUpProperties">
                         <prop type="string" name="autoScalePolicyEnforcement" arg="$parameters.properties.autoScaleProperties.scaleUpProperties.autoScalePolicyEnforcement">
                           <enum>
                             <item value="&quot;Disabled&quot;"/>
@@ -543,43 +547,41 @@
         <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
         <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
       </argGroup>
-      <argGroup name="AutoScaleProperties">
-        <arg nullable="True" type="string" var="$parameters.properties.autoScaleProperties.scaleUpProperties.autoScalePolicyEnforcement" options="auto-scale-policy-enforcement auto-scale-policy" stage="Preview" group="AutoScaleProperties">
-          <help short="Enable or Disable scale up setting on Elastic San Appliance."/>
-          <enum>
-            <item name="Disabled" value="&quot;Disabled&quot;"/>
-            <item name="Enabled" value="&quot;Enabled&quot;"/>
-            <item name="None" value="&quot;None&quot;"/>
-          </enum>
-        </arg>
-        <arg nullable="True" type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.capacityUnitScaleUpLimitTiB" options="capacity-unit-scale-up-limit-tib capacity-unit-scale-up" stage="Preview" group="AutoScaleProperties">
-          <help short="Maximum scale up size on Elastic San appliance in TiB."/>
-        </arg>
-        <arg nullable="True" type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.increaseCapacityUnitByTiB" options="increase-capacity-unit-by-tib increase-capacity-unit" stage="Preview" group="AutoScaleProperties">
-          <help short="Unit to increase Capacity Unit on Elastic San appliance in TiB."/>
-        </arg>
-        <arg nullable="True" type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.unusedSizeTiB" options="unused-size-tib" stage="Preview" group="AutoScaleProperties">
-          <help short="Unused size on Elastic San appliance in TiB."/>
-        </arg>
-      </argGroup>
       <argGroup name="Parameters">
         <arg nullable="True" type="object" var="$parameters.tags" options="tags" group="Parameters">
-          <help short="Azure resource tags."/>
+          <help short="Resource tags."/>
           <additionalProp>
             <item nullable="True" type="string"/>
           </additionalProp>
         </arg>
       </argGroup>
       <argGroup name="Properties">
+        <arg nullable="True" type="object" var="$parameters.properties.autoScaleProperties" options="auto-scale-properties" group="Properties">
+          <help short="Auto Scale Properties for Elastic San Appliance."/>
+          <arg nullable="True" type="object" var="$parameters.properties.autoScaleProperties.scaleUpProperties" options="scale-up-properties">
+            <help short="Scale up settings on Elastic San Appliance."/>
+            <arg nullable="True" type="string" var="$parameters.properties.autoScaleProperties.scaleUpProperties.autoScalePolicyEnforcement" options="auto-scale-policy-enforcement">
+              <help short="Enable or Disable scale up setting on Elastic San Appliance."/>
+              <enum>
+                <item name="Disabled" value="&quot;Disabled&quot;"/>
+                <item name="Enabled" value="&quot;Enabled&quot;"/>
+                <item name="None" value="&quot;None&quot;"/>
+              </enum>
+            </arg>
+            <arg nullable="True" type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.capacityUnitScaleUpLimitTiB" options="capacity-unit-scale-up-limit-ti-b">
+              <help short="Maximum scale up size on Elastic San appliance in TiB."/>
+            </arg>
+            <arg nullable="True" type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.increaseCapacityUnitByTiB" options="increase-capacity-unit-by-ti-b">
+              <help short="Unit to increase Capacity Unit on Elastic San appliance in TiB."/>
+            </arg>
+            <arg nullable="True" type="integer64" var="$parameters.properties.autoScaleProperties.scaleUpProperties.unusedSizeTiB" options="unused-size-ti-b">
+              <help short="Unused size on Elastic San appliance in TiB."/>
+            </arg>
+          </arg>
+        </arg>
         <arg nullable="True" type="array<string>" var="$parameters.properties.availabilityZones" options="availability-zones" group="Properties">
           <help short="Logical zone for Elastic San resource; example: [&quot;1&quot;]."/>
           <item nullable="True" type="string"/>
-        </arg>
-        <arg type="integer64" var="$parameters.properties.baseSizeTiB" options="base-size-tib" group="Properties">
-          <help short="Base size of the Elastic San appliance in TiB."/>
-        </arg>
-        <arg type="integer64" var="$parameters.properties.extendedCapacitySizeTiB" options="extended-capacity-size-tib extended-size" group="Properties">
-          <help short="Extended size of the Elastic San appliance in TiB."/>
         </arg>
         <arg nullable="True" type="string" var="$parameters.properties.publicNetworkAccess" options="public-network-access" group="Properties">
           <help short="Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'."/>
@@ -780,8 +782,8 @@
           <json>
             <schema type="object" name="parameters" required="True" clientFlatten="True">
               <prop type="object" name="properties" required="True" clientFlatten="True">
-                <prop type="object" name="autoScaleProperties">
-                  <prop type="object" name="scaleUpProperties">
+                <prop type="object" name="autoScaleProperties" arg="$parameters.properties.autoScaleProperties">
+                  <prop type="object" name="scaleUpProperties" arg="$parameters.properties.autoScaleProperties.scaleUpProperties">
                     <prop type="string" name="autoScalePolicyEnforcement" arg="$parameters.properties.autoScaleProperties.scaleUpProperties.autoScalePolicyEnforcement">
                       <enum>
                         <item value="&quot;Disabled&quot;"/>
@@ -797,8 +799,6 @@
                 <prop type="array<string>" name="availabilityZones" arg="$parameters.properties.availabilityZones">
                   <item type="string"/>
                 </prop>
-                <prop type="integer64" name="baseSizeTiB" arg="$parameters.properties.baseSizeTiB" required="True"/>
-                <prop type="integer64" name="extendedCapacitySizeTiB" arg="$parameters.properties.extendedCapacitySizeTiB" required="True"/>
                 <prop type="string" name="publicNetworkAccess" arg="$parameters.properties.publicNetworkAccess">
                   <enum>
                     <item value="&quot;Disabled&quot;"/>
