@@ -161,6 +161,9 @@
 - [dynatrace](/Commands/dynatrace/readme.md)
 : Manage dynatrace
 
+- [edge-marketplace](/Commands/edge-marketplace/readme.md)
+: edge-marketplace
+
 - [edge-zones](/Commands/edge-zones/readme.md)
 : Manage Edge Zone resources
 

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/{resourceuri}/providers/microsoft.edgemarketplace/offers/{}/generateaccesstoken" version="2023-08-01-preview" swagger="mgmt-plane/edgemarketplace/ResourceProviders/Microsoft.EdgeMarketplace/Paths/L3tyZXNvdXJjZVVyaX0vcHJvdmlkZXJzL01pY3Jvc29mdC5FZGdlTWFya2V0cGxhY2Uvb2ZmZXJzL3tvZmZlcklkfS9nZW5lcmF0ZUFjY2Vzc1Rva2Vu/V/MjAyMy0wOC0wMS1wcmV2aWV3"/>
+  <commandGroup name="edge-marketplace offer">
+    <command name="generate-access-token" version="2023-08-01-preview">
+      <resource id="/{resourceuri}/providers/microsoft.edgemarketplace/offers/{}/generateaccesstoken" version="2023-08-01-preview" swagger="mgmt-plane/edgemarketplace/ResourceProviders/Microsoft.EdgeMarketplace/Paths/L3tyZXNvdXJjZVVyaX0vcHJvdmlkZXJzL01pY3Jvc29mdC5FZGdlTWFya2V0cGxhY2Uvb2ZmZXJzL3tvZmZlcklkfS9nZW5lcmF0ZUFjY2Vzc1Rva2Vu/V/MjAyMy0wOC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.offerId" options="offer-id" required="True">
+          <help short="Id of the offer"/>
+        </arg>
+        <arg type="string" var="$Path.resourceUri" options="resource-uri" required="True">
+          <help short="The fully qualified Azure Resource manager identifier of the resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="Body">
+        <arg type="string" var="$body.deviceSku" options="device-sku" group="Body">
+          <help short="The device sku."/>
+        </arg>
+        <arg type="string" var="$body.deviceVersion" options="device-version" group="Body">
+          <help short="The device sku version."/>
+        </arg>
+        <arg type="string" var="$body.edgeMarketPlaceRegion" options="edge-market-place-region" required="True" group="Body">
+          <help short="The region where the disk will be created."/>
+        </arg>
+        <arg type="string" var="$body.egeMarketPlaceResourceId" options="ege-market-place-resource-id" group="Body">
+          <help short="The region where the disk will be created."/>
+        </arg>
+        <arg type="string" var="$body.hypervGeneration" options="hyperv-generation" group="Body">
+          <help short="The hyperv version."/>
+        </arg>
+        <arg type="string" var="$body.marketPlaceSku" options="market-place-sku" group="Body">
+          <help short="The marketplace sku."/>
+        </arg>
+        <arg type="string" var="$body.marketPlaceSkuVersion" options="market-place-sku-version" group="Body">
+          <help short="The marketplace sku version."/>
+        </arg>
+        <arg type="string" var="$body.publisherName" options="publisher-name" group="Body">
+          <help short="The name of the publisher."/>
+        </arg>
+      </argGroup>
+      <operation operationId="Offers_GenerateAccessToken">
+        <longRunning finalStateVia="location"/>
+        <http path="/{resourceUri}/providers/Microsoft.EdgeMarketplace/offers/{offerId}/generateAccessToken">
+          <request method="post">
+            <path>
+              <param type="string" name="offerId" arg="$Path.offerId" required="True"/>
+              <param type="string" name="resourceUri" arg="$Path.resourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-08-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="body" required="True" clientFlatten="True">
+                  <prop type="string" name="deviceSku" arg="$body.deviceSku"/>
+                  <prop type="string" name="deviceVersion" arg="$body.deviceVersion"/>
+                  <prop type="string" name="edgeMarketPlaceRegion" arg="$body.edgeMarketPlaceRegion" required="True"/>
+                  <prop type="string" name="egeMarketPlaceResourceId" arg="$body.egeMarketPlaceResourceId"/>
+                  <prop type="string" name="hypervGeneration" arg="$body.hypervGeneration"/>
+                  <prop type="string" name="marketPlaceSku" arg="$body.marketPlaceSku"/>
+                  <prop type="string" name="marketPlaceSkuVersion" arg="$body.marketPlaceSkuVersion"/>
+                  <prop type="string" name="publisherName" arg="$body.publisherName"/>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="accessToken" required="True"/>
+                  <prop type="string" name="diskId"/>
+                  <prop type="string" name="status"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+              <item name="Retry-After"/>
+            </header>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

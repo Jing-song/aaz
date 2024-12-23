@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/providers/microsoft.edgemarketplace/publishers" version="2023-08-01-preview" swagger="mgmt-plane/edgemarketplace/ResourceProviders/Microsoft.EdgeMarketplace/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LkVkZ2VNYXJrZXRwbGFjZS9wdWJsaXNoZXJz/V/MjAyMy0wOC0wMS1wcmV2aWV3"/>
+  <resource id="/{resourceuri}/providers/microsoft.edgemarketplace/publishers" version="2023-08-01-preview" swagger="mgmt-plane/edgemarketplace/ResourceProviders/Microsoft.EdgeMarketplace/Paths/L3tyZXNvdXJjZVVyaX0vcHJvdmlkZXJzL01pY3Jvc29mdC5FZGdlTWFya2V0cGxhY2UvcHVibGlzaGVycw==/V/MjAyMy0wOC0wMS1wcmV2aWV3"/>
+  <commandGroup name="edge-marketplace publisher">
+    <command name="list" version="2023-08-01-preview">
+      <resource id="/subscriptions/{}/providers/microsoft.edgemarketplace/publishers" version="2023-08-01-preview" swagger="mgmt-plane/edgemarketplace/ResourceProviders/Microsoft.EdgeMarketplace/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9wcm92aWRlcnMvTWljcm9zb2Z0LkVkZ2VNYXJrZXRwbGFjZS9wdWJsaXNoZXJz/V/MjAyMy0wOC0wMS1wcmV2aWV3"/>
+      <resource id="/{resourceuri}/providers/microsoft.edgemarketplace/publishers" version="2023-08-01-preview" swagger="mgmt-plane/edgemarketplace/ResourceProviders/Microsoft.EdgeMarketplace/Paths/L3tyZXNvdXJjZVVyaX0vcHJvdmlkZXJzL01pY3Jvc29mdC5FZGdlTWFya2V0cGxhY2UvcHVibGlzaGVycw==/V/MjAyMy0wOC0wMS1wcmV2aWV3"/>
+      <argGroup name="">
+        <arg type="string" var="$Path.resourceUri" options="resource-uri">
+          <help short="The fully qualified Azure Resource manager identifier of the resource."/>
+        </arg>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" idPart="subscription"/>
+        <arg type="string" var="$Query.filter" options="filter">
+          <help short="Filter the result list using the given expression."/>
+        </arg>
+        <arg type="integer32" var="$Query.maxpagesize" options="maxpagesize">
+          <help short="The maximum number of result items per page."/>
+        </arg>
+        <arg type="integer32" var="$Query.skip" options="skip">
+          <help short="The number of result items to skip."/>
+          <default value="0"/>
+        </arg>
+        <arg type="string" var="$Query.skipToken" options="skip-token">
+          <help short="Skip over when retrieving results."/>
+        </arg>
+        <arg type="integer32" var="$Query.top" options="top">
+          <help short="The number of result items to return."/>
+        </arg>
+      </argGroup>
+      <condition var="$Condition_Publishers_List">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.resourceUri"/>
+        </operator>
+      </condition>
+      <condition var="$Condition_Publishers_ListBySubscription">
+        <operator type="and">
+          <operator type="hasValue" arg="$Path.subscriptionId"/>
+        </operator>
+      </condition>
+      <operation when="$Condition_Publishers_List" operationId="Publishers_List">
+        <http path="/{resourceUri}/providers/Microsoft.EdgeMarketplace/publishers">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceUri" arg="$Path.resourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <param type="string" name="$filter" arg="$Query.filter"/>
+              <param type="string" name="$skipToken" arg="$Query.skipToken"/>
+              <param type="integer32" name="$top" arg="$Query.top"/>
+              <param type="integer32" name="maxpagesize" arg="$Query.maxpagesize"/>
+              <param type="integer32" name="skip" arg="$Query.skip">
+                <default value="0"/>
+              </param>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-08-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value" required="True">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/{resourceUri}/providers/Microsoft.EdgeMarketplace/publishers/{}"/>
+                      </prop>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties" clientFlatten="True">
+                        <prop type="string" name="provisioningState" required="True">
+                          <enum>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation when="$Condition_Publishers_ListBySubscription" operationId="Publishers_ListBySubscription">
+        <http path="/subscriptions/{subscriptionId}/providers/Microsoft.EdgeMarketplace/publishers">
+          <request method="get">
+            <path>
+              <param type="string" name="subscriptionId" arg="$Path.subscriptionId" required="True">
+                <format minLength="1"/>
+              </param>
+            </path>
+            <query>
+              <param type="string" name="$filter" arg="$Query.filter"/>
+              <param type="string" name="$skipToken" arg="$Query.skipToken"/>
+              <param type="integer32" name="$top" arg="$Query.top"/>
+              <param type="integer32" name="maxpagesize" arg="$Query.maxpagesize"/>
+              <param type="integer32" name="skip" arg="$Query.skip">
+                <default value="0"/>
+              </param>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2023-08-01-preview&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="string" name="nextLink"/>
+                  <prop type="array<object>" name="value" required="True">
+                    <item type="object">
+                      <prop readOnly="True" type="ResourceId" name="id">
+                        <format template="/{resourceUri}/providers/Microsoft.EdgeMarketplace/publishers/{}"/>
+                      </prop>
+                      <prop readOnly="True" type="string" name="name"/>
+                      <prop type="object" name="properties" clientFlatten="True">
+                        <prop type="string" name="provisioningState" required="True">
+                          <enum>
+                            <item value="&quot;Canceled&quot;"/>
+                            <item value="&quot;Failed&quot;"/>
+                            <item value="&quot;Succeeded&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="object" name="systemData">
+                        <prop type="dateTime" name="createdAt"/>
+                        <prop type="string" name="createdBy"/>
+                        <prop type="string" name="createdByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="dateTime" name="lastModifiedAt"/>
+                        <prop type="string" name="lastModifiedBy"/>
+                        <prop type="string" name="lastModifiedByType">
+                          <enum>
+                            <item value="&quot;Application&quot;"/>
+                            <item value="&quot;Key&quot;"/>
+                            <item value="&quot;ManagedIdentity&quot;"/>
+                            <item value="&quot;User&quot;"/>
+                          </enum>
+                        </prop>
+                      </prop>
+                      <prop readOnly="True" type="string" name="type"/>
+                    </item>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="array" ref="$Instance.value" clientFlatten="True" nextLink="$Instance.nextLink"/>
+    </command>
+  </commandGroup>
+</CodeGen>
