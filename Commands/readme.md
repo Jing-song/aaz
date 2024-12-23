@@ -173,9 +173,6 @@
 - [eventhubs](/Commands/eventhubs/readme.md)
 : eventhub
 
-- [firmwareanalysis](/Commands/firmwareanalysis/readme.md)
-: Commands to manage firmware analysis.
-
 - [fluid-relay](/Commands/fluid-relay/readme.md)
 : Manage Fluid Relay
 
@@ -196,6 +193,9 @@
 
 - [informatica](/Commands/informatica/readme.md)
 : Manage Informatica
+
+- [io-t-firmware-defense](/Commands/io-t-firmware-defense/readme.md)
+: io-t-firmware-defense
 
 - [k8s-runtime](/Commands/k8s-runtime/readme.md)
 : Manage Arc Kubernetes Runtime resources

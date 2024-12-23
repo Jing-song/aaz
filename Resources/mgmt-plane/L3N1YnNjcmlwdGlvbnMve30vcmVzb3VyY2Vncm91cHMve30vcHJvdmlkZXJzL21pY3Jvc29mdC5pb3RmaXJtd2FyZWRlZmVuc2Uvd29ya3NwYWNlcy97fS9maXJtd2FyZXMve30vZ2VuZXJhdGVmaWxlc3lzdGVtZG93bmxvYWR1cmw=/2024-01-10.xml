@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <CodeGen plane="mgmt-plane">
   <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.iotfirmwaredefense/workspaces/{}/firmwares/{}/generatefilesystemdownloadurl" version="2024-01-10" swagger="mgmt-plane/fist/ResourceProviders/Microsoft.IoTFirmwareDefense/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW9URmlybXdhcmVEZWZlbnNlL3dvcmtzcGFjZXMve3dvcmtzcGFjZU5hbWV9L2Zpcm13YXJlcy97ZmlybXdhcmVJZH0vZ2VuZXJhdGVGaWxlc3lzdGVtRG93bmxvYWRVcmw=/V/MjAyNC0wMS0xMA=="/>
-  <commandGroup name="firmwareanalysis firmware">
-    <command name="generate-filesystem-download-url" version="2024-01-10" confirmation="">
+  <commandGroup name="io-t-firmware-defense workspace firmware">
+    <command name="generate-filesystem-download-url" version="2024-01-10">
       <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.iotfirmwaredefense/workspaces/{}/firmwares/{}/generatefilesystemdownloadurl" version="2024-01-10" swagger="mgmt-plane/fist/ResourceProviders/Microsoft.IoTFirmwareDefense/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSW9URmlybXdhcmVEZWZlbnNlL3dvcmtzcGFjZXMve3dvcmtzcGFjZU5hbWV9L2Zpcm13YXJlcy97ZmlybXdhcmVJZH0vZ2VuZXJhdGVGaWxlc3lzdGVtRG93bmxvYWRVcmw=/V/MjAyNC0wMS0xMA=="/>
       <argGroup name="">
         <arg type="string" var="$Path.firmwareId" options="firmware-id" required="True" idPart="child_name_1">
