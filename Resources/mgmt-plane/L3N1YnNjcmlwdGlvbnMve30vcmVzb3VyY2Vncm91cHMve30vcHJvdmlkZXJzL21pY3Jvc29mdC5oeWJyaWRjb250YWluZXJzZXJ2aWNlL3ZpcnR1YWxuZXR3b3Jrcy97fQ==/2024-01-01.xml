@@ -1,0 +1,747 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/virtualnetworks/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS92aXJ0dWFsTmV0d29ya3Mve3ZpcnR1YWxOZXR3b3JrTmFtZX0=/V/MjAyNC0wMS0wMQ=="/>
+  <commandGroup name="hybrid-container-service virtual-network">
+    <command name="show" version="2024-01-01">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/virtualnetworks/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS92aXJ0dWFsTmV0d29ya3Mve3ZpcnR1YWxOZXR3b3JrTmFtZX0=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+        <arg type="string" var="$Path.virtualNetworkName" options="virtual-network-name name n" required="True" idPart="name">
+          <help short="Parameter for the name of the virtual network"/>
+          <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+        </arg>
+      </argGroup>
+      <operation operationId="virtualNetworks_Retrieve">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
+              <param type="string" name="virtualNetworkName" arg="$Path.virtualNetworkName" required="True">
+                <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HybridContainerService/virtualNetworks/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="array<string>" name="dnsServers">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="gateway"/>
+                    <prop type="object" name="infraVnetProfile">
+                      <prop type="object" name="hci">
+                        <prop type="string" name="mocGroup"/>
+                        <prop type="string" name="mocLocation"/>
+                        <prop type="string" name="mocVnetName"/>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="ipAddressPrefix"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="object" name="status">
+                      <prop type="object" name="operationStatus">
+                        <prop type="object" name="error">
+                          <prop type="string" name="code"/>
+                          <prop type="string" name="message"/>
+                        </prop>
+                        <prop type="string" name="operationId"/>
+                        <prop type="string" name="status"/>
+                      </prop>
+                    </prop>
+                    <prop type="array<object>" name="vipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP"/>
+                        <prop type="string" name="startIP"/>
+                      </item>
+                    </prop>
+                    <prop type="integer32" name="vlanID"/>
+                    <prop type="array<object>" name="vmipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP"/>
+                        <prop type="string" name="startIP"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-01-01" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/virtualnetworks/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS92aXJ0dWFsTmV0d29ya3Mve3ZpcnR1YWxOZXR3b3JrTmFtZX0=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+        <arg type="string" var="$Path.virtualNetworkName" options="virtual-network-name name n" required="True" idPart="name">
+          <help short="Parameter for the name of the virtual network"/>
+          <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+        </arg>
+      </argGroup>
+      <operation operationId="virtualNetworks_Delete">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
+              <param type="string" name="virtualNetworkName" arg="$Path.virtualNetworkName" required="True">
+                <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-01-01">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/virtualnetworks/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS92aXJ0dWFsTmV0d29ya3Mve3ZpcnR1YWxOZXR3b3JrTmFtZX0=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+        <arg type="string" var="$Path.virtualNetworkName" options="virtual-network-name name n" required="True" idPart="name">
+          <help short="Parameter for the name of the virtual network"/>
+          <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="array<string>" var="$virtualNetworks.properties.dnsServers" options="dns-servers" group="Properties">
+          <help short="List of DNS server IP Addresses associated with the network"/>
+          <item type="string"/>
+        </arg>
+        <arg type="string" var="$virtualNetworks.properties.gateway" options="gateway" group="Properties">
+          <help short="IP Address of the Gateway associated with the network"/>
+        </arg>
+        <arg type="object" var="$virtualNetworks.properties.infraVnetProfile" options="infra-vnet-profile" group="Properties">
+          <arg type="object" var="$virtualNetworks.properties.infraVnetProfile.hci" options="hci">
+            <help short="Infrastructure network profile for HCI platform"/>
+            <arg type="string" var="$virtualNetworks.properties.infraVnetProfile.hci.mocGroup" options="moc-group">
+              <help short="Group in MOC(Microsoft On-premises Cloud)"/>
+            </arg>
+            <arg type="string" var="$virtualNetworks.properties.infraVnetProfile.hci.mocLocation" options="moc-location">
+              <help short="Location in MOC(Microsoft On-premises Cloud)"/>
+            </arg>
+            <arg type="string" var="$virtualNetworks.properties.infraVnetProfile.hci.mocVnetName" options="moc-vnet-name">
+              <help short="Virtual Network name in MOC(Microsoft On-premises Cloud)"/>
+            </arg>
+          </arg>
+        </arg>
+        <arg type="string" var="$virtualNetworks.properties.ipAddressPrefix" options="ip-address-prefix" group="Properties">
+          <help short="IP Address Prefix of the network"/>
+        </arg>
+        <arg type="array<object>" var="$virtualNetworks.properties.vipPool" options="vip-pool" group="Properties">
+          <help short="Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer"/>
+          <item type="object">
+            <arg type="string" var="$virtualNetworks.properties.vipPool[].endIP" options="end-ip">
+              <help short="Ending IP address for the IP Pool"/>
+            </arg>
+            <arg type="string" var="$virtualNetworks.properties.vipPool[].startIP" options="start-ip">
+              <help short="Starting IP address for the IP Pool"/>
+            </arg>
+          </item>
+        </arg>
+        <arg type="integer32" var="$virtualNetworks.properties.vlanID" options="vlan-id" group="Properties">
+          <help short="VLAN Id used by the network"/>
+        </arg>
+        <arg type="array<object>" var="$virtualNetworks.properties.vmipPool" options="vmip-pool" group="Properties">
+          <help short="Range of IP Addresses for Kubernetes node VMs"/>
+          <item type="object">
+            <arg type="string" var="$virtualNetworks.properties.vmipPool[].endIP" options="end-ip">
+              <help short="Ending IP address for the IP Pool"/>
+            </arg>
+            <arg type="string" var="$virtualNetworks.properties.vmipPool[].startIP" options="start-ip">
+              <help short="Starting IP address for the IP Pool"/>
+            </arg>
+          </item>
+        </arg>
+      </argGroup>
+      <argGroup name="VirtualNetworks">
+        <arg type="object" var="$virtualNetworks.extendedLocation" options="extended-location" group="VirtualNetworks">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg type="string" var="$virtualNetworks.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg type="string" var="$virtualNetworks.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+        <arg type="ResourceLocation" var="$virtualNetworks.location" options="location l" required="True" group="VirtualNetworks">
+          <help short="The geo-location where the resource lives"/>
+        </arg>
+        <arg type="object" var="$virtualNetworks.tags" options="tags" group="VirtualNetworks">
+          <help short="Resource tags."/>
+          <additionalProp>
+            <item type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <operation operationId="virtualNetworks_CreateOrUpdate">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}">
+          <request method="put">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
+              <param type="string" name="virtualNetworkName" arg="$Path.virtualNetworkName" required="True">
+                <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="virtualNetworks" required="True" clientFlatten="True">
+                  <prop type="object" name="extendedLocation" arg="$virtualNetworks.extendedLocation">
+                    <prop type="string" name="name" arg="$virtualNetworks.extendedLocation.name"/>
+                    <prop type="string" name="type" arg="$virtualNetworks.extendedLocation.type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" arg="$virtualNetworks.location" required="True"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="array<string>" name="dnsServers" arg="$virtualNetworks.properties.dnsServers">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="gateway" arg="$virtualNetworks.properties.gateway"/>
+                    <prop type="object" name="infraVnetProfile" arg="$virtualNetworks.properties.infraVnetProfile">
+                      <prop type="object" name="hci" arg="$virtualNetworks.properties.infraVnetProfile.hci">
+                        <prop type="string" name="mocGroup" arg="$virtualNetworks.properties.infraVnetProfile.hci.mocGroup"/>
+                        <prop type="string" name="mocLocation" arg="$virtualNetworks.properties.infraVnetProfile.hci.mocLocation"/>
+                        <prop type="string" name="mocVnetName" arg="$virtualNetworks.properties.infraVnetProfile.hci.mocVnetName"/>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="ipAddressPrefix" arg="$virtualNetworks.properties.ipAddressPrefix"/>
+                    <prop type="array<object>" name="vipPool" arg="$virtualNetworks.properties.vipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP" arg="$virtualNetworks.properties.vipPool[].endIP"/>
+                        <prop type="string" name="startIP" arg="$virtualNetworks.properties.vipPool[].startIP"/>
+                      </item>
+                    </prop>
+                    <prop type="integer32" name="vlanID" arg="$virtualNetworks.properties.vlanID"/>
+                    <prop type="array<object>" name="vmipPool" arg="$virtualNetworks.properties.vmipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP" arg="$virtualNetworks.properties.vmipPool[].endIP"/>
+                        <prop type="string" name="startIP" arg="$virtualNetworks.properties.vmipPool[].startIP"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags" arg="$virtualNetworks.tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HybridContainerService/virtualNetworks/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="array<string>" name="dnsServers">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="gateway"/>
+                    <prop type="object" name="infraVnetProfile">
+                      <prop type="object" name="hci">
+                        <prop type="string" name="mocGroup"/>
+                        <prop type="string" name="mocLocation"/>
+                        <prop type="string" name="mocVnetName"/>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="ipAddressPrefix"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="object" name="status">
+                      <prop type="object" name="operationStatus">
+                        <prop type="object" name="error">
+                          <prop type="string" name="code"/>
+                          <prop type="string" name="message"/>
+                        </prop>
+                        <prop type="string" name="operationId"/>
+                        <prop type="string" name="status"/>
+                      </prop>
+                    </prop>
+                    <prop type="array<object>" name="vipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP"/>
+                        <prop type="string" name="startIP"/>
+                      </item>
+                    </prop>
+                    <prop type="integer32" name="vlanID"/>
+                    <prop type="array<object>" name="vmipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP"/>
+                        <prop type="string" name="startIP"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-01-01">
+      <resource id="/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/virtualnetworks/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3N1YnNjcmlwdGlvbnMve3N1YnNjcmlwdGlvbklkfS9yZXNvdXJjZUdyb3Vwcy97cmVzb3VyY2VHcm91cE5hbWV9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS92aXJ0dWFsTmV0d29ya3Mve3ZpcnR1YWxOZXR3b3JrTmFtZX0=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="ResourceGroupName" var="$Path.resourceGroupName" options="resource-group g" required="True" idPart="resource_group"/>
+        <arg type="SubscriptionId" var="$Path.subscriptionId" options="subscription" required="True" idPart="subscription"/>
+        <arg type="string" var="$Path.virtualNetworkName" options="virtual-network-name name n" required="True" idPart="name">
+          <help short="Parameter for the name of the virtual network"/>
+          <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="array<string>" var="$virtualNetworks.properties.dnsServers" options="dns-servers" group="Properties">
+          <help short="List of DNS server IP Addresses associated with the network"/>
+          <item nullable="True" type="string"/>
+        </arg>
+        <arg nullable="True" type="string" var="$virtualNetworks.properties.gateway" options="gateway" group="Properties">
+          <help short="IP Address of the Gateway associated with the network"/>
+        </arg>
+        <arg nullable="True" type="object" var="$virtualNetworks.properties.infraVnetProfile" options="infra-vnet-profile" group="Properties">
+          <arg nullable="True" type="object" var="$virtualNetworks.properties.infraVnetProfile.hci" options="hci">
+            <help short="Infrastructure network profile for HCI platform"/>
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.infraVnetProfile.hci.mocGroup" options="moc-group">
+              <help short="Group in MOC(Microsoft On-premises Cloud)"/>
+            </arg>
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.infraVnetProfile.hci.mocLocation" options="moc-location">
+              <help short="Location in MOC(Microsoft On-premises Cloud)"/>
+            </arg>
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.infraVnetProfile.hci.mocVnetName" options="moc-vnet-name">
+              <help short="Virtual Network name in MOC(Microsoft On-premises Cloud)"/>
+            </arg>
+          </arg>
+        </arg>
+        <arg nullable="True" type="string" var="$virtualNetworks.properties.ipAddressPrefix" options="ip-address-prefix" group="Properties">
+          <help short="IP Address Prefix of the network"/>
+        </arg>
+        <arg nullable="True" type="array<object>" var="$virtualNetworks.properties.vipPool" options="vip-pool" group="Properties">
+          <help short="Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer"/>
+          <item nullable="True" type="object">
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.vipPool[].endIP" options="end-ip">
+              <help short="Ending IP address for the IP Pool"/>
+            </arg>
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.vipPool[].startIP" options="start-ip">
+              <help short="Starting IP address for the IP Pool"/>
+            </arg>
+          </item>
+        </arg>
+        <arg nullable="True" type="integer32" var="$virtualNetworks.properties.vlanID" options="vlan-id" group="Properties">
+          <help short="VLAN Id used by the network"/>
+        </arg>
+        <arg nullable="True" type="array<object>" var="$virtualNetworks.properties.vmipPool" options="vmip-pool" group="Properties">
+          <help short="Range of IP Addresses for Kubernetes node VMs"/>
+          <item nullable="True" type="object">
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.vmipPool[].endIP" options="end-ip">
+              <help short="Ending IP address for the IP Pool"/>
+            </arg>
+            <arg nullable="True" type="string" var="$virtualNetworks.properties.vmipPool[].startIP" options="start-ip">
+              <help short="Starting IP address for the IP Pool"/>
+            </arg>
+          </item>
+        </arg>
+      </argGroup>
+      <argGroup name="VirtualNetworks">
+        <arg nullable="True" type="object" var="$virtualNetworks.extendedLocation" options="extended-location" group="VirtualNetworks">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg nullable="True" type="string" var="$virtualNetworks.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg nullable="True" type="string" var="$virtualNetworks.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$virtualNetworks.tags" options="tags" group="VirtualNetworks">
+          <help short="Resource tags."/>
+          <additionalProp>
+            <item nullable="True" type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <operation operationId="virtualNetworks_Retrieve">
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}">
+          <request method="get">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
+              <param type="string" name="virtualNetworkName" arg="$Path.virtualNetworkName" required="True">
+                <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="VirtualNetwork_read">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HybridContainerService/virtualNetworks/{}"/>
+                  </prop>
+                  <prop type="ResourceLocation" name="location" required="True"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="array<string>" name="dnsServers">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="gateway"/>
+                    <prop type="object" name="infraVnetProfile">
+                      <prop type="object" name="hci">
+                        <prop type="string" name="mocGroup"/>
+                        <prop type="string" name="mocLocation"/>
+                        <prop type="string" name="mocVnetName"/>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="ipAddressPrefix"/>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="object" name="status">
+                      <prop type="object" name="operationStatus">
+                        <prop type="object" name="error">
+                          <prop type="string" name="code"/>
+                          <prop type="string" name="message"/>
+                        </prop>
+                        <prop type="string" name="operationId"/>
+                        <prop type="string" name="status"/>
+                      </prop>
+                    </prop>
+                    <prop type="array<object>" name="vipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP"/>
+                        <prop type="string" name="startIP"/>
+                      </item>
+                    </prop>
+                    <prop type="integer32" name="vlanID"/>
+                    <prop type="array<object>" name="vmipPool">
+                      <item type="object">
+                        <prop type="string" name="endIP"/>
+                        <prop type="string" name="startIP"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="virtualNetworks" required="True" clientFlatten="True">
+              <prop type="object" name="extendedLocation" arg="$virtualNetworks.extendedLocation">
+                <prop type="string" name="name" arg="$virtualNetworks.extendedLocation.name"/>
+                <prop type="string" name="type" arg="$virtualNetworks.extendedLocation.type">
+                  <enum>
+                    <item value="&quot;CustomLocation&quot;"/>
+                  </enum>
+                </prop>
+              </prop>
+              <prop type="object" name="properties" clientFlatten="True">
+                <prop type="array<string>" name="dnsServers" arg="$virtualNetworks.properties.dnsServers">
+                  <item type="string"/>
+                </prop>
+                <prop type="string" name="gateway" arg="$virtualNetworks.properties.gateway"/>
+                <prop type="object" name="infraVnetProfile" arg="$virtualNetworks.properties.infraVnetProfile">
+                  <prop type="object" name="hci" arg="$virtualNetworks.properties.infraVnetProfile.hci">
+                    <prop type="string" name="mocGroup" arg="$virtualNetworks.properties.infraVnetProfile.hci.mocGroup"/>
+                    <prop type="string" name="mocLocation" arg="$virtualNetworks.properties.infraVnetProfile.hci.mocLocation"/>
+                    <prop type="string" name="mocVnetName" arg="$virtualNetworks.properties.infraVnetProfile.hci.mocVnetName"/>
+                  </prop>
+                </prop>
+                <prop type="string" name="ipAddressPrefix" arg="$virtualNetworks.properties.ipAddressPrefix"/>
+                <prop type="array<object>" name="vipPool" arg="$virtualNetworks.properties.vipPool">
+                  <item type="object">
+                    <prop type="string" name="endIP" arg="$virtualNetworks.properties.vipPool[].endIP"/>
+                    <prop type="string" name="startIP" arg="$virtualNetworks.properties.vipPool[].startIP"/>
+                  </item>
+                </prop>
+                <prop type="integer32" name="vlanID" arg="$virtualNetworks.properties.vlanID"/>
+                <prop type="array<object>" name="vmipPool" arg="$virtualNetworks.properties.vmipPool">
+                  <item type="object">
+                    <prop type="string" name="endIP" arg="$virtualNetworks.properties.vmipPool[].endIP"/>
+                    <prop type="string" name="startIP" arg="$virtualNetworks.properties.vmipPool[].startIP"/>
+                  </item>
+                </prop>
+              </prop>
+              <prop type="object" name="tags" arg="$virtualNetworks.tags">
+                <additionalProp>
+                  <item type="string"/>
+                </additionalProp>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="virtualNetworks_CreateOrUpdate">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}">
+          <request method="put">
+            <path>
+              <param type="string" name="resourceGroupName" arg="$Path.resourceGroupName" required="True">
+                <format maxLength="90" minLength="1"/>
+              </param>
+              <param type="uuid" name="subscriptionId" arg="$Path.subscriptionId" required="True"/>
+              <param type="string" name="virtualNetworkName" arg="$Path.virtualNetworkName" required="True">
+                <format pattern="^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$" maxLength="64" minLength="3"/>
+              </param>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@VirtualNetwork_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

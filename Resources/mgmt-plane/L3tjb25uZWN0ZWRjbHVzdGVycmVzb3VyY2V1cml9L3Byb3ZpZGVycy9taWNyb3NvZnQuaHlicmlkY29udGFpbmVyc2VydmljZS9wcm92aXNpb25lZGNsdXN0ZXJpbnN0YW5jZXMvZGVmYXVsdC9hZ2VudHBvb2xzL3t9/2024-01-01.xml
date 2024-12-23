@@ -1,0 +1,861 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9hZ2VudFBvb2xzL3thZ2VudFBvb2xOYW1lfQ==/V/MjAyNC0wMS0wMQ=="/>
+  <commandGroup name="hybrid-container-service provisioned-cluster-instance default agent-pool">
+    <command name="show" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9hZ2VudFBvb2xzL3thZ2VudFBvb2xOYW1lfQ==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.agentPoolName" options="agent-pool-name" required="True">
+          <help short="Parameter for the name of the agent pool in the provisioned cluster."/>
+          <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="agentPool_Get">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}">
+          <request method="get">
+            <path>
+              <param type="string" name="agentPoolName" arg="$Path.agentPoolName" required="True">
+                <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+              </param>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="count">
+                      <default value="1"/>
+                    </prop>
+                    <prop type="boolean" name="enableAutoScaling">
+                      <default value="false"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                    <prop type="integer32" name="maxCount"/>
+                    <prop type="integer32" name="maxPods"/>
+                    <prop type="integer32" name="minCount"/>
+                    <prop type="object" name="nodeLabels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="array<string>" name="nodeTaints">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="osSKU">
+                      <enum>
+                        <item value="&quot;CBLMariner&quot;"/>
+                        <item value="&quot;Windows2019&quot;"/>
+                        <item value="&quot;Windows2022&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="osType">
+                      <default value="&quot;Linux&quot;"/>
+                      <enum>
+                        <item value="&quot;Linux&quot;"/>
+                        <item value="&quot;Windows&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="status">
+                      <prop readOnly="True" type="string" name="currentState">
+                        <enum>
+                          <item value="&quot;Accepted&quot;"/>
+                          <item value="&quot;Canceled&quot;"/>
+                          <item value="&quot;Creating&quot;"/>
+                          <item value="&quot;Deleting&quot;"/>
+                          <item value="&quot;Failed&quot;"/>
+                          <item value="&quot;Pending&quot;"/>
+                          <item value="&quot;Succeeded&quot;"/>
+                          <item value="&quot;Updating&quot;"/>
+                          <item value="&quot;Upgrading&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="errorMessage"/>
+                      <prop type="array<object>" name="readyReplicas">
+                        <item type="object">
+                          <prop type="integer32" name="count">
+                            <default value="1"/>
+                          </prop>
+                          <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                          <prop type="string" name="vmSize"/>
+                        </item>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="vmSize"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-01-01" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9hZ2VudFBvb2xzL3thZ2VudFBvb2xOYW1lfQ==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.agentPoolName" options="agent-pool-name" required="True">
+          <help short="Parameter for the name of the agent pool in the provisioned cluster."/>
+          <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="agentPool_Delete">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}">
+          <request method="delete">
+            <path>
+              <param type="string" name="agentPoolName" arg="$Path.agentPoolName" required="True">
+                <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+              </param>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9hZ2VudFBvb2xzL3thZ2VudFBvb2xOYW1lfQ==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.agentPoolName" options="agent-pool-name" required="True">
+          <help short="Parameter for the name of the agent pool in the provisioned cluster."/>
+          <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="AgentPool">
+        <arg type="object" var="$agentPool.extendedLocation" options="extended-location" group="AgentPool">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg type="string" var="$agentPool.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg type="string" var="$agentPool.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+        <arg type="object" var="$agentPool.tags" options="tags" group="AgentPool">
+          <help short="Resource tags"/>
+          <additionalProp>
+            <item type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="integer32" var="$agentPool.properties.count" options="count" group="Properties">
+          <help short="Number of nodes in the agent pool. The default value is 1."/>
+          <default value="1"/>
+        </arg>
+        <arg type="boolean" var="$agentPool.properties.enableAutoScaling" options="enable-auto-scaling" group="Properties">
+          <help short="Whether to enable auto-scaler. Default value is false"/>
+          <default value="false"/>
+        </arg>
+        <arg type="integer32" var="$agentPool.properties.maxCount" options="max-count" group="Properties">
+          <help short="The maximum number of nodes for auto-scaling"/>
+        </arg>
+        <arg type="integer32" var="$agentPool.properties.maxPods" options="max-pods" group="Properties">
+          <help short="The maximum number of pods that can run on a node."/>
+        </arg>
+        <arg type="integer32" var="$agentPool.properties.minCount" options="min-count" group="Properties">
+          <help short="The minimum number of nodes for auto-scaling"/>
+        </arg>
+        <arg type="object" var="$agentPool.properties.nodeLabels" options="node-labels" group="Properties">
+          <help short="The node labels to be persisted across all nodes in agent pool."/>
+          <additionalProp>
+            <item type="string"/>
+          </additionalProp>
+        </arg>
+        <arg type="array<string>" var="$agentPool.properties.nodeTaints" options="node-taints" group="Properties">
+          <help short="Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule."/>
+          <item type="string"/>
+        </arg>
+        <arg type="string" var="$agentPool.properties.osSKU" options="os-sku" group="Properties">
+          <help short="Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows."/>
+          <enum>
+            <item name="CBLMariner" value="&quot;CBLMariner&quot;"/>
+            <item name="Windows2019" value="&quot;Windows2019&quot;"/>
+            <item name="Windows2022" value="&quot;Windows2022&quot;"/>
+          </enum>
+        </arg>
+        <arg type="string" var="$agentPool.properties.osType" options="os-type" group="Properties">
+          <help short="OSType to be used to specify OS type for the VMs. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'"/>
+          <default value="&quot;Linux&quot;"/>
+          <enum>
+            <item name="Linux" value="&quot;Linux&quot;"/>
+            <item name="Windows" value="&quot;Windows&quot;"/>
+          </enum>
+        </arg>
+        <arg type="object" var="$agentPool.properties.status" options="status" group="Properties">
+          <help short="The observed status of the agent pool."/>
+          <arg type="string" var="$agentPool.properties.status.errorMessage" options="error-message">
+            <help short="Error messages during an agent pool operation or steady state."/>
+          </arg>
+          <arg type="array<object>" var="$agentPool.properties.status.readyReplicas" options="ready-replicas">
+            <item type="object">
+              <arg type="integer32" var="$agentPool.properties.status.readyReplicas[].count" options="count">
+                <help short="Number of nodes in the agent pool. The default value is 1."/>
+                <default value="1"/>
+              </arg>
+              <arg type="string" var="$agentPool.properties.status.readyReplicas[].vmSize" options="vm-size">
+                <help short="The VM sku size of the agent pool node VMs."/>
+              </arg>
+            </item>
+          </arg>
+        </arg>
+        <arg type="string" var="$agentPool.properties.vmSize" options="vm-size" group="Properties">
+          <help short="The VM sku size of the agent pool node VMs."/>
+        </arg>
+      </argGroup>
+      <operation operationId="agentPool_CreateOrUpdate">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}">
+          <request method="put">
+            <path>
+              <param type="string" name="agentPoolName" arg="$Path.agentPoolName" required="True">
+                <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+              </param>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="agentPool" required="True" clientFlatten="True">
+                  <prop type="object" name="extendedLocation" arg="$agentPool.extendedLocation">
+                    <prop type="string" name="name" arg="$agentPool.extendedLocation.name"/>
+                    <prop type="string" name="type" arg="$agentPool.extendedLocation.type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="count" arg="$agentPool.properties.count">
+                      <default value="1"/>
+                    </prop>
+                    <prop type="boolean" name="enableAutoScaling" arg="$agentPool.properties.enableAutoScaling">
+                      <default value="false"/>
+                    </prop>
+                    <prop type="integer32" name="maxCount" arg="$agentPool.properties.maxCount"/>
+                    <prop type="integer32" name="maxPods" arg="$agentPool.properties.maxPods"/>
+                    <prop type="integer32" name="minCount" arg="$agentPool.properties.minCount"/>
+                    <prop type="object" name="nodeLabels" arg="$agentPool.properties.nodeLabels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="array<string>" name="nodeTaints" arg="$agentPool.properties.nodeTaints">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="osSKU" arg="$agentPool.properties.osSKU">
+                      <enum>
+                        <item value="&quot;CBLMariner&quot;"/>
+                        <item value="&quot;Windows2019&quot;"/>
+                        <item value="&quot;Windows2022&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="osType" arg="$agentPool.properties.osType">
+                      <default value="&quot;Linux&quot;"/>
+                      <enum>
+                        <item value="&quot;Linux&quot;"/>
+                        <item value="&quot;Windows&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="status" arg="$agentPool.properties.status">
+                      <prop type="string" name="errorMessage" arg="$agentPool.properties.status.errorMessage"/>
+                      <prop type="array<object>" name="readyReplicas" arg="$agentPool.properties.status.readyReplicas">
+                        <item type="object">
+                          <prop type="integer32" name="count" arg="$agentPool.properties.status.readyReplicas[].count">
+                            <default value="1"/>
+                          </prop>
+                          <prop type="string" name="vmSize" arg="$agentPool.properties.status.readyReplicas[].vmSize"/>
+                        </item>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="vmSize" arg="$agentPool.properties.vmSize"/>
+                  </prop>
+                  <prop type="object" name="tags" arg="$agentPool.tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="count">
+                      <default value="1"/>
+                    </prop>
+                    <prop type="boolean" name="enableAutoScaling">
+                      <default value="false"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                    <prop type="integer32" name="maxCount"/>
+                    <prop type="integer32" name="maxPods"/>
+                    <prop type="integer32" name="minCount"/>
+                    <prop type="object" name="nodeLabels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="array<string>" name="nodeTaints">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="osSKU">
+                      <enum>
+                        <item value="&quot;CBLMariner&quot;"/>
+                        <item value="&quot;Windows2019&quot;"/>
+                        <item value="&quot;Windows2022&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="osType">
+                      <default value="&quot;Linux&quot;"/>
+                      <enum>
+                        <item value="&quot;Linux&quot;"/>
+                        <item value="&quot;Windows&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="status">
+                      <prop readOnly="True" type="string" name="currentState">
+                        <enum>
+                          <item value="&quot;Accepted&quot;"/>
+                          <item value="&quot;Canceled&quot;"/>
+                          <item value="&quot;Creating&quot;"/>
+                          <item value="&quot;Deleting&quot;"/>
+                          <item value="&quot;Failed&quot;"/>
+                          <item value="&quot;Pending&quot;"/>
+                          <item value="&quot;Succeeded&quot;"/>
+                          <item value="&quot;Updating&quot;"/>
+                          <item value="&quot;Upgrading&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="errorMessage"/>
+                      <prop type="array<object>" name="readyReplicas">
+                        <item type="object">
+                          <prop type="integer32" name="count">
+                            <default value="1"/>
+                          </prop>
+                          <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                          <prop type="string" name="vmSize"/>
+                        </item>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="vmSize"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9hZ2VudFBvb2xzL3thZ2VudFBvb2xOYW1lfQ==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.agentPoolName" options="agent-pool-name" required="True">
+          <help short="Parameter for the name of the agent pool in the provisioned cluster."/>
+          <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+        </arg>
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="AgentPool">
+        <arg nullable="True" type="object" var="$agentPool.extendedLocation" options="extended-location" group="AgentPool">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg nullable="True" type="string" var="$agentPool.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg nullable="True" type="string" var="$agentPool.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$agentPool.tags" options="tags" group="AgentPool">
+          <help short="Resource tags"/>
+          <additionalProp>
+            <item nullable="True" type="string"/>
+          </additionalProp>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="integer32" var="$agentPool.properties.count" options="count" group="Properties">
+          <help short="Number of nodes in the agent pool. The default value is 1."/>
+        </arg>
+        <arg nullable="True" type="boolean" var="$agentPool.properties.enableAutoScaling" options="enable-auto-scaling" group="Properties">
+          <help short="Whether to enable auto-scaler. Default value is false"/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$agentPool.properties.maxCount" options="max-count" group="Properties">
+          <help short="The maximum number of nodes for auto-scaling"/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$agentPool.properties.maxPods" options="max-pods" group="Properties">
+          <help short="The maximum number of pods that can run on a node."/>
+        </arg>
+        <arg nullable="True" type="integer32" var="$agentPool.properties.minCount" options="min-count" group="Properties">
+          <help short="The minimum number of nodes for auto-scaling"/>
+        </arg>
+        <arg nullable="True" type="object" var="$agentPool.properties.nodeLabels" options="node-labels" group="Properties">
+          <help short="The node labels to be persisted across all nodes in agent pool."/>
+          <additionalProp>
+            <item nullable="True" type="string"/>
+          </additionalProp>
+        </arg>
+        <arg nullable="True" type="array<string>" var="$agentPool.properties.nodeTaints" options="node-taints" group="Properties">
+          <help short="Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule."/>
+          <item nullable="True" type="string"/>
+        </arg>
+        <arg nullable="True" type="string" var="$agentPool.properties.osSKU" options="os-sku" group="Properties">
+          <help short="Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows."/>
+          <enum>
+            <item name="CBLMariner" value="&quot;CBLMariner&quot;"/>
+            <item name="Windows2019" value="&quot;Windows2019&quot;"/>
+            <item name="Windows2022" value="&quot;Windows2022&quot;"/>
+          </enum>
+        </arg>
+        <arg nullable="True" type="string" var="$agentPool.properties.osType" options="os-type" group="Properties">
+          <help short="OSType to be used to specify OS type for the VMs. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'"/>
+          <enum>
+            <item name="Linux" value="&quot;Linux&quot;"/>
+            <item name="Windows" value="&quot;Windows&quot;"/>
+          </enum>
+        </arg>
+        <arg nullable="True" type="object" var="$agentPool.properties.status" options="status" group="Properties">
+          <help short="The observed status of the agent pool."/>
+          <arg nullable="True" type="string" var="$agentPool.properties.status.errorMessage" options="error-message">
+            <help short="Error messages during an agent pool operation or steady state."/>
+          </arg>
+          <arg nullable="True" type="array<object>" var="$agentPool.properties.status.readyReplicas" options="ready-replicas">
+            <item nullable="True" type="object">
+              <arg nullable="True" type="integer32" var="$agentPool.properties.status.readyReplicas[].count" options="count">
+                <help short="Number of nodes in the agent pool. The default value is 1."/>
+              </arg>
+              <arg nullable="True" type="string" var="$agentPool.properties.status.readyReplicas[].vmSize" options="vm-size">
+                <help short="The VM sku size of the agent pool node VMs."/>
+              </arg>
+            </item>
+          </arg>
+        </arg>
+        <arg nullable="True" type="string" var="$agentPool.properties.vmSize" options="vm-size" group="Properties">
+          <help short="The VM sku size of the agent pool node VMs."/>
+        </arg>
+      </argGroup>
+      <operation operationId="agentPool_Get">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}">
+          <request method="get">
+            <path>
+              <param type="string" name="agentPoolName" arg="$Path.agentPoolName" required="True">
+                <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+              </param>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="AgentPool_read">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{}"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" clientFlatten="True">
+                    <prop type="integer32" name="count">
+                      <default value="1"/>
+                    </prop>
+                    <prop type="boolean" name="enableAutoScaling">
+                      <default value="false"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                    <prop type="integer32" name="maxCount"/>
+                    <prop type="integer32" name="maxPods"/>
+                    <prop type="integer32" name="minCount"/>
+                    <prop type="object" name="nodeLabels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="array<string>" name="nodeTaints">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="osSKU">
+                      <enum>
+                        <item value="&quot;CBLMariner&quot;"/>
+                        <item value="&quot;Windows2019&quot;"/>
+                        <item value="&quot;Windows2022&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="osType">
+                      <default value="&quot;Linux&quot;"/>
+                      <enum>
+                        <item value="&quot;Linux&quot;"/>
+                        <item value="&quot;Windows&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="object" name="status">
+                      <prop readOnly="True" type="string" name="currentState">
+                        <enum>
+                          <item value="&quot;Accepted&quot;"/>
+                          <item value="&quot;Canceled&quot;"/>
+                          <item value="&quot;Creating&quot;"/>
+                          <item value="&quot;Deleting&quot;"/>
+                          <item value="&quot;Failed&quot;"/>
+                          <item value="&quot;Pending&quot;"/>
+                          <item value="&quot;Succeeded&quot;"/>
+                          <item value="&quot;Updating&quot;"/>
+                          <item value="&quot;Upgrading&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="errorMessage"/>
+                      <prop type="array<object>" name="readyReplicas">
+                        <item type="object">
+                          <prop type="integer32" name="count">
+                            <default value="1"/>
+                          </prop>
+                          <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                          <prop type="string" name="vmSize"/>
+                        </item>
+                      </prop>
+                    </prop>
+                    <prop type="string" name="vmSize"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="tags">
+                    <additionalProp>
+                      <item type="string"/>
+                    </additionalProp>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="agentPool" required="True" clientFlatten="True">
+              <prop type="object" name="extendedLocation" arg="$agentPool.extendedLocation">
+                <prop type="string" name="name" arg="$agentPool.extendedLocation.name"/>
+                <prop type="string" name="type" arg="$agentPool.extendedLocation.type">
+                  <enum>
+                    <item value="&quot;CustomLocation&quot;"/>
+                  </enum>
+                </prop>
+              </prop>
+              <prop type="object" name="properties" clientFlatten="True">
+                <prop type="integer32" name="count" arg="$agentPool.properties.count">
+                  <default value="1"/>
+                </prop>
+                <prop type="boolean" name="enableAutoScaling" arg="$agentPool.properties.enableAutoScaling">
+                  <default value="false"/>
+                </prop>
+                <prop type="integer32" name="maxCount" arg="$agentPool.properties.maxCount"/>
+                <prop type="integer32" name="maxPods" arg="$agentPool.properties.maxPods"/>
+                <prop type="integer32" name="minCount" arg="$agentPool.properties.minCount"/>
+                <prop type="object" name="nodeLabels" arg="$agentPool.properties.nodeLabels">
+                  <additionalProp>
+                    <item type="string"/>
+                  </additionalProp>
+                </prop>
+                <prop type="array<string>" name="nodeTaints" arg="$agentPool.properties.nodeTaints">
+                  <item type="string"/>
+                </prop>
+                <prop type="string" name="osSKU" arg="$agentPool.properties.osSKU">
+                  <enum>
+                    <item value="&quot;CBLMariner&quot;"/>
+                    <item value="&quot;Windows2019&quot;"/>
+                    <item value="&quot;Windows2022&quot;"/>
+                  </enum>
+                </prop>
+                <prop type="string" name="osType" arg="$agentPool.properties.osType">
+                  <default value="&quot;Linux&quot;"/>
+                  <enum>
+                    <item value="&quot;Linux&quot;"/>
+                    <item value="&quot;Windows&quot;"/>
+                  </enum>
+                </prop>
+                <prop type="object" name="status" arg="$agentPool.properties.status">
+                  <prop type="string" name="errorMessage" arg="$agentPool.properties.status.errorMessage"/>
+                  <prop type="array<object>" name="readyReplicas" arg="$agentPool.properties.status.readyReplicas">
+                    <item type="object">
+                      <prop type="integer32" name="count" arg="$agentPool.properties.status.readyReplicas[].count">
+                        <default value="1"/>
+                      </prop>
+                      <prop type="string" name="vmSize" arg="$agentPool.properties.status.readyReplicas[].vmSize"/>
+                    </item>
+                  </prop>
+                </prop>
+                <prop type="string" name="vmSize" arg="$agentPool.properties.vmSize"/>
+              </prop>
+              <prop type="object" name="tags" arg="$agentPool.tags">
+                <additionalProp>
+                  <item type="string"/>
+                </additionalProp>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="agentPool_CreateOrUpdate">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}">
+          <request method="put">
+            <path>
+              <param type="string" name="agentPoolName" arg="$Path.agentPoolName" required="True">
+                <format pattern="^[a-z][a-z0-9]{2,11}$" maxLength="12" minLength="3"/>
+              </param>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@AgentPool_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

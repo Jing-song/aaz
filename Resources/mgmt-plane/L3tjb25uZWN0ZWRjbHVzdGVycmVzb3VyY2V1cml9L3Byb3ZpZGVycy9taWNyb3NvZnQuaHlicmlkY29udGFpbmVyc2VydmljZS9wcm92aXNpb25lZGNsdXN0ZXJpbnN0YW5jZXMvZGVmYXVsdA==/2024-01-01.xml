@@ -1,0 +1,1574 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdA==/V/MjAyNC0wMS0wMQ=="/>
+  <commandGroup name="hybrid-container-service provisioned-cluster-instance default">
+    <command name="show" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdA==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="provisionedClusterInstances_Get">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default">
+          <request method="get">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="agentPoolProfiles">
+                      <item type="object">
+                        <prop type="integer32" name="count">
+                          <default value="1"/>
+                        </prop>
+                        <prop type="boolean" name="enableAutoScaling">
+                          <default value="false"/>
+                        </prop>
+                        <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                        <prop type="integer32" name="maxCount"/>
+                        <prop type="integer32" name="maxPods"/>
+                        <prop type="integer32" name="minCount"/>
+                        <prop type="string" name="name"/>
+                        <prop type="object" name="nodeLabels">
+                          <additionalProp>
+                            <item type="string"/>
+                          </additionalProp>
+                        </prop>
+                        <prop type="array<string>" name="nodeTaints">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="osSKU">
+                          <enum>
+                            <item value="&quot;CBLMariner&quot;"/>
+                            <item value="&quot;Windows2019&quot;"/>
+                            <item value="&quot;Windows2022&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="osType">
+                          <default value="&quot;Linux&quot;"/>
+                          <enum>
+                            <item value="&quot;Linux&quot;"/>
+                            <item value="&quot;Windows&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="vmSize"/>
+                      </item>
+                    </prop>
+                    <prop type="object" name="autoScalerProfile">
+                      <prop type="string" name="balance-similar-node-groups"/>
+                      <prop type="string" name="expander">
+                        <enum>
+                          <item value="&quot;least-waste&quot;"/>
+                          <item value="&quot;most-pods&quot;"/>
+                          <item value="&quot;priority&quot;"/>
+                          <item value="&quot;random&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="max-empty-bulk-delete"/>
+                      <prop type="string" name="max-graceful-termination-sec"/>
+                      <prop type="string" name="max-node-provision-time"/>
+                      <prop type="string" name="max-total-unready-percentage"/>
+                      <prop type="string" name="new-pod-scale-up-delay"/>
+                      <prop type="string" name="ok-total-unready-count"/>
+                      <prop type="string" name="scale-down-delay-after-add"/>
+                      <prop type="string" name="scale-down-delay-after-delete"/>
+                      <prop type="string" name="scale-down-delay-after-failure"/>
+                      <prop type="string" name="scale-down-unneeded-time"/>
+                      <prop type="string" name="scale-down-unready-time"/>
+                      <prop type="string" name="scale-down-utilization-threshold"/>
+                      <prop type="string" name="scan-interval"/>
+                      <prop type="string" name="skip-nodes-with-local-storage"/>
+                      <prop type="string" name="skip-nodes-with-system-pods"/>
+                    </prop>
+                    <prop type="object" name="cloudProviderProfile">
+                      <prop type="object" name="infraNetworkProfile">
+                        <prop type="array<ResourceId>" name="vnetSubnetIds">
+                          <item type="ResourceId"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="clusterVMAccessProfile">
+                      <prop type="string" name="authorizedIPRanges"/>
+                    </prop>
+                    <prop type="object" name="controlPlane">
+                      <prop type="object" name="controlPlaneEndpoint">
+                        <prop type="string" name="hostIP"/>
+                      </prop>
+                      <prop type="integer32" name="count">
+                        <default value="1"/>
+                      </prop>
+                      <prop type="string" name="vmSize"/>
+                    </prop>
+                    <prop type="string" name="kubernetesVersion"/>
+                    <prop type="object" name="licenseProfile">
+                      <prop type="string" name="azureHybridBenefit">
+                        <default value="&quot;NotApplicable&quot;"/>
+                        <enum>
+                          <item value="&quot;False&quot;"/>
+                          <item value="&quot;NotApplicable&quot;"/>
+                          <item value="&quot;True&quot;"/>
+                        </enum>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="linuxProfile">
+                      <prop type="object" name="ssh">
+                        <prop type="array<object>" name="publicKeys">
+                          <item type="object">
+                            <prop type="string" name="keyData"/>
+                          </item>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="networkProfile">
+                      <prop type="object" name="loadBalancerProfile">
+                        <prop type="integer32" name="count">
+                          <default value="0"/>
+                        </prop>
+                      </prop>
+                      <prop type="string" name="networkPolicy">
+                        <default value="&quot;calico&quot;"/>
+                        <enum>
+                          <item value="&quot;calico&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="podCidr"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="object" name="status">
+                      <prop type="array<object>" name="controlPlaneStatus">
+                        <item readOnly="True" type="object">
+                          <prop type="string" name="errorMessage"/>
+                          <prop type="string" name="name"/>
+                          <prop type="string" name="phase">
+                            <enum>
+                              <item value="&quot;deleting&quot;"/>
+                              <item value="&quot;failed&quot;"/>
+                              <item value="&quot;pending&quot;"/>
+                              <item value="&quot;provisioned&quot;"/>
+                              <item value="&quot;provisioning&quot;"/>
+                              <item value="&quot;provisioning {HelmChartInstalled}&quot;"/>
+                              <item value="&quot;provisioning {MSICertificateDownloaded}&quot;"/>
+                              <item value="&quot;upgrading&quot;"/>
+                            </enum>
+                          </prop>
+                          <prop type="boolean" name="ready"/>
+                        </item>
+                      </prop>
+                      <prop readOnly="True" type="string" name="currentState">
+                        <enum>
+                          <item value="&quot;Accepted&quot;"/>
+                          <item value="&quot;Canceled&quot;"/>
+                          <item value="&quot;Creating&quot;"/>
+                          <item value="&quot;Deleting&quot;"/>
+                          <item value="&quot;Failed&quot;"/>
+                          <item value="&quot;Pending&quot;"/>
+                          <item value="&quot;Succeeded&quot;"/>
+                          <item value="&quot;Updating&quot;"/>
+                          <item value="&quot;Upgrading&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="errorMessage"/>
+                    </prop>
+                    <prop type="object" name="storageProfile">
+                      <prop type="object" name="nfsCsiDriver">
+                        <prop type="boolean" name="enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                      <prop type="object" name="smbCsiDriver">
+                        <prop type="boolean" name="enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-01-01" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdA==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="provisionedClusterInstances_Delete">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default">
+          <request method="delete">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdA==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="array<object>" var="$provisionedClusterInstance.properties.agentPoolProfiles" options="agent-pool-profiles" group="Properties">
+          <help short="The agent pool properties for the provisioned cluster."/>
+          <item type="object">
+            <arg type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].count" options="count">
+              <help short="Number of nodes in the agent pool. The default value is 1."/>
+              <default value="1"/>
+            </arg>
+            <arg type="boolean" var="$provisionedClusterInstance.properties.agentPoolProfiles[].enableAutoScaling" options="enable-auto-scaling">
+              <help short="Whether to enable auto-scaler. Default value is false"/>
+              <default value="false"/>
+            </arg>
+            <arg type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].maxCount" options="max-count">
+              <help short="The maximum number of nodes for auto-scaling"/>
+            </arg>
+            <arg type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].maxPods" options="max-pods">
+              <help short="The maximum number of pods that can run on a node."/>
+            </arg>
+            <arg type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].minCount" options="min-count">
+              <help short="The minimum number of nodes for auto-scaling"/>
+            </arg>
+            <arg type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].name" options="name">
+              <help short="Unique name of the default agent pool in the context of the provisioned cluster. Default value is <clusterName>-nodepool1"/>
+            </arg>
+            <arg type="object" var="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeLabels" options="node-labels">
+              <help short="The node labels to be persisted across all nodes in agent pool."/>
+              <additionalProp>
+                <item type="string"/>
+              </additionalProp>
+            </arg>
+            <arg type="array<string>" var="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeTaints" options="node-taints">
+              <help short="Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule."/>
+              <item type="string"/>
+            </arg>
+            <arg type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].osSKU" options="os-sku">
+              <help short="Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows."/>
+              <enum>
+                <item name="CBLMariner" value="&quot;CBLMariner&quot;"/>
+                <item name="Windows2019" value="&quot;Windows2019&quot;"/>
+                <item name="Windows2022" value="&quot;Windows2022&quot;"/>
+              </enum>
+            </arg>
+            <arg type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].osType" options="os-type">
+              <help short="OSType to be used to specify OS type for the VMs. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'"/>
+              <default value="&quot;Linux&quot;"/>
+              <enum>
+                <item name="Linux" value="&quot;Linux&quot;"/>
+                <item name="Windows" value="&quot;Windows&quot;"/>
+              </enum>
+            </arg>
+            <arg type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].vmSize" options="vm-size">
+              <help short="The VM sku size of the agent pool node VMs."/>
+            </arg>
+          </item>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.autoScalerProfile" options="auto-scaler-profile" group="Properties">
+          <help short="Parameters to be applied to the cluster-autoscaler when auto scaling is enabled for the provisioned cluster."/>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.balance-similar-node-groups" options="balance-similar-node-groups">
+            <help short="Valid values are 'true' and 'false'"/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.expander" options="expander">
+            <help short="If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information."/>
+            <enum>
+              <item name="least-waste" value="&quot;least-waste&quot;"/>
+              <item name="most-pods" value="&quot;most-pods&quot;"/>
+              <item name="priority" value="&quot;priority&quot;"/>
+              <item name="random" value="&quot;random&quot;"/>
+            </enum>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-empty-bulk-delete" options="max-empty-bulk-delete">
+            <help short="The default is 10."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-graceful-termination-sec" options="max-graceful-termination-sec">
+            <help short="The default is 600."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-node-provision-time" options="max-node-provision-time">
+            <help short="The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-total-unready-percentage" options="max-total-unready-percentage">
+            <help short="The default is 45. The maximum is 100 and the minimum is 0."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.new-pod-scale-up-delay" options="new-pod-scale-up-delay">
+            <help short="For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc)."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.ok-total-unready-count" options="ok-total-unready-count">
+            <help short="This must be an integer. The default is 3."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-add" options="scale-down-delay-after-add">
+            <help short="The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-delete" options="scale-down-delay-after-delete">
+            <help short="The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-failure" options="scale-down-delay-after-failure">
+            <help short="The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unneeded-time" options="scale-down-unneeded-time">
+            <help short="The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unready-time" options="scale-down-unready-time">
+            <help short="The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-utilization-threshold" options="scale-down-utilization-threshold">
+            <help short="The default is '0.5'."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scan-interval" options="scan-interval">
+            <help short="The default is '10'. Values must be an integer number of seconds."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-local-storage" options="skip-nodes-with-local-storage">
+            <help short="The default is true."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-system-pods" options="skip-nodes-with-system-pods">
+            <help short="The default is true."/>
+          </arg>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.cloudProviderProfile" options="cloud-provider-profile" group="Properties">
+          <help short="The profile for the underlying cloud infrastructure provider for the provisioned cluster."/>
+          <arg type="object" var="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile" options="infra-network-profile">
+            <help short="The profile for the infrastructure networks used by the provisioned cluster"/>
+            <arg type="array<ResourceId>" var="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile.vnetSubnetIds" options="vnet-subnet-ids">
+              <help short="List of ARM resource Ids (maximum 1) for the infrastructure network object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/logicalNetworks/{logicalNetworkName}"/>
+              <item type="ResourceId"/>
+            </arg>
+          </arg>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.clusterVMAccessProfile" options="cluster-vm-access-profile" group="Properties">
+          <help short="The SSH restricted access profile for the VMs in the provisioned cluster."/>
+          <arg type="string" var="$provisionedClusterInstance.properties.clusterVMAccessProfile.authorizedIPRanges" options="authorized-ip-ranges">
+            <help short="IP Address or CIDR for SSH access to VMs in the provisioned cluster"/>
+          </arg>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.controlPlane" options="control-plane" group="Properties">
+          <help short="The profile for control plane of the provisioned cluster."/>
+          <arg type="object" var="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint" options="control-plane-endpoint">
+            <help short="IP Address of the Kubernetes API server"/>
+            <arg type="string" var="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint.hostIP" options="host-ip">
+              <help short="IP address of the Kubernetes API server"/>
+            </arg>
+          </arg>
+          <arg type="integer32" var="$provisionedClusterInstance.properties.controlPlane.count" options="count">
+            <help short="Number of control plane nodes. The default value is 1, and the count should be an odd number"/>
+            <default value="1"/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.controlPlane.vmSize" options="vm-size">
+            <help short="VM sku size of the control plane nodes"/>
+          </arg>
+        </arg>
+        <arg type="string" var="$provisionedClusterInstance.properties.kubernetesVersion" options="kubernetes-version" group="Properties">
+          <help short="The version of Kubernetes in use by the provisioned cluster."/>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.licenseProfile" options="license-profile" group="Properties">
+          <help short="The license profile of the provisioned cluster."/>
+          <arg type="string" var="$provisionedClusterInstance.properties.licenseProfile.azureHybridBenefit" options="azure-hybrid-benefit">
+            <help short="Indicates whether Azure Hybrid Benefit is opted in. Default value is false"/>
+            <default value="&quot;NotApplicable&quot;"/>
+            <enum>
+              <item name="False" value="&quot;False&quot;"/>
+              <item name="NotApplicable" value="&quot;NotApplicable&quot;"/>
+              <item name="True" value="&quot;True&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.linuxProfile" options="linux-profile" group="Properties">
+          <help short="The profile for Linux VMs in the provisioned cluster."/>
+          <arg type="object" var="$provisionedClusterInstance.properties.linuxProfile.ssh" options="ssh">
+            <help short="SSH configuration for VMs of the provisioned cluster."/>
+            <arg type="array<object>" var="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys" options="public-keys">
+              <help short="The list of SSH public keys used to authenticate with VMs. A maximum of 1 key may be specified."/>
+              <item type="object">
+                <arg type="string" var="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys[].keyData" options="key-data">
+                  <help short="Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers."/>
+                </arg>
+              </item>
+            </arg>
+          </arg>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.networkProfile" options="network-profile" group="Properties">
+          <help short="The network configuration profile for the provisioned cluster."/>
+          <arg type="object" var="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile" options="load-balancer-profile">
+            <help short="Profile of the HA Proxy load balancer."/>
+            <arg type="integer32" var="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile.count" options="count">
+              <help short="Number of HA Proxy load balancer VMs. The default value is 0."/>
+              <default value="0"/>
+            </arg>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.networkProfile.networkPolicy" options="network-policy">
+            <help short="Network policy used for building Kubernetes network. Possible values include: 'calico'."/>
+            <default value="&quot;calico&quot;"/>
+            <enum>
+              <item name="calico" value="&quot;calico&quot;"/>
+            </enum>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.properties.networkProfile.podCidr" options="pod-cidr">
+            <help short="A CIDR notation IP Address range from which to assign pod IPs."/>
+          </arg>
+        </arg>
+        <arg type="object" var="$provisionedClusterInstance.properties.storageProfile" options="storage-profile" group="Properties">
+          <help short="The storage configuration profile for the provisioned cluster."/>
+          <arg type="object" var="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver" options="nfs-csi-driver">
+            <help short="NFS CSI Driver settings for the storage profile."/>
+            <arg type="boolean" var="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver.enabled" options="enabled">
+              <help short="Indicates whether to enable NFS CSI Driver. The default value is true."/>
+              <default value="true"/>
+            </arg>
+          </arg>
+          <arg type="object" var="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver" options="smb-csi-driver">
+            <help short="SMB CSI Driver settings for the storage profile."/>
+            <arg type="boolean" var="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver.enabled" options="enabled">
+              <help short="Indicates whether to enable SMB CSI Driver. The default value is true."/>
+              <default value="true"/>
+            </arg>
+          </arg>
+        </arg>
+      </argGroup>
+      <argGroup name="ProvisionedClusterInstance">
+        <arg type="object" var="$provisionedClusterInstance.extendedLocation" options="extended-location" group="ProvisionedClusterInstance">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg type="string" var="$provisionedClusterInstance.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg type="string" var="$provisionedClusterInstance.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+      </argGroup>
+      <operation operationId="provisionedClusterInstances_CreateOrUpdate">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default">
+          <request method="put">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="provisionedClusterInstance" required="True" clientFlatten="True">
+                  <prop type="object" name="extendedLocation" arg="$provisionedClusterInstance.extendedLocation">
+                    <prop type="string" name="name" arg="$provisionedClusterInstance.extendedLocation.name"/>
+                    <prop type="string" name="type" arg="$provisionedClusterInstance.extendedLocation.type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="agentPoolProfiles" arg="$provisionedClusterInstance.properties.agentPoolProfiles">
+                      <item type="object">
+                        <prop type="integer32" name="count" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].count">
+                          <default value="1"/>
+                        </prop>
+                        <prop type="boolean" name="enableAutoScaling" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].enableAutoScaling">
+                          <default value="false"/>
+                        </prop>
+                        <prop type="integer32" name="maxCount" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].maxCount"/>
+                        <prop type="integer32" name="maxPods" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].maxPods"/>
+                        <prop type="integer32" name="minCount" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].minCount"/>
+                        <prop type="string" name="name" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].name"/>
+                        <prop type="object" name="nodeLabels" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeLabels">
+                          <additionalProp>
+                            <item type="string"/>
+                          </additionalProp>
+                        </prop>
+                        <prop type="array<string>" name="nodeTaints" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeTaints">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="osSKU" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].osSKU">
+                          <enum>
+                            <item value="&quot;CBLMariner&quot;"/>
+                            <item value="&quot;Windows2019&quot;"/>
+                            <item value="&quot;Windows2022&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="osType" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].osType">
+                          <default value="&quot;Linux&quot;"/>
+                          <enum>
+                            <item value="&quot;Linux&quot;"/>
+                            <item value="&quot;Windows&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="vmSize" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].vmSize"/>
+                      </item>
+                    </prop>
+                    <prop type="object" name="autoScalerProfile" arg="$provisionedClusterInstance.properties.autoScalerProfile">
+                      <prop type="string" name="balance-similar-node-groups" arg="$provisionedClusterInstance.properties.autoScalerProfile.balance-similar-node-groups"/>
+                      <prop type="string" name="expander" arg="$provisionedClusterInstance.properties.autoScalerProfile.expander">
+                        <enum>
+                          <item value="&quot;least-waste&quot;"/>
+                          <item value="&quot;most-pods&quot;"/>
+                          <item value="&quot;priority&quot;"/>
+                          <item value="&quot;random&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="max-empty-bulk-delete" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-empty-bulk-delete"/>
+                      <prop type="string" name="max-graceful-termination-sec" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-graceful-termination-sec"/>
+                      <prop type="string" name="max-node-provision-time" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-node-provision-time"/>
+                      <prop type="string" name="max-total-unready-percentage" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-total-unready-percentage"/>
+                      <prop type="string" name="new-pod-scale-up-delay" arg="$provisionedClusterInstance.properties.autoScalerProfile.new-pod-scale-up-delay"/>
+                      <prop type="string" name="ok-total-unready-count" arg="$provisionedClusterInstance.properties.autoScalerProfile.ok-total-unready-count"/>
+                      <prop type="string" name="scale-down-delay-after-add" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-add"/>
+                      <prop type="string" name="scale-down-delay-after-delete" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-delete"/>
+                      <prop type="string" name="scale-down-delay-after-failure" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-failure"/>
+                      <prop type="string" name="scale-down-unneeded-time" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unneeded-time"/>
+                      <prop type="string" name="scale-down-unready-time" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unready-time"/>
+                      <prop type="string" name="scale-down-utilization-threshold" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-utilization-threshold"/>
+                      <prop type="string" name="scan-interval" arg="$provisionedClusterInstance.properties.autoScalerProfile.scan-interval"/>
+                      <prop type="string" name="skip-nodes-with-local-storage" arg="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-local-storage"/>
+                      <prop type="string" name="skip-nodes-with-system-pods" arg="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-system-pods"/>
+                    </prop>
+                    <prop type="object" name="cloudProviderProfile" arg="$provisionedClusterInstance.properties.cloudProviderProfile">
+                      <prop type="object" name="infraNetworkProfile" arg="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile">
+                        <prop type="array<ResourceId>" name="vnetSubnetIds" arg="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile.vnetSubnetIds">
+                          <item type="ResourceId"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="clusterVMAccessProfile" arg="$provisionedClusterInstance.properties.clusterVMAccessProfile">
+                      <prop type="string" name="authorizedIPRanges" arg="$provisionedClusterInstance.properties.clusterVMAccessProfile.authorizedIPRanges"/>
+                    </prop>
+                    <prop type="object" name="controlPlane" arg="$provisionedClusterInstance.properties.controlPlane">
+                      <prop type="object" name="controlPlaneEndpoint" arg="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint">
+                        <prop type="string" name="hostIP" arg="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint.hostIP"/>
+                      </prop>
+                      <prop type="integer32" name="count" arg="$provisionedClusterInstance.properties.controlPlane.count">
+                        <default value="1"/>
+                      </prop>
+                      <prop type="string" name="vmSize" arg="$provisionedClusterInstance.properties.controlPlane.vmSize"/>
+                    </prop>
+                    <prop type="string" name="kubernetesVersion" arg="$provisionedClusterInstance.properties.kubernetesVersion"/>
+                    <prop type="object" name="licenseProfile" arg="$provisionedClusterInstance.properties.licenseProfile">
+                      <prop type="string" name="azureHybridBenefit" arg="$provisionedClusterInstance.properties.licenseProfile.azureHybridBenefit">
+                        <default value="&quot;NotApplicable&quot;"/>
+                        <enum>
+                          <item value="&quot;False&quot;"/>
+                          <item value="&quot;NotApplicable&quot;"/>
+                          <item value="&quot;True&quot;"/>
+                        </enum>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="linuxProfile" arg="$provisionedClusterInstance.properties.linuxProfile">
+                      <prop type="object" name="ssh" arg="$provisionedClusterInstance.properties.linuxProfile.ssh">
+                        <prop type="array<object>" name="publicKeys" arg="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys">
+                          <item type="object">
+                            <prop type="string" name="keyData" arg="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys[].keyData"/>
+                          </item>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="networkProfile" arg="$provisionedClusterInstance.properties.networkProfile">
+                      <prop type="object" name="loadBalancerProfile" arg="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile">
+                        <prop type="integer32" name="count" arg="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile.count">
+                          <default value="0"/>
+                        </prop>
+                      </prop>
+                      <prop type="string" name="networkPolicy" arg="$provisionedClusterInstance.properties.networkProfile.networkPolicy">
+                        <default value="&quot;calico&quot;"/>
+                        <enum>
+                          <item value="&quot;calico&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="podCidr" arg="$provisionedClusterInstance.properties.networkProfile.podCidr"/>
+                    </prop>
+                    <prop type="object" name="storageProfile" arg="$provisionedClusterInstance.properties.storageProfile">
+                      <prop type="object" name="nfsCsiDriver" arg="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver">
+                        <prop type="boolean" name="enabled" arg="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver.enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                      <prop type="object" name="smbCsiDriver" arg="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver">
+                        <prop type="boolean" name="enabled" arg="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver.enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="agentPoolProfiles">
+                      <item type="object">
+                        <prop type="integer32" name="count">
+                          <default value="1"/>
+                        </prop>
+                        <prop type="boolean" name="enableAutoScaling">
+                          <default value="false"/>
+                        </prop>
+                        <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                        <prop type="integer32" name="maxCount"/>
+                        <prop type="integer32" name="maxPods"/>
+                        <prop type="integer32" name="minCount"/>
+                        <prop type="string" name="name"/>
+                        <prop type="object" name="nodeLabels">
+                          <additionalProp>
+                            <item type="string"/>
+                          </additionalProp>
+                        </prop>
+                        <prop type="array<string>" name="nodeTaints">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="osSKU">
+                          <enum>
+                            <item value="&quot;CBLMariner&quot;"/>
+                            <item value="&quot;Windows2019&quot;"/>
+                            <item value="&quot;Windows2022&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="osType">
+                          <default value="&quot;Linux&quot;"/>
+                          <enum>
+                            <item value="&quot;Linux&quot;"/>
+                            <item value="&quot;Windows&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="vmSize"/>
+                      </item>
+                    </prop>
+                    <prop type="object" name="autoScalerProfile">
+                      <prop type="string" name="balance-similar-node-groups"/>
+                      <prop type="string" name="expander">
+                        <enum>
+                          <item value="&quot;least-waste&quot;"/>
+                          <item value="&quot;most-pods&quot;"/>
+                          <item value="&quot;priority&quot;"/>
+                          <item value="&quot;random&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="max-empty-bulk-delete"/>
+                      <prop type="string" name="max-graceful-termination-sec"/>
+                      <prop type="string" name="max-node-provision-time"/>
+                      <prop type="string" name="max-total-unready-percentage"/>
+                      <prop type="string" name="new-pod-scale-up-delay"/>
+                      <prop type="string" name="ok-total-unready-count"/>
+                      <prop type="string" name="scale-down-delay-after-add"/>
+                      <prop type="string" name="scale-down-delay-after-delete"/>
+                      <prop type="string" name="scale-down-delay-after-failure"/>
+                      <prop type="string" name="scale-down-unneeded-time"/>
+                      <prop type="string" name="scale-down-unready-time"/>
+                      <prop type="string" name="scale-down-utilization-threshold"/>
+                      <prop type="string" name="scan-interval"/>
+                      <prop type="string" name="skip-nodes-with-local-storage"/>
+                      <prop type="string" name="skip-nodes-with-system-pods"/>
+                    </prop>
+                    <prop type="object" name="cloudProviderProfile">
+                      <prop type="object" name="infraNetworkProfile">
+                        <prop type="array<ResourceId>" name="vnetSubnetIds">
+                          <item type="ResourceId"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="clusterVMAccessProfile">
+                      <prop type="string" name="authorizedIPRanges"/>
+                    </prop>
+                    <prop type="object" name="controlPlane">
+                      <prop type="object" name="controlPlaneEndpoint">
+                        <prop type="string" name="hostIP"/>
+                      </prop>
+                      <prop type="integer32" name="count">
+                        <default value="1"/>
+                      </prop>
+                      <prop type="string" name="vmSize"/>
+                    </prop>
+                    <prop type="string" name="kubernetesVersion"/>
+                    <prop type="object" name="licenseProfile">
+                      <prop type="string" name="azureHybridBenefit">
+                        <default value="&quot;NotApplicable&quot;"/>
+                        <enum>
+                          <item value="&quot;False&quot;"/>
+                          <item value="&quot;NotApplicable&quot;"/>
+                          <item value="&quot;True&quot;"/>
+                        </enum>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="linuxProfile">
+                      <prop type="object" name="ssh">
+                        <prop type="array<object>" name="publicKeys">
+                          <item type="object">
+                            <prop type="string" name="keyData"/>
+                          </item>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="networkProfile">
+                      <prop type="object" name="loadBalancerProfile">
+                        <prop type="integer32" name="count">
+                          <default value="0"/>
+                        </prop>
+                      </prop>
+                      <prop type="string" name="networkPolicy">
+                        <default value="&quot;calico&quot;"/>
+                        <enum>
+                          <item value="&quot;calico&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="podCidr"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="object" name="status">
+                      <prop type="array<object>" name="controlPlaneStatus">
+                        <item readOnly="True" type="object">
+                          <prop type="string" name="errorMessage"/>
+                          <prop type="string" name="name"/>
+                          <prop type="string" name="phase">
+                            <enum>
+                              <item value="&quot;deleting&quot;"/>
+                              <item value="&quot;failed&quot;"/>
+                              <item value="&quot;pending&quot;"/>
+                              <item value="&quot;provisioned&quot;"/>
+                              <item value="&quot;provisioning&quot;"/>
+                              <item value="&quot;provisioning {HelmChartInstalled}&quot;"/>
+                              <item value="&quot;provisioning {MSICertificateDownloaded}&quot;"/>
+                              <item value="&quot;upgrading&quot;"/>
+                            </enum>
+                          </prop>
+                          <prop type="boolean" name="ready"/>
+                        </item>
+                      </prop>
+                      <prop readOnly="True" type="string" name="currentState">
+                        <enum>
+                          <item value="&quot;Accepted&quot;"/>
+                          <item value="&quot;Canceled&quot;"/>
+                          <item value="&quot;Creating&quot;"/>
+                          <item value="&quot;Deleting&quot;"/>
+                          <item value="&quot;Failed&quot;"/>
+                          <item value="&quot;Pending&quot;"/>
+                          <item value="&quot;Succeeded&quot;"/>
+                          <item value="&quot;Updating&quot;"/>
+                          <item value="&quot;Upgrading&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="errorMessage"/>
+                    </prop>
+                    <prop type="object" name="storageProfile">
+                      <prop type="object" name="nfsCsiDriver">
+                        <prop type="boolean" name="enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                      <prop type="object" name="smbCsiDriver">
+                        <prop type="boolean" name="enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdA==/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="array<object>" var="$provisionedClusterInstance.properties.agentPoolProfiles" options="agent-pool-profiles" group="Properties">
+          <help short="The agent pool properties for the provisioned cluster."/>
+          <item nullable="True" type="object">
+            <arg nullable="True" type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].count" options="count">
+              <help short="Number of nodes in the agent pool. The default value is 1."/>
+            </arg>
+            <arg nullable="True" type="boolean" var="$provisionedClusterInstance.properties.agentPoolProfiles[].enableAutoScaling" options="enable-auto-scaling">
+              <help short="Whether to enable auto-scaler. Default value is false"/>
+            </arg>
+            <arg nullable="True" type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].maxCount" options="max-count">
+              <help short="The maximum number of nodes for auto-scaling"/>
+            </arg>
+            <arg nullable="True" type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].maxPods" options="max-pods">
+              <help short="The maximum number of pods that can run on a node."/>
+            </arg>
+            <arg nullable="True" type="integer32" var="$provisionedClusterInstance.properties.agentPoolProfiles[].minCount" options="min-count">
+              <help short="The minimum number of nodes for auto-scaling"/>
+            </arg>
+            <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].name" options="name">
+              <help short="Unique name of the default agent pool in the context of the provisioned cluster. Default value is <clusterName>-nodepool1"/>
+            </arg>
+            <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeLabels" options="node-labels">
+              <help short="The node labels to be persisted across all nodes in agent pool."/>
+              <additionalProp>
+                <item nullable="True" type="string"/>
+              </additionalProp>
+            </arg>
+            <arg nullable="True" type="array<string>" var="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeTaints" options="node-taints">
+              <help short="Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule."/>
+              <item nullable="True" type="string"/>
+            </arg>
+            <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].osSKU" options="os-sku">
+              <help short="Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows."/>
+              <enum>
+                <item name="CBLMariner" value="&quot;CBLMariner&quot;"/>
+                <item name="Windows2019" value="&quot;Windows2019&quot;"/>
+                <item name="Windows2022" value="&quot;Windows2022&quot;"/>
+              </enum>
+            </arg>
+            <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].osType" options="os-type">
+              <help short="OSType to be used to specify OS type for the VMs. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'"/>
+              <enum>
+                <item name="Linux" value="&quot;Linux&quot;"/>
+                <item name="Windows" value="&quot;Windows&quot;"/>
+              </enum>
+            </arg>
+            <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.agentPoolProfiles[].vmSize" options="vm-size">
+              <help short="The VM sku size of the agent pool node VMs."/>
+            </arg>
+          </item>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.autoScalerProfile" options="auto-scaler-profile" group="Properties">
+          <help short="Parameters to be applied to the cluster-autoscaler when auto scaling is enabled for the provisioned cluster."/>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.balance-similar-node-groups" options="balance-similar-node-groups">
+            <help short="Valid values are 'true' and 'false'"/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.expander" options="expander">
+            <help short="If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information."/>
+            <enum>
+              <item name="least-waste" value="&quot;least-waste&quot;"/>
+              <item name="most-pods" value="&quot;most-pods&quot;"/>
+              <item name="priority" value="&quot;priority&quot;"/>
+              <item name="random" value="&quot;random&quot;"/>
+            </enum>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-empty-bulk-delete" options="max-empty-bulk-delete">
+            <help short="The default is 10."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-graceful-termination-sec" options="max-graceful-termination-sec">
+            <help short="The default is 600."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-node-provision-time" options="max-node-provision-time">
+            <help short="The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.max-total-unready-percentage" options="max-total-unready-percentage">
+            <help short="The default is 45. The maximum is 100 and the minimum is 0."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.new-pod-scale-up-delay" options="new-pod-scale-up-delay">
+            <help short="For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc)."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.ok-total-unready-count" options="ok-total-unready-count">
+            <help short="This must be an integer. The default is 3."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-add" options="scale-down-delay-after-add">
+            <help short="The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-delete" options="scale-down-delay-after-delete">
+            <help short="The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-failure" options="scale-down-delay-after-failure">
+            <help short="The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unneeded-time" options="scale-down-unneeded-time">
+            <help short="The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unready-time" options="scale-down-unready-time">
+            <help short="The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-utilization-threshold" options="scale-down-utilization-threshold">
+            <help short="The default is '0.5'."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.scan-interval" options="scan-interval">
+            <help short="The default is '10'. Values must be an integer number of seconds."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-local-storage" options="skip-nodes-with-local-storage">
+            <help short="The default is true."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-system-pods" options="skip-nodes-with-system-pods">
+            <help short="The default is true."/>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.cloudProviderProfile" options="cloud-provider-profile" group="Properties">
+          <help short="The profile for the underlying cloud infrastructure provider for the provisioned cluster."/>
+          <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile" options="infra-network-profile">
+            <help short="The profile for the infrastructure networks used by the provisioned cluster"/>
+            <arg nullable="True" type="array<ResourceId>" var="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile.vnetSubnetIds" options="vnet-subnet-ids">
+              <help short="List of ARM resource Ids (maximum 1) for the infrastructure network object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/logicalNetworks/{logicalNetworkName}"/>
+              <item nullable="True" type="ResourceId"/>
+            </arg>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.clusterVMAccessProfile" options="cluster-vm-access-profile" group="Properties">
+          <help short="The SSH restricted access profile for the VMs in the provisioned cluster."/>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.clusterVMAccessProfile.authorizedIPRanges" options="authorized-ip-ranges">
+            <help short="IP Address or CIDR for SSH access to VMs in the provisioned cluster"/>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.controlPlane" options="control-plane" group="Properties">
+          <help short="The profile for control plane of the provisioned cluster."/>
+          <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint" options="control-plane-endpoint">
+            <help short="IP Address of the Kubernetes API server"/>
+            <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint.hostIP" options="host-ip">
+              <help short="IP address of the Kubernetes API server"/>
+            </arg>
+          </arg>
+          <arg nullable="True" type="integer32" var="$provisionedClusterInstance.properties.controlPlane.count" options="count">
+            <help short="Number of control plane nodes. The default value is 1, and the count should be an odd number"/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.controlPlane.vmSize" options="vm-size">
+            <help short="VM sku size of the control plane nodes"/>
+          </arg>
+        </arg>
+        <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.kubernetesVersion" options="kubernetes-version" group="Properties">
+          <help short="The version of Kubernetes in use by the provisioned cluster."/>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.licenseProfile" options="license-profile" group="Properties">
+          <help short="The license profile of the provisioned cluster."/>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.licenseProfile.azureHybridBenefit" options="azure-hybrid-benefit">
+            <help short="Indicates whether Azure Hybrid Benefit is opted in. Default value is false"/>
+            <enum>
+              <item name="False" value="&quot;False&quot;"/>
+              <item name="NotApplicable" value="&quot;NotApplicable&quot;"/>
+              <item name="True" value="&quot;True&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.linuxProfile" options="linux-profile" group="Properties">
+          <help short="The profile for Linux VMs in the provisioned cluster."/>
+          <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.linuxProfile.ssh" options="ssh">
+            <help short="SSH configuration for VMs of the provisioned cluster."/>
+            <arg nullable="True" type="array<object>" var="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys" options="public-keys">
+              <help short="The list of SSH public keys used to authenticate with VMs. A maximum of 1 key may be specified."/>
+              <item nullable="True" type="object">
+                <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys[].keyData" options="key-data">
+                  <help short="Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers."/>
+                </arg>
+              </item>
+            </arg>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.networkProfile" options="network-profile" group="Properties">
+          <help short="The network configuration profile for the provisioned cluster."/>
+          <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile" options="load-balancer-profile">
+            <help short="Profile of the HA Proxy load balancer."/>
+            <arg nullable="True" type="integer32" var="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile.count" options="count">
+              <help short="Number of HA Proxy load balancer VMs. The default value is 0."/>
+            </arg>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.networkProfile.networkPolicy" options="network-policy">
+            <help short="Network policy used for building Kubernetes network. Possible values include: 'calico'."/>
+            <enum>
+              <item name="calico" value="&quot;calico&quot;"/>
+            </enum>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.properties.networkProfile.podCidr" options="pod-cidr">
+            <help short="A CIDR notation IP Address range from which to assign pod IPs."/>
+          </arg>
+        </arg>
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.storageProfile" options="storage-profile" group="Properties">
+          <help short="The storage configuration profile for the provisioned cluster."/>
+          <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver" options="nfs-csi-driver">
+            <help short="NFS CSI Driver settings for the storage profile."/>
+            <arg nullable="True" type="boolean" var="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver.enabled" options="enabled">
+              <help short="Indicates whether to enable NFS CSI Driver. The default value is true."/>
+            </arg>
+          </arg>
+          <arg nullable="True" type="object" var="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver" options="smb-csi-driver">
+            <help short="SMB CSI Driver settings for the storage profile."/>
+            <arg nullable="True" type="boolean" var="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver.enabled" options="enabled">
+              <help short="Indicates whether to enable SMB CSI Driver. The default value is true."/>
+            </arg>
+          </arg>
+        </arg>
+      </argGroup>
+      <argGroup name="ProvisionedClusterInstance">
+        <arg nullable="True" type="object" var="$provisionedClusterInstance.extendedLocation" options="extended-location" group="ProvisionedClusterInstance">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg nullable="True" type="string" var="$provisionedClusterInstance.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+      </argGroup>
+      <operation operationId="provisionedClusterInstances_Get">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default">
+          <request method="get">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="ProvisionedCluster_read">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop type="array<object>" name="agentPoolProfiles">
+                      <item type="object">
+                        <prop type="integer32" name="count">
+                          <default value="1"/>
+                        </prop>
+                        <prop type="boolean" name="enableAutoScaling">
+                          <default value="false"/>
+                        </prop>
+                        <prop readOnly="True" type="string" name="kubernetesVersion"/>
+                        <prop type="integer32" name="maxCount"/>
+                        <prop type="integer32" name="maxPods"/>
+                        <prop type="integer32" name="minCount"/>
+                        <prop type="string" name="name"/>
+                        <prop type="object" name="nodeLabels">
+                          <additionalProp>
+                            <item type="string"/>
+                          </additionalProp>
+                        </prop>
+                        <prop type="array<string>" name="nodeTaints">
+                          <item type="string"/>
+                        </prop>
+                        <prop type="string" name="osSKU">
+                          <enum>
+                            <item value="&quot;CBLMariner&quot;"/>
+                            <item value="&quot;Windows2019&quot;"/>
+                            <item value="&quot;Windows2022&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="osType">
+                          <default value="&quot;Linux&quot;"/>
+                          <enum>
+                            <item value="&quot;Linux&quot;"/>
+                            <item value="&quot;Windows&quot;"/>
+                          </enum>
+                        </prop>
+                        <prop type="string" name="vmSize"/>
+                      </item>
+                    </prop>
+                    <prop type="object" name="autoScalerProfile">
+                      <prop type="string" name="balance-similar-node-groups"/>
+                      <prop type="string" name="expander">
+                        <enum>
+                          <item value="&quot;least-waste&quot;"/>
+                          <item value="&quot;most-pods&quot;"/>
+                          <item value="&quot;priority&quot;"/>
+                          <item value="&quot;random&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="max-empty-bulk-delete"/>
+                      <prop type="string" name="max-graceful-termination-sec"/>
+                      <prop type="string" name="max-node-provision-time"/>
+                      <prop type="string" name="max-total-unready-percentage"/>
+                      <prop type="string" name="new-pod-scale-up-delay"/>
+                      <prop type="string" name="ok-total-unready-count"/>
+                      <prop type="string" name="scale-down-delay-after-add"/>
+                      <prop type="string" name="scale-down-delay-after-delete"/>
+                      <prop type="string" name="scale-down-delay-after-failure"/>
+                      <prop type="string" name="scale-down-unneeded-time"/>
+                      <prop type="string" name="scale-down-unready-time"/>
+                      <prop type="string" name="scale-down-utilization-threshold"/>
+                      <prop type="string" name="scan-interval"/>
+                      <prop type="string" name="skip-nodes-with-local-storage"/>
+                      <prop type="string" name="skip-nodes-with-system-pods"/>
+                    </prop>
+                    <prop type="object" name="cloudProviderProfile">
+                      <prop type="object" name="infraNetworkProfile">
+                        <prop type="array<ResourceId>" name="vnetSubnetIds">
+                          <item type="ResourceId"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="clusterVMAccessProfile">
+                      <prop type="string" name="authorizedIPRanges"/>
+                    </prop>
+                    <prop type="object" name="controlPlane">
+                      <prop type="object" name="controlPlaneEndpoint">
+                        <prop type="string" name="hostIP"/>
+                      </prop>
+                      <prop type="integer32" name="count">
+                        <default value="1"/>
+                      </prop>
+                      <prop type="string" name="vmSize"/>
+                    </prop>
+                    <prop type="string" name="kubernetesVersion"/>
+                    <prop type="object" name="licenseProfile">
+                      <prop type="string" name="azureHybridBenefit">
+                        <default value="&quot;NotApplicable&quot;"/>
+                        <enum>
+                          <item value="&quot;False&quot;"/>
+                          <item value="&quot;NotApplicable&quot;"/>
+                          <item value="&quot;True&quot;"/>
+                        </enum>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="linuxProfile">
+                      <prop type="object" name="ssh">
+                        <prop type="array<object>" name="publicKeys">
+                          <item type="object">
+                            <prop type="string" name="keyData"/>
+                          </item>
+                        </prop>
+                      </prop>
+                    </prop>
+                    <prop type="object" name="networkProfile">
+                      <prop type="object" name="loadBalancerProfile">
+                        <prop type="integer32" name="count">
+                          <default value="0"/>
+                        </prop>
+                      </prop>
+                      <prop type="string" name="networkPolicy">
+                        <default value="&quot;calico&quot;"/>
+                        <enum>
+                          <item value="&quot;calico&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="podCidr"/>
+                    </prop>
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop readOnly="True" type="object" name="status">
+                      <prop type="array<object>" name="controlPlaneStatus">
+                        <item readOnly="True" type="object">
+                          <prop type="string" name="errorMessage"/>
+                          <prop type="string" name="name"/>
+                          <prop type="string" name="phase">
+                            <enum>
+                              <item value="&quot;deleting&quot;"/>
+                              <item value="&quot;failed&quot;"/>
+                              <item value="&quot;pending&quot;"/>
+                              <item value="&quot;provisioned&quot;"/>
+                              <item value="&quot;provisioning&quot;"/>
+                              <item value="&quot;provisioning {HelmChartInstalled}&quot;"/>
+                              <item value="&quot;provisioning {MSICertificateDownloaded}&quot;"/>
+                              <item value="&quot;upgrading&quot;"/>
+                            </enum>
+                          </prop>
+                          <prop type="boolean" name="ready"/>
+                        </item>
+                      </prop>
+                      <prop readOnly="True" type="string" name="currentState">
+                        <enum>
+                          <item value="&quot;Accepted&quot;"/>
+                          <item value="&quot;Canceled&quot;"/>
+                          <item value="&quot;Creating&quot;"/>
+                          <item value="&quot;Deleting&quot;"/>
+                          <item value="&quot;Failed&quot;"/>
+                          <item value="&quot;Pending&quot;"/>
+                          <item value="&quot;Succeeded&quot;"/>
+                          <item value="&quot;Updating&quot;"/>
+                          <item value="&quot;Upgrading&quot;"/>
+                        </enum>
+                      </prop>
+                      <prop type="string" name="errorMessage"/>
+                    </prop>
+                    <prop type="object" name="storageProfile">
+                      <prop type="object" name="nfsCsiDriver">
+                        <prop type="boolean" name="enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                      <prop type="object" name="smbCsiDriver">
+                        <prop type="boolean" name="enabled">
+                          <default value="true"/>
+                        </prop>
+                      </prop>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="provisionedClusterInstance" required="True" clientFlatten="True">
+              <prop type="object" name="extendedLocation" arg="$provisionedClusterInstance.extendedLocation">
+                <prop type="string" name="name" arg="$provisionedClusterInstance.extendedLocation.name"/>
+                <prop type="string" name="type" arg="$provisionedClusterInstance.extendedLocation.type">
+                  <enum>
+                    <item value="&quot;CustomLocation&quot;"/>
+                  </enum>
+                </prop>
+              </prop>
+              <prop type="object" name="properties">
+                <prop type="array<object>" name="agentPoolProfiles" arg="$provisionedClusterInstance.properties.agentPoolProfiles">
+                  <item type="object">
+                    <prop type="integer32" name="count" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].count">
+                      <default value="1"/>
+                    </prop>
+                    <prop type="boolean" name="enableAutoScaling" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].enableAutoScaling">
+                      <default value="false"/>
+                    </prop>
+                    <prop type="integer32" name="maxCount" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].maxCount"/>
+                    <prop type="integer32" name="maxPods" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].maxPods"/>
+                    <prop type="integer32" name="minCount" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].minCount"/>
+                    <prop type="string" name="name" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].name"/>
+                    <prop type="object" name="nodeLabels" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeLabels">
+                      <additionalProp>
+                        <item type="string"/>
+                      </additionalProp>
+                    </prop>
+                    <prop type="array<string>" name="nodeTaints" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].nodeTaints">
+                      <item type="string"/>
+                    </prop>
+                    <prop type="string" name="osSKU" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].osSKU">
+                      <enum>
+                        <item value="&quot;CBLMariner&quot;"/>
+                        <item value="&quot;Windows2019&quot;"/>
+                        <item value="&quot;Windows2022&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="osType" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].osType">
+                      <default value="&quot;Linux&quot;"/>
+                      <enum>
+                        <item value="&quot;Linux&quot;"/>
+                        <item value="&quot;Windows&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="vmSize" arg="$provisionedClusterInstance.properties.agentPoolProfiles[].vmSize"/>
+                  </item>
+                </prop>
+                <prop type="object" name="autoScalerProfile" arg="$provisionedClusterInstance.properties.autoScalerProfile">
+                  <prop type="string" name="balance-similar-node-groups" arg="$provisionedClusterInstance.properties.autoScalerProfile.balance-similar-node-groups"/>
+                  <prop type="string" name="expander" arg="$provisionedClusterInstance.properties.autoScalerProfile.expander">
+                    <enum>
+                      <item value="&quot;least-waste&quot;"/>
+                      <item value="&quot;most-pods&quot;"/>
+                      <item value="&quot;priority&quot;"/>
+                      <item value="&quot;random&quot;"/>
+                    </enum>
+                  </prop>
+                  <prop type="string" name="max-empty-bulk-delete" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-empty-bulk-delete"/>
+                  <prop type="string" name="max-graceful-termination-sec" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-graceful-termination-sec"/>
+                  <prop type="string" name="max-node-provision-time" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-node-provision-time"/>
+                  <prop type="string" name="max-total-unready-percentage" arg="$provisionedClusterInstance.properties.autoScalerProfile.max-total-unready-percentage"/>
+                  <prop type="string" name="new-pod-scale-up-delay" arg="$provisionedClusterInstance.properties.autoScalerProfile.new-pod-scale-up-delay"/>
+                  <prop type="string" name="ok-total-unready-count" arg="$provisionedClusterInstance.properties.autoScalerProfile.ok-total-unready-count"/>
+                  <prop type="string" name="scale-down-delay-after-add" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-add"/>
+                  <prop type="string" name="scale-down-delay-after-delete" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-delete"/>
+                  <prop type="string" name="scale-down-delay-after-failure" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-delay-after-failure"/>
+                  <prop type="string" name="scale-down-unneeded-time" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unneeded-time"/>
+                  <prop type="string" name="scale-down-unready-time" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-unready-time"/>
+                  <prop type="string" name="scale-down-utilization-threshold" arg="$provisionedClusterInstance.properties.autoScalerProfile.scale-down-utilization-threshold"/>
+                  <prop type="string" name="scan-interval" arg="$provisionedClusterInstance.properties.autoScalerProfile.scan-interval"/>
+                  <prop type="string" name="skip-nodes-with-local-storage" arg="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-local-storage"/>
+                  <prop type="string" name="skip-nodes-with-system-pods" arg="$provisionedClusterInstance.properties.autoScalerProfile.skip-nodes-with-system-pods"/>
+                </prop>
+                <prop type="object" name="cloudProviderProfile" arg="$provisionedClusterInstance.properties.cloudProviderProfile">
+                  <prop type="object" name="infraNetworkProfile" arg="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile">
+                    <prop type="array<ResourceId>" name="vnetSubnetIds" arg="$provisionedClusterInstance.properties.cloudProviderProfile.infraNetworkProfile.vnetSubnetIds">
+                      <item type="ResourceId"/>
+                    </prop>
+                  </prop>
+                </prop>
+                <prop type="object" name="clusterVMAccessProfile" arg="$provisionedClusterInstance.properties.clusterVMAccessProfile">
+                  <prop type="string" name="authorizedIPRanges" arg="$provisionedClusterInstance.properties.clusterVMAccessProfile.authorizedIPRanges"/>
+                </prop>
+                <prop type="object" name="controlPlane" arg="$provisionedClusterInstance.properties.controlPlane">
+                  <prop type="object" name="controlPlaneEndpoint" arg="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint">
+                    <prop type="string" name="hostIP" arg="$provisionedClusterInstance.properties.controlPlane.controlPlaneEndpoint.hostIP"/>
+                  </prop>
+                  <prop type="integer32" name="count" arg="$provisionedClusterInstance.properties.controlPlane.count">
+                    <default value="1"/>
+                  </prop>
+                  <prop type="string" name="vmSize" arg="$provisionedClusterInstance.properties.controlPlane.vmSize"/>
+                </prop>
+                <prop type="string" name="kubernetesVersion" arg="$provisionedClusterInstance.properties.kubernetesVersion"/>
+                <prop type="object" name="licenseProfile" arg="$provisionedClusterInstance.properties.licenseProfile">
+                  <prop type="string" name="azureHybridBenefit" arg="$provisionedClusterInstance.properties.licenseProfile.azureHybridBenefit">
+                    <default value="&quot;NotApplicable&quot;"/>
+                    <enum>
+                      <item value="&quot;False&quot;"/>
+                      <item value="&quot;NotApplicable&quot;"/>
+                      <item value="&quot;True&quot;"/>
+                    </enum>
+                  </prop>
+                </prop>
+                <prop type="object" name="linuxProfile" arg="$provisionedClusterInstance.properties.linuxProfile">
+                  <prop type="object" name="ssh" arg="$provisionedClusterInstance.properties.linuxProfile.ssh">
+                    <prop type="array<object>" name="publicKeys" arg="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys">
+                      <item type="object">
+                        <prop type="string" name="keyData" arg="$provisionedClusterInstance.properties.linuxProfile.ssh.publicKeys[].keyData"/>
+                      </item>
+                    </prop>
+                  </prop>
+                </prop>
+                <prop type="object" name="networkProfile" arg="$provisionedClusterInstance.properties.networkProfile">
+                  <prop type="object" name="loadBalancerProfile" arg="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile">
+                    <prop type="integer32" name="count" arg="$provisionedClusterInstance.properties.networkProfile.loadBalancerProfile.count">
+                      <default value="0"/>
+                    </prop>
+                  </prop>
+                  <prop type="string" name="networkPolicy" arg="$provisionedClusterInstance.properties.networkProfile.networkPolicy">
+                    <default value="&quot;calico&quot;"/>
+                    <enum>
+                      <item value="&quot;calico&quot;"/>
+                    </enum>
+                  </prop>
+                  <prop type="string" name="podCidr" arg="$provisionedClusterInstance.properties.networkProfile.podCidr"/>
+                </prop>
+                <prop type="object" name="storageProfile" arg="$provisionedClusterInstance.properties.storageProfile">
+                  <prop type="object" name="nfsCsiDriver" arg="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver">
+                    <prop type="boolean" name="enabled" arg="$provisionedClusterInstance.properties.storageProfile.nfsCsiDriver.enabled">
+                      <default value="true"/>
+                    </prop>
+                  </prop>
+                  <prop type="object" name="smbCsiDriver" arg="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver">
+                    <prop type="boolean" name="enabled" arg="$provisionedClusterInstance.properties.storageProfile.smbCsiDriver.enabled">
+                      <default value="true"/>
+                    </prop>
+                  </prop>
+                </prop>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="provisionedClusterInstances_CreateOrUpdate">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default">
+          <request method="put">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@ProvisionedCluster_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

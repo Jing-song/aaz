@@ -191,6 +191,9 @@
 - [healthcareapis](/Commands/healthcareapis/readme.md)
 : Azure Healthcare APIs is a secure cloud platform for managing health data, supporting analytics, machine learning, and scalable solutions.
 
+- [hybrid-container-service](/Commands/hybrid-container-service/readme.md)
+: hybrid-container-service
+
 - [image](/Commands/image/readme.md)
 : Manage custom virtual machine images.
 

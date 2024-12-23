@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/hybrididentitymetadata/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9oeWJyaWRJZGVudGl0eU1ldGFkYXRhL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+  <commandGroup name="hybrid-container-service provisioned-cluster-instance default hybrid-identity-metadatum default">
+    <command name="show" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/hybrididentitymetadata/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9oeWJyaWRJZGVudGl0eU1ldGFkYXRhL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="HybridIdentityMetadata_Get">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default">
+          <request method="get">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" required="True" clientFlatten="True">
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="publicKey"/>
+                    <prop type="string" name="resourceUid"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-01-01" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/hybrididentitymetadata/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9oeWJyaWRJZGVudGl0eU1ldGFkYXRhL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="HybridIdentityMetadata_Delete">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default">
+          <request method="delete">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/hybrididentitymetadata/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9oeWJyaWRJZGVudGl0eU1ldGFkYXRhL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg type="string" var="$body.properties.publicKey" options="public-key" group="Properties">
+          <help short="Onboarding public key for provisioning the Managed identity for the connected cluster."/>
+        </arg>
+        <arg type="string" var="$body.properties.resourceUid" options="resource-uid" group="Properties">
+          <help short="Unique id of the parent provisioned cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="HybridIdentityMetadata_Put">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default">
+          <request method="put">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="body" required="True" clientFlatten="True">
+                  <prop type="object" name="properties" required="True" clientFlatten="True">
+                    <prop type="string" name="publicKey" arg="$body.properties.publicKey"/>
+                    <prop type="string" name="resourceUid" arg="$body.properties.resourceUid"/>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" required="True" clientFlatten="True">
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="publicKey"/>
+                    <prop type="string" name="resourceUid"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/hybrididentitymetadata/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9oeWJyaWRJZGVudGl0eU1ldGFkYXRhL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="Properties">
+        <arg nullable="True" type="string" var="$body.properties.publicKey" options="public-key" group="Properties">
+          <help short="Onboarding public key for provisioning the Managed identity for the connected cluster."/>
+        </arg>
+        <arg nullable="True" type="string" var="$body.properties.resourceUid" options="resource-uid" group="Properties">
+          <help short="Unique id of the parent provisioned cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="HybridIdentityMetadata_Get">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default">
+          <request method="get">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="HybridIdentityMetadata_read">
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties" required="True" clientFlatten="True">
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="string" name="publicKey"/>
+                    <prop type="string" name="resourceUid"/>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="body" required="True" clientFlatten="True">
+              <prop type="object" name="properties" required="True" clientFlatten="True">
+                <prop type="string" name="publicKey" arg="$body.properties.publicKey"/>
+                <prop type="string" name="resourceUid" arg="$body.properties.resourceUid"/>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="HybridIdentityMetadata_Put">
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default">
+          <request method="put">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@HybridIdentityMetadata_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

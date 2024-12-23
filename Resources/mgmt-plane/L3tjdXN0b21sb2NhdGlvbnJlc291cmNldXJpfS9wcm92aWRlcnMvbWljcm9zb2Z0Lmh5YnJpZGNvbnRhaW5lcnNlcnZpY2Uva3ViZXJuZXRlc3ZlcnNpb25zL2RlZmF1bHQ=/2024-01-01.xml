@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/{customlocationresourceuri}/providers/microsoft.hybridcontainerservice/kubernetesversions/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjdXN0b21Mb2NhdGlvblJlc291cmNlVXJpfS9wcm92aWRlcnMvTWljcm9zb2Z0Lkh5YnJpZENvbnRhaW5lclNlcnZpY2Uva3ViZXJuZXRlc1ZlcnNpb25zL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+  <commandGroup name="hybrid-container-service kubernetes-version default">
+    <command name="show" version="2024-01-01">
+      <resource id="/{customlocationresourceuri}/providers/microsoft.hybridcontainerservice/kubernetesversions/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjdXN0b21Mb2NhdGlvblJlc291cmNlVXJpfS9wcm92aWRlcnMvTWljcm9zb2Z0Lkh5YnJpZENvbnRhaW5lclNlcnZpY2Uva3ViZXJuZXRlc1ZlcnNpb25zL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.customLocationResourceUri" options="custom-location-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the custom location resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="GetKubernetesVersions">
+        <http path="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default">
+          <request method="get">
+            <path>
+              <param type="string" name="customLocationResourceUri" arg="$Path.customLocationResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop readOnly="True" type="object" name="properties">
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="array<object>" name="values">
+                      <item type="object">
+                        <prop readOnly="True" type="boolean" name="isPreview"/>
+                        <prop readOnly="True" type="object" name="patchVersions">
+                          <additionalProp readOnly="True">
+                            <item type="object">
+                              <prop type="array<object>" name="readiness">
+                                <item type="object">
+                                  <prop readOnly="True" type="string" name="errorMessage"/>
+                                  <prop type="string" name="osSku">
+                                    <enum>
+                                      <item value="&quot;CBLMariner&quot;"/>
+                                      <item value="&quot;Windows2019&quot;"/>
+                                      <item value="&quot;Windows2022&quot;"/>
+                                    </enum>
+                                  </prop>
+                                  <prop readOnly="True" type="string" name="osType">
+                                    <default value="&quot;Linux&quot;"/>
+                                    <enum>
+                                      <item value="&quot;Linux&quot;"/>
+                                      <item value="&quot;Windows&quot;"/>
+                                    </enum>
+                                  </prop>
+                                  <prop readOnly="True" type="boolean" name="ready"/>
+                                </item>
+                              </prop>
+                              <prop type="array<string>" name="upgrades">
+                                <item type="string"/>
+                              </prop>
+                            </item>
+                          </additionalProp>
+                        </prop>
+                        <prop readOnly="True" type="string" name="version"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="delete" version="2024-01-01" confirmation="Are you sure you want to perform this operation?">
+      <resource id="/{customlocationresourceuri}/providers/microsoft.hybridcontainerservice/kubernetesversions/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjdXN0b21Mb2NhdGlvblJlc291cmNlVXJpfS9wcm92aWRlcnMvTWljcm9zb2Z0Lkh5YnJpZENvbnRhaW5lclNlcnZpY2Uva3ViZXJuZXRlc1ZlcnNpb25zL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.customLocationResourceUri" options="custom-location-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the custom location resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="DeleteKubernetesVersions">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default">
+          <request method="delete">
+            <path>
+              <param type="string" name="customLocationResourceUri" arg="$Path.customLocationResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response statusCode="204"/>
+          <response statusCode="200 201"/>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+    </command>
+    <command name="create" version="2024-01-01">
+      <resource id="/{customlocationresourceuri}/providers/microsoft.hybridcontainerservice/kubernetesversions/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjdXN0b21Mb2NhdGlvblJlc291cmNlVXJpfS9wcm92aWRlcnMvTWljcm9zb2Z0Lkh5YnJpZENvbnRhaW5lclNlcnZpY2Uva3ViZXJuZXRlc1ZlcnNpb25zL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.customLocationResourceUri" options="custom-location-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the custom location resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="KubernetesVersions">
+        <arg type="object" var="$kubernetesVersions.extendedLocation" options="extended-location" group="KubernetesVersions">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg type="string" var="$kubernetesVersions.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg type="string" var="$kubernetesVersions.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+      </argGroup>
+      <operation operationId="PutKubernetesVersions">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default">
+          <request method="put">
+            <path>
+              <param type="string" name="customLocationResourceUri" arg="$Path.customLocationResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json>
+                <schema type="object" name="kubernetesVersions" required="True" clientFlatten="True">
+                  <prop type="object" name="extendedLocation" arg="$kubernetesVersions.extendedLocation">
+                    <prop type="string" name="name" arg="$kubernetesVersions.extendedLocation.name"/>
+                    <prop type="string" name="type" arg="$kubernetesVersions.extendedLocation.type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop readOnly="True" type="object" name="properties">
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="array<object>" name="values">
+                      <item type="object">
+                        <prop readOnly="True" type="boolean" name="isPreview"/>
+                        <prop readOnly="True" type="object" name="patchVersions">
+                          <additionalProp readOnly="True">
+                            <item type="object">
+                              <prop type="array<object>" name="readiness">
+                                <item type="object">
+                                  <prop readOnly="True" type="string" name="errorMessage"/>
+                                  <prop type="string" name="osSku">
+                                    <enum>
+                                      <item value="&quot;CBLMariner&quot;"/>
+                                      <item value="&quot;Windows2019&quot;"/>
+                                      <item value="&quot;Windows2022&quot;"/>
+                                    </enum>
+                                  </prop>
+                                  <prop readOnly="True" type="string" name="osType">
+                                    <default value="&quot;Linux&quot;"/>
+                                    <enum>
+                                      <item value="&quot;Linux&quot;"/>
+                                      <item value="&quot;Windows&quot;"/>
+                                    </enum>
+                                  </prop>
+                                  <prop readOnly="True" type="boolean" name="ready"/>
+                                </item>
+                              </prop>
+                              <prop type="array<string>" name="upgrades">
+                                <item type="string"/>
+                              </prop>
+                            </item>
+                          </additionalProp>
+                        </prop>
+                        <prop readOnly="True" type="string" name="version"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+    <command name="update" version="2024-01-01">
+      <resource id="/{customlocationresourceuri}/providers/microsoft.hybridcontainerservice/kubernetesversions/default" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjdXN0b21Mb2NhdGlvblJlc291cmNlVXJpfS9wcm92aWRlcnMvTWljcm9zb2Z0Lkh5YnJpZENvbnRhaW5lclNlcnZpY2Uva3ViZXJuZXRlc1ZlcnNpb25zL2RlZmF1bHQ=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.customLocationResourceUri" options="custom-location-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the custom location resource."/>
+        </arg>
+      </argGroup>
+      <argGroup name="KubernetesVersions">
+        <arg nullable="True" type="object" var="$kubernetesVersions.extendedLocation" options="extended-location" group="KubernetesVersions">
+          <help short="Extended location pointing to the underlying infrastructure"/>
+          <arg nullable="True" type="string" var="$kubernetesVersions.extendedLocation.name" options="name">
+            <help short="ARM Id of the extended location."/>
+          </arg>
+          <arg nullable="True" type="string" var="$kubernetesVersions.extendedLocation.type" options="type">
+            <help short="The extended location type. Allowed value: 'CustomLocation'"/>
+            <enum>
+              <item name="CustomLocation" value="&quot;CustomLocation&quot;"/>
+            </enum>
+          </arg>
+        </arg>
+      </argGroup>
+      <operation operationId="GetKubernetesVersions">
+        <http path="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default">
+          <request method="get">
+            <path>
+              <param type="string" name="customLocationResourceUri" arg="$Path.customLocationResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object" cls="KubernetesVersionProfile_read">
+                  <prop type="object" name="extendedLocation">
+                    <prop type="string" name="name"/>
+                    <prop type="string" name="type">
+                      <enum>
+                        <item value="&quot;CustomLocation&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="id">
+                    <format template="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop readOnly="True" type="object" name="properties">
+                    <prop readOnly="True" type="string" name="provisioningState">
+                      <enum>
+                        <item value="&quot;Accepted&quot;"/>
+                        <item value="&quot;Canceled&quot;"/>
+                        <item value="&quot;Creating&quot;"/>
+                        <item value="&quot;Deleting&quot;"/>
+                        <item value="&quot;Failed&quot;"/>
+                        <item value="&quot;Pending&quot;"/>
+                        <item value="&quot;Succeeded&quot;"/>
+                        <item value="&quot;Updating&quot;"/>
+                        <item value="&quot;Upgrading&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="array<object>" name="values">
+                      <item type="object">
+                        <prop readOnly="True" type="boolean" name="isPreview"/>
+                        <prop readOnly="True" type="object" name="patchVersions">
+                          <additionalProp readOnly="True">
+                            <item type="object">
+                              <prop type="array<object>" name="readiness">
+                                <item type="object">
+                                  <prop readOnly="True" type="string" name="errorMessage"/>
+                                  <prop type="string" name="osSku">
+                                    <enum>
+                                      <item value="&quot;CBLMariner&quot;"/>
+                                      <item value="&quot;Windows2019&quot;"/>
+                                      <item value="&quot;Windows2022&quot;"/>
+                                    </enum>
+                                  </prop>
+                                  <prop readOnly="True" type="string" name="osType">
+                                    <default value="&quot;Linux&quot;"/>
+                                    <enum>
+                                      <item value="&quot;Linux&quot;"/>
+                                      <item value="&quot;Windows&quot;"/>
+                                    </enum>
+                                  </prop>
+                                  <prop readOnly="True" type="boolean" name="ready"/>
+                                </item>
+                              </prop>
+                              <prop type="array<string>" name="upgrades">
+                                <item type="string"/>
+                              </prop>
+                            </item>
+                          </additionalProp>
+                        </prop>
+                        <prop readOnly="True" type="string" name="version"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="object" name="systemData">
+                    <prop type="dateTime" name="createdAt"/>
+                    <prop type="string" name="createdBy"/>
+                    <prop type="string" name="createdByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                    <prop type="dateTime" name="lastModifiedAt"/>
+                    <prop type="string" name="lastModifiedBy"/>
+                    <prop type="string" name="lastModifiedByType">
+                      <enum>
+                        <item value="&quot;Application&quot;"/>
+                        <item value="&quot;Key&quot;"/>
+                        <item value="&quot;ManagedIdentity&quot;"/>
+                        <item value="&quot;User&quot;"/>
+                      </enum>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="string" name="type"/>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <operation>
+        <instanceUpdate ref="$Instance">
+          <json>
+            <schema type="object" name="kubernetesVersions" required="True" clientFlatten="True">
+              <prop type="object" name="extendedLocation" arg="$kubernetesVersions.extendedLocation">
+                <prop type="string" name="name" arg="$kubernetesVersions.extendedLocation.name"/>
+                <prop type="string" name="type" arg="$kubernetesVersions.extendedLocation.type">
+                  <enum>
+                    <item value="&quot;CustomLocation&quot;"/>
+                  </enum>
+                </prop>
+              </prop>
+            </schema>
+          </json>
+        </instanceUpdate>
+      </operation>
+      <operation operationId="PutKubernetesVersions">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default">
+          <request method="put">
+            <path>
+              <param type="string" name="customLocationResourceUri" arg="$Path.customLocationResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+            <body>
+              <json ref="$Instance"/>
+            </body>
+          </request>
+          <response statusCode="200 201">
+            <body>
+              <json var="$Instance">
+                <schema type="@KubernetesVersionProfile_read"/>
+              </json>
+            </body>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>

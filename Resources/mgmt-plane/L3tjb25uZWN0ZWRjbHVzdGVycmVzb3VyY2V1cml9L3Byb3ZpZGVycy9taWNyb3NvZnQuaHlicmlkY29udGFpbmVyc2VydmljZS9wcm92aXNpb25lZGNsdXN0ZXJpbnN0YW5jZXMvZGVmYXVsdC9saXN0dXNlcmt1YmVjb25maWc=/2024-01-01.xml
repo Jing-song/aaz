@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<CodeGen plane="mgmt-plane">
+  <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/listuserkubeconfig" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9saXN0VXNlckt1YmVjb25maWc=/V/MjAyNC0wMS0wMQ=="/>
+  <commandGroup name="hybrid-container-service provisioned-cluster-instance default">
+    <command name="list-user-kubeconfig" version="2024-01-01">
+      <resource id="/{connectedclusterresourceuri}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/listuserkubeconfig" version="2024-01-01" swagger="mgmt-plane/hybridaks/ResourceProviders/Microsoft.HybridContainerService/Paths/L3tjb25uZWN0ZWRDbHVzdGVyUmVzb3VyY2VVcml9L3Byb3ZpZGVycy9NaWNyb3NvZnQuSHlicmlkQ29udGFpbmVyU2VydmljZS9wcm92aXNpb25lZENsdXN0ZXJJbnN0YW5jZXMvZGVmYXVsdC9saXN0VXNlckt1YmVjb25maWc=/V/MjAyNC0wMS0wMQ=="/>
+      <argGroup name="">
+        <arg type="string" var="$Path.connectedClusterResourceUri" options="connected-cluster-resource-uri" required="True">
+          <help short="The fully qualified Azure Resource Manager identifier of the connected cluster resource."/>
+        </arg>
+      </argGroup>
+      <operation operationId="provisionedClusterInstances_ListUserKubeconfig">
+        <longRunning finalStateVia="azure-async-operation"/>
+        <http path="/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/listUserKubeconfig">
+          <request method="post">
+            <path>
+              <param type="string" name="connectedClusterResourceUri" arg="$Path.connectedClusterResourceUri" required="True" skipUrlEncoding="True"/>
+            </path>
+            <query>
+              <const readOnly="True" const="True" type="string" name="api-version" required="True">
+                <default value="&quot;2024-01-01&quot;"/>
+                <format minLength="1"/>
+              </const>
+            </query>
+          </request>
+          <response statusCode="200">
+            <body>
+              <json var="$Instance">
+                <schema type="object">
+                  <prop type="object" name="error">
+                    <prop type="string" name="code"/>
+                    <prop type="string" name="message"/>
+                  </prop>
+                  <prop readOnly="True" type="string" name="id"/>
+                  <prop readOnly="True" type="string" name="name"/>
+                  <prop type="object" name="properties">
+                    <prop readOnly="True" type="array<object>" name="kubeconfigs">
+                      <item type="object">
+                        <prop readOnly="True" type="string" name="name"/>
+                        <prop readOnly="True" type="byte" name="value"/>
+                      </item>
+                    </prop>
+                  </prop>
+                  <prop readOnly="True" type="ResourceId" name="resourceId"/>
+                  <prop readOnly="True" type="string" name="status">
+                    <enum>
+                      <item value="&quot;Accepted&quot;"/>
+                      <item value="&quot;Canceled&quot;"/>
+                      <item value="&quot;Creating&quot;"/>
+                      <item value="&quot;Deleting&quot;"/>
+                      <item value="&quot;Failed&quot;"/>
+                      <item value="&quot;Pending&quot;"/>
+                      <item value="&quot;Succeeded&quot;"/>
+                      <item value="&quot;Updating&quot;"/>
+                      <item value="&quot;Upgrading&quot;"/>
+                    </enum>
+                  </prop>
+                </schema>
+              </json>
+            </body>
+          </response>
+          <response statusCode="202">
+            <header>
+              <item name="Location"/>
+            </header>
+          </response>
+          <response isError="True">
+            <body>
+              <json>
+                <schema type="@MgmtErrorFormat"/>
+              </json>
+            </body>
+          </response>
+        </http>
+      </operation>
+      <output type="object" ref="$Instance" clientFlatten="True"/>
+    </command>
+  </commandGroup>
+</CodeGen>
