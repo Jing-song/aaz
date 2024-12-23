@@ -146,6 +146,9 @@
 - [dns-resolver](/Commands/dns-resolver/readme.md)
 : Manage Dns Resolver
 
+- [document-db](/Commands/document-db/readme.md)
+: document-db
+
 - [durabletask](/Commands/durabletask/readme.md)
 : Commands to manage Durabletasks.
 
