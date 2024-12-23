@@ -182,6 +182,9 @@
 - [graph-services](/Commands/graph-services/readme.md)
 : Make operations on Microsoft.GraphServices resource types
 
+- [health-data-ai-services](/Commands/health-data-ai-services/readme.md)
+: health-data-ai-services
+
 - [healthcareapis](/Commands/healthcareapis/readme.md)
 : Azure Healthcare APIs is a secure cloud platform for managing health data, supporting analytics, machine learning, and scalable solutions.
 
