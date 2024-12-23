@@ -125,6 +125,9 @@
 - [desktopvirtualization](/Commands/desktopvirtualization/readme.md)
 : Manage desktop virtualization.
 
+- [dev-ops-infrastructure](/Commands/dev-ops-infrastructure/readme.md)
+: dev-ops-infrastructure
+
 - [devcenter](/Commands/devcenter/readme.md)
 : Manage resources with devcenter.
 
