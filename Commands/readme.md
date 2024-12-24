@@ -50,6 +50,9 @@
 - [azure-large-instance](/Commands/azure-large-instance/readme.md)
 : azure-large-instance
 
+- [azure-playwright-service](/Commands/azure-playwright-service/readme.md)
+: azure-playwright-service
+
 - [baremetalinstance](/Commands/baremetalinstance/readme.md)
 : Handle Operations for Compute Azure Bare Instances.
 
