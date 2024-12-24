@@ -47,6 +47,9 @@
 - [automation](/Commands/automation/readme.md)
 : Manage Automation Account.
 
+- [avs](/Commands/avs/readme.md)
+: avs
+
 - [azure-fleet](/Commands/azure-fleet/readme.md)
 : azure-fleet
 
