@@ -293,6 +293,9 @@
 - [off-azure-spring-boot](/Commands/off-azure-spring-boot/readme.md)
 : off-azure-spring-boot
 
+- [oracle](/Commands/oracle/readme.md)
+: oracle
+
 - [oracle-database](/Commands/oracle-database/readme.md)
 : Command Modules for RP Oracle.Database
 
